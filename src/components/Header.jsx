@@ -1,3 +1,4 @@
+import React from 'react'
 import './Header.css'
 
 function Header () {
@@ -7,7 +8,7 @@ function Header () {
                 <div className="header__inner">
                     <div className="header-logo">
                         <a href="#">
-                            <img src="images" alt=""/>
+                            <img src="images/logo.svg" alt=""/>
                         </a>
                     </div>
                     <div className="header-search__line input-field">

@@ -1,0 +1,67 @@
+.main{
+    display: flex;
+}
+.sidebar{
+    background-color: white;
+    /* background-color: rgb(68, 91, 153, .7); */
+    border-radius: 3px;
+    width: 20%;
+    margin-right: 15px;
+    height: 600px;
+    padding-top: 15px;
+}
+
+.menu__list a {
+    margin-left: 44px;
+    line-height: 35px;
+    opacity: 0.5;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.menu__list a:hover {
+    opacity: 1;
+    transition: all .5s;
+}
+.menu__list a {
+    opacity: 0.5;
+    color: black;
+    font-weight: 600;
+}
+
+.profile__photo{
+    background-color: white;
+    border-radius: 3px;
+    width: 40%;
+    margin-right: 15px;
+}
+
+.profile__info{
+    background-color: white;
+    border-radius: 3px;
+    width: 40%;
+}
+.profile-text__info {
+    margin: 0 auto;
+}
+.title__info{
+    color: #202020;
+    font-size: 35px;
+    line-height: 45px;
+    font-weight: 700;
+    padding: 68px 0 27px 48px;
+}
+
+.row{
+    margin-top: 40px;
+    margin-left: 15px;
+}
+.row__title{
+    font-weight: 700;
+    font-size: 26px;
+    margin-left: 15px;
+}
+.card-title{
+    color: black;
+}
