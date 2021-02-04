@@ -1,0 +1,46 @@
+.profile__inner {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.profile-text__info {
+    max-width: 350px;
+    margin-right: 110px;
+}
+
+.title__info {
+    color: #202020;
+    font-size: 35px;
+    line-height: 45px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.profile___info-descr li {
+    list-style-type: none;
+    line-height: 35px;
+    opacity: 0.5;
+    color: #202020;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.profile__photo-box {
+    min-width: 350px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 50px;
+    position: relative;
+}
+
+.profile__photo-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+}

@@ -17,3 +17,9 @@ body{
   background-position: top center;
 }
 
+.profile__content {
+  background-color: white;
+  border-radius: 3px;
+  width: 80%;
+}
+

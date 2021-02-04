@@ -1,5 +1,6 @@
 import React from 'react'
 import './Header.css'
+import logo from '../images/logo.svg'
 
 function Header () {
     return (
@@ -8,7 +9,7 @@ function Header () {
                 <div className="header__inner">
                     <div className="header-logo">
                         <a href="#">
-                            <img src="images/logo.svg" alt=""/>
+                            <img src={logo} />
                         </a>
                     </div>
                     <div className="header-search__line input-field">

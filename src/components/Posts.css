@@ -1,0 +1,30 @@
+
+.posts__box{
+    margin-left: 50px;
+    margin-right: 50px;
+
+}
+.posts-title {
+    color: #202020;
+    font-size: 25px;
+    line-height: 45px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    padding-top: 15px;
+}
+
+.row{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.posts{
+    margin-left: 50px;
+    margin-bottom: 10px;
+    line-height: 40px;
+    color: #202020;
+    font-weight: 600;
+    font-size: 18px;
+}
