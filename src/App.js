@@ -1,10 +1,11 @@
 import React from 'react'
 import './App.css';
+import 'materialize-css/dist/css/materialize.min.css'
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
-import 'materialize-css/dist/css/materialize.min.css'
 import Profile from "./components/Profile";
 import Posts from "./components/Posts";
+
 
 function App() {
     return (
@@ -17,18 +18,11 @@ function App() {
                     <Profile/>
                     <Posts/>
                 </section>
-
-
             </div>
         </div>
         </body>
-    )
-        ;
+    );
 }
-
-
-
-
 
 export default App;
 

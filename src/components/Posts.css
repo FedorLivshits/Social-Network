@@ -1,3 +1,6 @@
+.posts__inner{
+    margin-bottom: 40px;
+}
 
 .posts__box{
     margin-left: 50px;
@@ -10,9 +13,9 @@
     line-height: 45px;
     font-weight: 700;
     text-transform: uppercase;
-    margin-left: 20px;
+    margin-left: 50px;
     margin-bottom: 15px;
-    padding-top: 15px;
+    padding-top: 40px;
 }
 
 .row{
@@ -20,11 +23,10 @@
     margin-right: 40px;
 }
 
-.posts{
-    margin-left: 50px;
-    margin-bottom: 10px;
-    line-height: 40px;
-    color: #202020;
+.input-field{
+    display: flex;
+}
+.post-btn{
+    color: #250F8A;
     font-weight: 600;
-    font-size: 18px;
 }
