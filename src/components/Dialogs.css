@@ -1,0 +1,64 @@
+.dialogs__content {
+    background-color: white;
+    border-radius: 3px;
+    width: 80%;
+}
+
+.dialogs__inner{
+    display: flex;
+    justify-content: space-between;
+}
+
+.dialogs__list{
+    margin-top: 15px;
+    margin-left: 15px;
+    color: #202020;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.collection{
+    margin: 0;
+}
+.dialog-user{
+    min-width: 400px;
+    position: relative;
+    margin-left: 70px;
+}
+
+.dialog-user__avatar img{
+    border-radius: 50%;
+    max-width: 40px;
+    position: absolute;
+}
+
+.dialog-user__name{
+    padding-left: 50px;
+    line-height: 40px;
+    color: #202020;
+}
+
+
+.dialog__messages{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.dialog__window{
+    margin-top: 15px;
+    margin-right: 15px;
+    background-color: #f4f9FD;
+    min-width: 460px;
+    position: relative;
+}
+.dialog__message-form {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.dialog__message-form-inside{
+    margin-left: 10px;
+    margin-right: 10px;
+}

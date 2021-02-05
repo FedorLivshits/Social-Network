@@ -4,7 +4,7 @@ import 'materialize-css/dist/css/materialize.min.css'
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import Profile from "./components/Profile";
-import Posts from "./components/Posts";
+import Dialogs from "./components/Dialogs"
 
 
 function App() {
@@ -14,10 +14,8 @@ function App() {
         <div className="container">
             <div className="main">
                 <Sidebar/>
-                <section className="profile__content z-depth-2">
-                    <Profile/>
-                    <Posts/>
-                </section>
+                {/*<Profile/>*/}
+                <Dialogs/>
             </div>
         </div>
         </body>
