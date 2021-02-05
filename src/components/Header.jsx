@@ -12,7 +12,7 @@ function Header () {
                             <img src={logo} />
                         </a>
                     </div>
-                    <div className="header-search__line input-field">
+                    <div className="header-search__line">
                         <input type="search" placeholder="Поиск"/>
                     </div>
                     <div className="header-log-in">

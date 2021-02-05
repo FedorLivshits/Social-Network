@@ -15,7 +15,7 @@
     margin-left: 44px;
     line-height: 35px;
     opacity: 0.5;
-    color: white;
+    color: #202020;
     font-weight: 600;
     font-size: 16px;
 }
@@ -23,9 +23,10 @@
 .menu__list a:hover {
     opacity: 1;
     transition: all .5s;
+    color: darkblue;
 }
-.menu__list a {
-    opacity: 0.5;
-    color: black;
-    font-weight: 600;
+
+a.active{
+    opacity: 1;
+    color: darkblue;
 }

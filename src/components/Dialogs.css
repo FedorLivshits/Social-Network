@@ -38,6 +38,9 @@
     color: #202020;
 }
 
+.dialog-user.collection-item.active{
+    background-color: #ddeeff;
+}
 
 .dialog__messages{
     display: flex;
@@ -48,7 +51,6 @@
 .dialog__window{
     margin-top: 15px;
     margin-right: 15px;
-    background-color: #f4f9FD;
     min-width: 460px;
     position: relative;
 }
@@ -56,6 +58,7 @@
     position: absolute;
     bottom: 0;
     width: 100%;
+    background-color: #f4f9FD;
 }
 
 .dialog__message-form-inside{

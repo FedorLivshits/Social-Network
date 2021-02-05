@@ -4,6 +4,14 @@ import Post from "./Post";
 
 
 function Posts() {
+
+   let postMessages = [
+       {id: 1, message:'В процессе разработки'},
+       {id: 2, message:'Свободу Алексею Навальному!'},
+       {id: 3, message:'Использую метод массива map'},
+   ]
+    let posts = postMessages.map(post => { return <Post message={post.message}/>})
+
     return (
         <div className="posts__inner">
             <div className="posts-title">
@@ -24,8 +32,8 @@ function Posts() {
                     </form>
                 </div>
 
-                <Post message={'В процессе разработки'}/>
-                <Post message={'Свободу Алексею Навальному!'}/>
+                {posts}
+
             </div>
         </div>
 

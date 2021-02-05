@@ -1,46 +1,43 @@
 import React from 'react'
 import './Dialogs.css'
 import photo from '../images/profile-photo.svg'
+import {NavLink} from "react-router-dom";
 
-function Dialogs (props) {
+
+function DialogUser(props) {
+    return (
+        <NavLink className="dialog-user collection-item" to={'/dialogs/' + props.id}>
+            <div className="dialog-user__avatar">
+                <img src={photo} alt=""/>
+            </div>
+            <div className="dialog-user__name">
+                {props.name}
+            </div>
+        </NavLink>
+
+    );
+}
+
+function Dialogs(props) {
+
+   let dialogsData = [
+       {name:'Alexander Sarygin', id: '1'},
+       {name:'Sergey Solod', id: '2'},
+       {name:'Vlad Sosaysky', id: '3'},
+       {name:'Artem Kirpu', id: '4'},
+       {name:'Sam kopylov', id: '5'},
+       {name:'Pavel Ostapchuk', id: '6'},
+   ]
+
+let dialogsUsers = dialogsData.map(el => <DialogUser name={el.name} id={el.id}/>)
+
     return (
         <section className="dialogs__content z-depth-2">
             <div className="dialogs__inner">
 
                 <div className="dialogs__list z-depth-2">
                     <div className="collection">
-                        <a className="dialog-user collection-item" href="#">
-                            <div className="dialog-user__avatar">
-                                <img src={photo} alt=""/>
-                            </div>
-                            <div className="dialog-user__name">
-                                Alexander Sarygin
-                            </div>
-                        </a>
-                        <a className="dialog-user collection-item" href="#">
-                            <div className="dialog-user__avatar">
-                                <img src={photo} alt=""/>
-                            </div>
-                            <div className="dialog-user__name">
-                                Semen Kopylov
-                            </div>
-                        </a>
-                        <a className="dialog-user collection-item" href="#">
-                            <div className="dialog-user__avatar">
-                                <img src={photo} alt=""/>
-                            </div>
-                            <div className="dialog-user__name">
-                                Misha Vlaskin
-                            </div>
-                        </a>
-                        <a className="dialog-user collection-item" href="#">
-                            <div className="dialog-user__avatar">
-                                <img src={photo} alt=""/>
-                            </div>
-                            <div className="dialog-user__name">
-                                Vlad Sosayski
-                            </div>
-                        </a>
+                        {dialogsUsers}
                     </div>
                 </div>
 
@@ -64,7 +61,7 @@ function Dialogs (props) {
                 </div>
 
             </div>
-            </section>
+        </section>
     );
 }
 
