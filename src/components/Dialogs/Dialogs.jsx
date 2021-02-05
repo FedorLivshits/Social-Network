@@ -1,6 +1,6 @@
 import React from 'react'
 import './Dialogs.css'
-import photo from '../images/profile-photo.svg'
+import photo from '../../images/profile-photo.svg'
 import {NavLink} from "react-router-dom";
 
 

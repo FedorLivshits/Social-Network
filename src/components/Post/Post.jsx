@@ -1,6 +1,6 @@
 import React from "react";
 import './Post.css'
-import photo from '../images/profile-photo.svg'
+import photo from '../../images/profile-photo.svg'
 
 function Post(props) {
     return(

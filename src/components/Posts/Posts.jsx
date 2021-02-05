@@ -1,15 +1,16 @@
 import React from "react";
 import './Posts.css'
-import Post from "./Post";
+import Post from "../Post/Post";
 
 
-function Posts() {
 
-   let postMessages = [
-       {id: 1, message:'В процессе разработки'},
-       {id: 2, message:'Свободу Алексею Навальному!'},
-       {id: 3, message:'Использую метод массива map'},
-   ]
+function Posts(props) {
+    let postMessages = [
+        {id: 1, message:'В процессе разработки'},
+        {id: 2, message:'Свободу Алексею Навальному!'},
+        {id: 3, message:'Использую метод массива map'},
+    ]
+
     let posts = postMessages.map(post => { return <Post message={post.message}/>})
 
     return (

@@ -1,7 +1,7 @@
 import React from "react";
 import './Profile.css'
-import photo from '../images/profile-photo.svg'
-import Posts from "./Posts";
+import photo from '../../images/profile-photo.svg'
+import Posts from "../Posts/Posts";
 
 function Profile() {
     return (
