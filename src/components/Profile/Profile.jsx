@@ -1,9 +1,10 @@
 import React from "react";
 import './Profile.css'
 import photo from '../../images/profile-photo.svg'
-import Posts from "../Posts/Posts";
+import MyPosts from "../MyPosts/MyPosts";
 
-function Profile() {
+function Profile(props) {
+
     return (
         <section className="profile__content z-depth-2">
 
@@ -30,7 +31,7 @@ function Profile() {
                 </div>
             </div>
 
-            <Posts/>
+            <MyPosts postMessages={props.postMessages}/>
 
         </section>
     );

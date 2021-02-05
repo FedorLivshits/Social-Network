@@ -1,17 +1,12 @@
 import React from "react";
-import './Posts.css'
-import Post from "../Post/Post";
+import './MyPosts.css'
+import Post from "./Post/Post";
 
 
 
-function Posts(props) {
-    let postMessages = [
-        {id: 1, message:'В процессе разработки'},
-        {id: 2, message:'Свободу Алексею Навальному!'},
-        {id: 3, message:'Использую метод массива map'},
-    ]
+function MyPosts(props) {
 
-    let posts = postMessages.map(post => { return <Post message={post.message}/>})
+    let posts = props.postMessages.map(post => { return <Post message={post.message}/>})
 
     return (
         <div className="posts__inner">
@@ -43,4 +38,4 @@ function Posts(props) {
 
 
 
-export default Posts;
+export default MyPosts;

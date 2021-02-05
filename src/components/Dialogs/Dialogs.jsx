@@ -20,16 +20,7 @@ function DialogUser(props) {
 
 function Dialogs(props) {
 
-   let dialogsData = [
-       {name:'Alexander Sarygin', id: '1'},
-       {name:'Sergey Solod', id: '2'},
-       {name:'Vlad Sosaysky', id: '3'},
-       {name:'Artem Kirpu', id: '4'},
-       {name:'Sam kopylov', id: '5'},
-       {name:'Pavel Ostapchuk', id: '6'},
-   ]
-
-let dialogsUsers = dialogsData.map(el => <DialogUser name={el.name} id={el.id}/>)
+let dialogsUsers = props.dialogsData.map(el => <DialogUser name={el.name} id={el.id}/>)
 
     return (
         <section className="dialogs__content z-depth-2">
