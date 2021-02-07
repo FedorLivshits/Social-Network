@@ -20,7 +20,12 @@ function DialogUser(props) {
 
 function Dialogs(props) {
 
-let dialogsUsers = props.dialogsData.map(el => <DialogUser name={el.name} id={el.id}/>)
+    let newMessageElement = React.createRef()
+    let addMessage = () => {
+        let text = newMessageElement.current.value;
+        alert(text);
+    }
+    let dialogsUsers = props.state.dialogsData.map(el => <DialogUser name={el.name} id={el.id}/>)
 
     return (
         <section className="dialogs__content z-depth-2">
@@ -42,10 +47,10 @@ let dialogsUsers = props.dialogsData.map(el => <DialogUser name={el.name} id={el
 
                     <div className="dialog__message-form z-depth-2">
                         <div className="input-field dialog__message-form-inside">
-                            <textarea id="textarea1" className="materialize-textarea"></textarea>
-                            <label htmlFor="textarea1">Your message</label>
+                            <textarea id="textarea1" className="materialize-textarea" placeholder="Your message"
+                                      ref={newMessageElement}></textarea>
                             <button className="btn waves-effect waves-light yellow darken-2" type="submit"
-                                    name="action">POST
+                                    name="action" onClick={addMessage}>POST
                             </button>
                         </div>
                     </div>

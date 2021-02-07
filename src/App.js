@@ -9,20 +9,20 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 
 function App(props) {
-
     return (
-        <BrowserRouter>
             <div className='body'>
             <Header/>
             <div className="container">
                 <div className="main">
                     <Sidebar/>
-                    <Route path='/profile' render={() => <Profile postMessages={props.postMessages}/>}/>
-                    <Route path='/dialogs' render={() => <Dialogs dialogsData={props.dialogsData} />}/>
+                    <Route path='/profile' render={() => <Profile state={props.state.profilePage}
+                                                                  addPost={props.addPost}
+                                                                  updateNewPostText={props.updateNewPostText}
+                    />}/>
+                    <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage} />}/>
                 </div>
             </div>
             </div>
-        </BrowserRouter>
     );
 }
 

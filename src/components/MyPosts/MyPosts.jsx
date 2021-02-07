@@ -3,10 +3,21 @@ import './MyPosts.css'
 import Post from "./Post/Post";
 
 
-
 function MyPosts(props) {
+    let newPostElement = React.createRef()
 
-    let posts = props.postMessages.map(post => { return <Post message={post.message}/>})
+    let addPost = () => {
+        props.addPost();
+    }
+
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text)
+    }
+
+    let posts = props.postMessages.map(post => {
+        return <Post message={post.message}/>
+    })
 
     return (
         <div className="posts__inner">
@@ -18,10 +29,10 @@ function MyPosts(props) {
                     <form className="col s12">
                         <div className="row">
                             <div className="input-field col s12">
-                                <textarea id="textarea1" className="materialize-textarea"></textarea>
-                                <label htmlFor="textarea1">What's new, darling?</label>
-                                <button className="post-btn btn waves-effect waves-light yellow darken-2" type="submit"
-                                        name="action">POST
+                                <textarea id="textarea1" className="materialize-textarea" placeholder="What's new, darling?"
+                                          ref={newPostElement} value={props.newPostText} onChange={onPostChange}/>
+                                <button className="post-btn btn waves-effect waves-light yellow darken-2" type="button"
+                                        onClick={addPost}  >POST
                                 </button>
                             </div>
                         </div>
@@ -35,7 +46,5 @@ function MyPosts(props) {
 
     );
 }
-
-
 
 export default MyPosts;

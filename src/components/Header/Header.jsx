@@ -1,6 +1,7 @@
 import React from 'react'
 import './Header.css'
 import logo from '../../images/logo.svg'
+import {NavLink} from "react-router-dom";
 
 function Header () {
     return (
@@ -8,9 +9,9 @@ function Header () {
             <div className="container">
                 <div className="header__inner">
                     <div className="header-logo">
-                        <a href="#">
+                        <NavLink to="/profile">
                             <img src={logo} />
-                        </a>
+                        </NavLink>
                     </div>
                     <div className="header-search__line">
                         <input type="search" placeholder="Поиск"/>

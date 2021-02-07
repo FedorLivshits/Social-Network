@@ -4,7 +4,6 @@ import photo from '../../images/profile-photo.svg'
 import MyPosts from "../MyPosts/MyPosts";
 
 function Profile(props) {
-
     return (
         <section className="profile__content z-depth-2">
 
@@ -31,7 +30,11 @@ function Profile(props) {
                 </div>
             </div>
 
-            <MyPosts postMessages={props.postMessages}/>
+            <MyPosts postMessages={props.state.postMessages}
+                     addPost={props.addPost}
+                     newPostText={props.state.newPostText}
+                     updateNewPostText={props.updateNewPostText}
+            />
 
         </section>
     );
