@@ -40,7 +40,7 @@ function Dialogs(props) {
                 <div className="dialog__window z-depth-2">
                     <div className="dialog__messages">
                         <div className="main-user__dialog__messages">
-                            Hello
+
                         </div>
                     </div>
 
@@ -48,7 +48,7 @@ function Dialogs(props) {
                     <div className="dialog__message-form z-depth-2">
                         <div className="input-field dialog__message-form-inside">
                             <textarea id="textarea1" className="materialize-textarea" placeholder="Your message"
-                                      ref={newMessageElement}></textarea>
+                                      ref={newMessageElement}/>
                             <button className="btn waves-effect waves-light yellow darken-2" type="submit"
                                     name="action" onClick={addMessage}>POST
                             </button>

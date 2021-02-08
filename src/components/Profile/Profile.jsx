@@ -31,9 +31,8 @@ function Profile(props) {
             </div>
 
             <MyPosts postMessages={props.state.postMessages}
-                     addPost={props.addPost}
+                     dispatch={props.dispatch}
                      newPostText={props.state.newPostText}
-                     updateNewPostText={props.updateNewPostText}
             />
 
         </section>

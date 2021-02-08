@@ -10,19 +10,18 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 function App(props) {
     return (
-            <div className='body'>
+        <div className='body'>
             <Header/>
             <div className="container">
                 <div className="main">
                     <Sidebar/>
                     <Route path='/profile' render={() => <Profile state={props.state.profilePage}
-                                                                  addPost={props.addPost}
-                                                                  updateNewPostText={props.updateNewPostText}
+                                                                  dispatch={props.dispatch}
                     />}/>
-                    <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage} />}/>
+                    <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage}/>}/>
                 </div>
             </div>
-            </div>
+        </div>
     );
 }
 

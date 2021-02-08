@@ -3,7 +3,7 @@ import './Post.css'
 import photo from '../../../images/profile-photo.svg'
 
 function Post(props) {
-    return(
+    return (
         <div className="posts">
             <div className="post__icon-logo">
                 <img src={photo} alt=""/>
