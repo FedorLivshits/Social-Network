@@ -14,7 +14,7 @@ function Header () {
                         </NavLink>
                     </div>
                     <div className="header-search__line">
-                        <input type="search" placeholder="Поиск"/>
+                        <input type="search" placeholder="Search"/>
                     </div>
                     <div className="header-log-in">
                         <div className="header-btn">

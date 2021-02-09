@@ -21,12 +21,6 @@ function MyPosts(props) {
         return <Post message={post.message}/>
     })
 
-    let checkValue = () => {
-        let text = newPostElement.current.value;
-        if (text === '') {
-            alert('nothing to post, darling')
-        }
-    }
 
     return (
         <div className="posts__inner">

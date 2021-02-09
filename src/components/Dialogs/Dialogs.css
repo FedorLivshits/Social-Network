@@ -1,6 +1,6 @@
 .dialogs__content {
-    background-color: white;
-    border-radius: 3px;
+    /*background-color: white;*/
+    /*border-radius: 3px;*/
     width: 80%;
 }
 
@@ -10,18 +10,23 @@
 }
 
 .dialogs__list{
-    margin-top: 15px;
+    background-color: white;
+    border-radius: 3px;
+    height: 600px;
     margin-left: 15px;
+    margin-bottom: 25px;
+    margin-right: 15px;
     color: #202020;
     font-weight: 400;
     font-size: 18px;
+    width: 50%;
 }
 
 .collection{
     margin: 0;
 }
 .dialog-user{
-    min-width: 400px;
+
     position: relative;
     margin-left: 70px;
 }
@@ -32,36 +37,69 @@
     position: absolute;
 }
 
+
+.dialog-user.collection-item.active{
+    background-color: rgba(251, 192, 45, 0.75);
+    font-size: 20px;
+    color: #250F8A;
+}
 .dialog-user__name{
     padding-left: 50px;
     line-height: 40px;
     color: #202020;
 }
 
-.dialog-user.collection-item.active{
-    background-color: #ddeeff;
-}
 
 .dialog__messages{
-    display: flex;
-    justify-content: space-between;
 }
-
 
 .dialog__window{
-    margin-top: 15px;
     margin-right: 15px;
-    min-width: 460px;
+    margin-bottom: 25px;
+    width: 50%;
+    height: 600px;
+    background-color: rgba(255, 255, 255, 0.46);
     position: relative;
 }
+.chat__inner{
+    margin: 5%;
+}
+
+.my__message {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.my__message span{
+    background-color: rgba(250, 117, 100, 0.9);
+    color: #250F8A;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 15px;
+}
+.friend__message{
+    background-color: rgba(251, 192, 45, 0.9);
+    color: #250F8A;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 15px;
+    line-height: 50px;
+}
+
+
 .dialog__message-form {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: #f4f9FD;
+    background-color: white;
+    border-radius: 3px;
 }
 
 .dialog__message-form-inside{
     margin-left: 10px;
     margin-right: 10px;
+}
+.btn {
+    color: #250F8A;
+    font-weight: 700;
 }

@@ -7,8 +7,8 @@ function Profile(props) {
     return (
         <section className="profile__content z-depth-2">
 
-            <div className="profile__inner">
-                <div className="profile__photo-box z-depth-2">
+            <div className="profile__inner z-depth-2">
+                <div className="profile__photo-box">
                     <div className="profile__photo">
                         <img src={photo} alt=""/>
                     </div>
@@ -23,9 +23,9 @@ function Profile(props) {
                         FEDOR LIVSHITS
                     </div>
                     <div className="profile___info-descr">
-                        <li>BIRTH: 15.03.1998</li>
-                        <li>CITY: St-Petersburg</li>
-                        <li>WORK: in progress</li>
+                        {/*<li>Birth: 15.03.1998</li>*/}
+                        {/*<li>CITY: St-Petersburg</li>*/}
+                        {/*<li>WORK: in progress</li>*/}
                     </div>
                 </div>
             </div>

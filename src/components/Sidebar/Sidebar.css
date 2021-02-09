@@ -12,7 +12,7 @@
 }
 
 .menu__list a {
-    margin-left: 44px;
+    margin-left: 55px;
     line-height: 35px;
     opacity: 0.5;
     color: #202020;
@@ -29,4 +29,5 @@
 a.active{
     opacity: 1;
     color: darkblue;
+    font-size: 18px;
 }

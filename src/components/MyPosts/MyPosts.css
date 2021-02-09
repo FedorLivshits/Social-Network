@@ -5,7 +5,8 @@
 .posts__box{
     margin-left: 50px;
     margin-right: 50px;
-    background-color: #f4f9FD;
+    background-color: white;
+    border-radius: 3px;
 
 }
 .posts-title {
