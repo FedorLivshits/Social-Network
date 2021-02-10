@@ -1,6 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const SEND_MESSAGE = 'SEND-MESSAGE'
 
 let store = {
     _state: {
@@ -22,10 +23,10 @@ let store = {
                 {name: 'Pavel Ostapchuk', id: '6'},
             ],
             myMessages: [
-                {id: "Fedor", message: 'Hello, I need smth to tell ya'},
-                {id: "Fedor", message: 'I am a lawyer'},
-                {id: "Fedor", message: 'I know, this is awful'},
-                {id: "Fedor", message: 'But it is true'},
+                {id: "Fedor", message: 'Как твои дела?'},
+                {id: "Fedor", message: 'Сколько дней ты не была в вк?'},
+                {id: "Fedor", message: 'мне так хотелось тебе написать'},
+                {id: "Fedor", message: 'но теперь все в прошлом и прошлое не оправдать'},
             ],
             newMessageText: '',
         },
@@ -59,6 +60,15 @@ let store = {
         } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
             this._state.dialogsPage.newMessageText = action.newMessage
             this._callSubscriber(this._state);
+        } else if (action.type === SEND_MESSAGE) {
+            let message = this._state.dialogsPage.newMessageText;
+            if (message === '') {
+                alert('nothing to send, darling')
+            } else {
+                this._state.dialogsPage.myMessages.push({id: "Fedor", message: message});
+                this._state.dialogsPage.newMessageText = '';
+                this._callSubscriber(this._state);
+            }
         }
     }
 }
@@ -78,6 +88,11 @@ export const updateNewMessageTextActionCreator = (newMessage) => {
     return {
         type: UPDATE_NEW_MESSAGE_TEXT,
         newMessage: newMessage,
+    }
+}
+export const sendMessageActionCreator = () => {
+    return {
+        type: SEND_MESSAGE,
     }
 }
 
