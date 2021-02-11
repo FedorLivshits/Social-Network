@@ -2,12 +2,6 @@ import React from 'react'
 import './Dialogs.css'
 import photo from '../../images/profile-photo.svg'
 import {NavLink} from "react-router-dom";
-import {
-    sendMessageActionCreator,
-    updateNewMessageTextActionCreator,
-    updateNewPostTextActionCreator
-} from "../../redux/store";
-
 
 function DialogUser(props) {
     return (
@@ -34,22 +28,21 @@ function MyDialogMessages(props) {
 }
 
 function Dialogs(props) {
+    let state= props.dialogsPage
 
-    // let newMessageElement = React.createRef()
+    let dialogsUsers = state.dialogsData.map(el => <DialogUser name={el.name} id={el.id}/>)
+    let myDialogMessages = state.myMessages.map(m => <MyDialogMessages id={m.id} message={m.message}/>)
+    let newMessageElement = state.newMessageText;
 
-    let sendMessage = () => {
-        props.dispatch(sendMessageActionCreator());
+
+    let onSendMessage = () => {
+        props.sendMessage();
     }
 
     let onMessageChange = (event) => {
         let newMessage= event.target.value
-        props.dispatch(updateNewMessageTextActionCreator(newMessage));
+        props.updateNewMessageText(newMessage);
     }
-
-    let dialogsUsers = props.state.dialogsData.map(el => <DialogUser name={el.name} id={el.id}/>)
-    let myDialogMessages = props.state.myMessages.map(m => <MyDialogMessages id={m.id} message={m.message}/>)
-    let newMessageElement = props.state.newMessageText;
-
 
     return (
         <section className="dialogs__content">
@@ -80,7 +73,7 @@ function Dialogs(props) {
                             <textarea id="textarea2" className="materialize-textarea" placeholder="Your message"
                                    value={newMessageElement}  onChange={onMessageChange}/>
                             <button className="message-btn btn waves-effect waves-light yellow darken-2" type="button"
-                                    name="action" onClick={sendMessage}>POST
+                                    name="action" onClick={onSendMessage}>POST
                             </button>
                         </div>
                     </div>

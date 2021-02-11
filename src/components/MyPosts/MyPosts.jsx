@@ -1,20 +1,20 @@
 import React from "react";
 import './MyPosts.css'
 import Post from "./Post/Post";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../redux/store";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../redux/profile-reducer";
 
 
 
 function MyPosts(props) {
     let newPostElement = React.createRef()
 
-    let addPost = () => {
-        props.dispatch(addPostActionCreator());
+    let onAddPost = () => {
+        props.addPost();
     }
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.dispatch(updateNewPostTextActionCreator(text))
+        props.updateNewPostText(text);
     }
 
     let posts = props.postMessages.map(post => {
@@ -36,7 +36,7 @@ function MyPosts(props) {
                                           placeholder="What's new, darling?"
                                           ref={newPostElement} value={props.newPostText} onChange={onPostChange}/>
                                 <button className="post-btn btn waves-effect waves-light yellow darken-2" type="button"
-                                        onClick={addPost}>POST
+                                        onClick={onAddPost}>POST
                                 </button>
                             </div>
                         </div>

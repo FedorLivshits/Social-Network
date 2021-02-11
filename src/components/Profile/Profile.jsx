@@ -2,8 +2,10 @@ import React from "react";
 import './Profile.css'
 import photo from '../../images/profile-photo.svg'
 import MyPosts from "../MyPosts/MyPosts";
+import MyPostsContainer from "../MyPosts/MyPostsContainer";
 
 function Profile(props) {
+    debugger
     return (
         <section className="profile__content z-depth-2">
 
@@ -30,10 +32,12 @@ function Profile(props) {
                 </div>
             </div>
 
-            <MyPosts postMessages={props.state.postMessages}
-                     dispatch={props.dispatch}
-                     newPostText={props.state.newPostText}
+            <MyPostsContainer store={props.store}
+                              // postMessages={props.state.postMessages}
+                              // dispatch={props.dispatch}
+                              // newPostText={props.state.newPostText}
             />
+
 
         </section>
     );

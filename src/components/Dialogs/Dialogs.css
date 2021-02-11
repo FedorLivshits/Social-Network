@@ -1,7 +1,7 @@
 .dialogs__content {
     /*background-color: white;*/
     /*border-radius: 3px;*/
-    width: 80%;
+    width: 85%;
 }
 
 .dialogs__inner{
@@ -60,7 +60,6 @@
 
 
 .dialog__window{
-    margin-right: 15px;
     margin-bottom: 25px;
     width: 50%;
     height: 600px;

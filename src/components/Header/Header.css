@@ -19,7 +19,7 @@
     align-items: center;
 }
 .header-logo{
-    margin-left: 44px;
+
 }
 a {
     text-decoration:none;
@@ -39,8 +39,12 @@ a {
     border-radius: 25px;
 }
 .header-btn{
-    margin-right: 44px;
+
 }
+.header-search__line{
+  margin-right: 35%;
+}
+
 .header-search__line input{
     padding: 8px 43px;
     border-radius: 25px;
