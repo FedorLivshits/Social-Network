@@ -5,7 +5,7 @@ import photo from '../../images/profile-photo.svg'
 function Users () {
     return (
         <div>
-            Users
+            Users will be here
         </div>
     )
 }
