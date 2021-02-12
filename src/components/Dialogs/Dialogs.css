@@ -9,6 +9,27 @@
     justify-content: space-between;
 }
 
+.dialogs__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.dialogs-search__input {
+    margin-right: 60px;
+    padding-top: 25px;
+}
+
+.dialogs__title {
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 60px;
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
 .dialogs__list{
     background-color: white;
     border-radius: 3px;

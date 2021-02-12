@@ -1,0 +1,64 @@
+.users__content {
+    border-radius: 3px;
+    width: 85%;
+}
+
+.users__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.users-search__input {
+    margin-right: 60px;
+    padding-top: 25px;
+}
+
+.users__title {
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 60px;
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
+.collection .collection-item.avatar {
+    min-height: 100px;
+    padding-left: 140px;
+    position: relative;
+}
+.title{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.collection .collection-item.avatar:not(.circle-clipper)>.circle, .collection .collection-item.avatar :not(.circle-clipper)>.circle {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    bottom: 15px;
+    left: 55px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.material-icons {
+    margin-right: 30px;
+    color: rgba(251, 192, 45, 1);
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.users {
+    display: flex;
+}
+.users__column-1{
+    width: 50%;
+    margin-right: 15px;
+}
+.users__column-2{
+    width: 50%;
+}

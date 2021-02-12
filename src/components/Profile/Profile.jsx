@@ -6,22 +6,30 @@ import MyPostsContainer from "../MyPosts/MyPostsContainer";
 
 function Profile(props) {
     return (
-        <section className="profile__content z-depth-2">
-
+        <section className="profile__content">
+            <div className="profile__header z-depth-2">
+                <div className="profile__title">
+                    Fedor Livshits
+                </div>
+                <div className="profile-search__input">
+                    <input type="text" placeholder="find a post"/>
+                </div>
+            </div>
+            <div className="color__wrapper z-depth-2">
             <div className="profile__inner z-depth-2">
                 <div className="profile__photo-box">
                     <div className="profile__photo">
                         <img src={photo} alt=""/>
                     </div>
                     <div className="profile__photo-btn">
-                        <a className="btn-floating btn-large waves-effect waves-light  yellow darken-2"><i
+                        <a className="btn-floating btn-large waves-effect waves-light btn yellow darken-2"><i
                             className="material-icons">add</i></a>
                     </div>
                 </div>
 
                 <div className="profile-text__info">
                     <div className="title__info">
-                        FEDOR LIVSHITS
+
                     </div>
                     <div className="profile___info-descr">
                         {/*<li>Birth: 15.03.1998</li>*/}
@@ -37,7 +45,7 @@ function Profile(props) {
                               // newPostText={props.state.newPostText}
             />
 
-
+            </div>
         </section>
     );
 }

@@ -46,6 +46,14 @@ function Dialogs(props) {
 
     return (
         <section className="dialogs__content">
+            <div className="dialogs__header z-depth-2">
+                <div className="dialogs__title">
+                    Write friends here
+                </div>
+                <div className="dialogs-search__input">
+                    <input type="text" placeholder="find a friend"/>
+                </div>
+            </div>
             <div className="dialogs__inner">
                 <div className="dialogs__list z-depth-2">
                     <div className="collection">
