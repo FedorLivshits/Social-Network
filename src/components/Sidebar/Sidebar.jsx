@@ -9,6 +9,7 @@ function Sidebar() {
                 <ul className="menu__list">
                     <li><NavLink to="/profile">HOME</NavLink></li>
                     <li><NavLink to="/dialogs">MESSAGES</NavLink></li>
+                    <li><NavLink to="/users">USERS</NavLink></li>
                     <li><NavLink to="/friends">FRIENDS</NavLink></li>
                     <li><NavLink to="/photos">PHOTOS</NavLink></li>
                     <li><NavLink to="community">COMMUNITY</NavLink></li>

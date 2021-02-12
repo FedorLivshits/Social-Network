@@ -20,19 +20,27 @@ let initialState = {
 }
 
 const dialogsReducer = (state = initialState, action) => {
-    if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-        state.newMessageText = action.newMessage
-    } else if (action.type === SEND_MESSAGE) {
-        let message = state.newMessageText;
-        if (message === '') {
-            alert('nothing to send, darling')
-        } else {
-            state.myMessages.push({id: "Fedor", message: message});
-            state.newMessageText = '';
-        }
-    }
 
-    return state
+    switch (action.type) {
+        case UPDATE_NEW_MESSAGE_TEXT:
+           return{
+                ...state,
+                newMessageText: action.newMessage
+            }
+        case SEND_MESSAGE:
+            let message = state.newMessageText;
+            if (message === '') {
+                alert('nothing to send, darling')
+            } else {
+               return {
+                    ...state,
+                    newMessageText: '',
+                    myMessages: [...state.myMessages, {id: "Fedor", message: message}]
+                }
+            }
+        default:
+            return state
+    }
 }
 export const updateNewMessageTextActionCreator = (newMessage) => {
     return {

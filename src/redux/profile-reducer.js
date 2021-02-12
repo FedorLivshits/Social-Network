@@ -11,22 +11,30 @@ let initialState = {
 }
 
 const profileReducer = (state = initialState, action) => {
-    if (action.type === ADD_POST) {
-        let newPost = {
-            id: 5,
-            message: state.newPostText,
-        }
-        let text = state.newPostText;
-        if (text === '') {
-            alert('nothing to post, darling')
-        } else {
-            state.postMessages.push(newPost)
-            state.newPostText = ''
-        }
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-        state.newPostText = action.newText;
+    let stateCopy = {
+        ...state,
+        postMessages: [...state.postMessages]
     }
-    return state;
+    switch (action.type) {
+        case UPDATE_NEW_POST_TEXT:
+            stateCopy.newPostText = action.newText;
+            return stateCopy;
+        case ADD_POST:
+            let newPost = {
+                id: 4,
+                message: state.newPostText,
+            };
+            let text = state.newPostText;
+            if (text === '') {
+                alert('nothing to send, darling')
+            } else {
+                stateCopy.postMessages.push(newPost);
+                stateCopy.newPostText = '';
+            }
+            return stateCopy;
+        default:
+            return state;
+    }
 }
 
 export const addPostActionCreator = () => {
@@ -41,5 +49,10 @@ export const updateNewPostTextActionCreator = (text) => {
         newText: text,
     }
 }
+
+// let text = state.newPostText;
+// if (text === '') {
+//     alert('nothing to post, darling')
+// }
 
 export default profileReducer;

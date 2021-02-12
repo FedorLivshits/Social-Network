@@ -18,7 +18,7 @@ function MyPosts(props) {
     }
 
     let posts = props.postMessages.map(post => {
-        return <Post message={post.message}/>
+        return <Post message={post.message} key={post.id}/>
     })
 
 

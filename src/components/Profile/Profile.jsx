@@ -5,7 +5,6 @@ import MyPosts from "../MyPosts/MyPosts";
 import MyPostsContainer from "../MyPosts/MyPostsContainer";
 
 function Profile(props) {
-    debugger
     return (
         <section className="profile__content z-depth-2">
 
