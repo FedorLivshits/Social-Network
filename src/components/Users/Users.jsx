@@ -3,9 +3,8 @@ import './Users.css'
 import Post from "../MyPosts/Post/Post";
 
 
-
 function User(props) {
-   return <ul className="collection z-depth-2">
+    return <ul className="collection z-depth-2">
         <li className="collection-item avatar">
             <img src={props.photo} alt="" className="circle"/>
             <div className="user-info">
@@ -14,8 +13,19 @@ function User(props) {
                     {props.location.city}
                 </p>
             </div>
-            <a className="btn-floating btn-user yellow darken-2"><i
-                className="material-icons">add</i></a>
+            {props.followed
+                ?
+                <a onClick={() => {
+                    props.follow(userId)
+                }} className="btn-floating btn-user red darken-2">
+                    <i className="material-icons">delete</i>
+                </a>
+                :
+                <a onClick={() => {
+                    props.unfollow(userId)
+                }} className="btn-floating btn-user yellow darken-2">
+                    <i className="material-icons">add</i>
+                </a>}
         </li>
     </ul>
 }
@@ -23,7 +33,8 @@ function User(props) {
 function Users(props) {
 
     let users = props.users.map(users => {
-        return <User name={users.name} id={users.id} photo={users.photo} followed={users.followed} location={users.location} key={users.id}/>
+        return <User name={users.name} id={users.id} photo={users.photo} followed={users.followed}
+                     location={users.location} key={users.id}/>
     })
 
     return (
