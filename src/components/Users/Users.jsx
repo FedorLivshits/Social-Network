@@ -26,6 +26,7 @@ function User(props) {
                 }} className="btn-floating btn-user yellow darken-2">
                     <i className="material-icons">add</i>
                 </a>}
+
         </li>
     </ul>
 }
