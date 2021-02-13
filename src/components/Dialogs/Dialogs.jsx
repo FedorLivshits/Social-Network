@@ -6,11 +6,16 @@ import {NavLink} from "react-router-dom";
 function DialogUser(props) {
     return (
         <NavLink className="dialog-user collection-item" to={'/dialogs/' + props.id}>
+            <div className="dialog-user__info">
             <div className="dialog-user__avatar">
                 <img src={photo} alt=""/>
             </div>
             <div className="dialog-user__name">
                 {props.name}
+            </div>
+            </div>
+            <div className="icon">
+            <i className="material-icons">near_me</i>
             </div>
         </NavLink>
 
@@ -33,7 +38,6 @@ function Dialogs(props) {
     let dialogsUsers = state.dialogsData.map(el => <DialogUser name={el.name} id={el.id}/>)
     let myDialogMessages = state.myMessages.map(m => <MyDialogMessages id={m.id} message={m.message}/>)
     let newMessageElement = state.newMessageText;
-
 
     let onSendMessage = () => {
         props.sendMessage();

@@ -46,8 +46,13 @@
 .collection{
     margin: 0;
 }
+.collection a.collection-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .25s;
+}
 .dialog-user{
-
     position: relative;
     margin-left: 70px;
 }
@@ -57,7 +62,10 @@
     max-width: 40px;
     position: absolute;
 }
-
+.icon .material-icons{
+    color: rgb(51,109,171);
+    font-size: 25px;
+}
 
 .dialog-user.collection-item.active{
     background-color: rgba(251, 192, 45, 0.75);

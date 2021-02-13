@@ -3,6 +3,7 @@ import './Profile.css'
 import photo from '../../images/profile-photo.svg'
 import MyPosts from "../MyPosts/MyPosts";
 import MyPostsContainer from "../MyPosts/MyPostsContainer";
+import {NavLink} from "react-router-dom";
 
 function Profile(props) {
     return (

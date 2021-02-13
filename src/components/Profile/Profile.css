@@ -8,8 +8,9 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
-}
+    background-color: rgb(51,109,171);
 
+}
 .profile-search__input {
     margin-right: 60px;
     padding-top: 25px;

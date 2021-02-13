@@ -1,5 +1,4 @@
 import React from 'react'
-import './Dialogs.css'
 import {
     sendMessageActionCreator,
     updateNewMessageTextActionCreator,

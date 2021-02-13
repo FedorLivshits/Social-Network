@@ -26,8 +26,11 @@
 
 .collection .collection-item.avatar {
     min-height: 100px;
-    padding-left: 140px;
+    padding-left: 130px;
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .title{
     font-size: 18px;
@@ -40,15 +43,13 @@
     height: 60px;
     overflow: hidden;
     bottom: 15px;
-    left: 55px;
+    left: 40px;
     display: inline-block;
     vertical-align: middle;
 }
 
 .material-icons {
-    margin-right: 30px;
     color: rgba(251, 192, 45, 1);
-    font-weight: 700;
     font-size: 30px;
 }
 
