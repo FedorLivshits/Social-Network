@@ -11,10 +11,10 @@ let initialState = {
         {name: 'Pavel Ostapchuk', id: '6'},
     ],
     myMessages: [
-        {id: "Fedor", message: 'Как твои дела?'},
-        {id: "Fedor", message: 'Сколько дней ты не была в вк?'},
-        {id: "Fedor", message: 'мне так хотелось тебе написать'},
-        {id: "Fedor", message: 'но теперь все в прошлом и прошлое не оправдать'},
+        {id: "Fedor", message: 'Я давно хотел сказать'},
+        {id: "Fedor", message: 'мне тяжело это признавать'},
+        {id: "Fedor", message: 'и вспоминать свое грязное прошлое...'},
+        {id: "Fedor", message: 'я закончил юрфак спбгу'},
     ],
     newMessageText: '',
 }
