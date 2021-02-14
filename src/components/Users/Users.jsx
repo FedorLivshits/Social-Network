@@ -1,42 +1,48 @@
 import React from 'react'
 import './Users.css'
-import Post from "../MyPosts/Post/Post";
 
 
-function User(props) {
-    return <ul className="collection z-depth-2">
-        <li className="collection-item avatar">
-            <img src={props.photo} alt="" className="circle"/>
-            <div className="user-info">
-                <span className="title">{props.name}</span>
-                <p>{props.location.country}<br/>
-                    {props.location.city}
-                </p>
-            </div>
-            {props.followed
-                ?
-                <a onClick={() => {
-                    props.follow(userId)
-                }} className="btn-floating btn-user red darken-2">
-                    <i className="material-icons">delete</i>
-                </a>
-                :
-                <a onClick={() => {
-                    props.unfollow(userId)
-                }} className="btn-floating btn-user yellow darken-2">
-                    <i className="material-icons">add</i>
-                </a>}
+// function User(props) {
+//     return <ul className="collection z-depth-2">
+//         <li className="collection-item avatar">
+//             <img src={props.users.photo} alt="" className="circle"/>
+//             <div className="user-info">
+//                 <span className="title">{props.name}</span>
+//                 <p><br/>
+//
+//                 </p>
+//             </div>
+//             {props.followed
+//                 ?
+//                 <a onClick={() => {
+//                     props.addUser(props.users.id)
+//                 }} className="btn-floating btn-user red darken-2">
+//                     <i className="material-icons">delete</i>
+//                 </a>
+//                 :
+//                 <a onClick={() => {
+//                     props.deleteUser(props.users.id)
+//                 }} className="btn-floating btn-user yellow darken-2">
+//                     <i className="material-icons">add</i>
+//                 </a>}
+//
+//         </li>
+//     </ul>
+// }
 
-        </li>
-    </ul>
-}
+// let users = props.users.map(users => {
+//     return <User users={props.users} key={users.id} addUser={users.addUser} deleteUser={users.deleteUser}/>
+// })
 
 function Users(props) {
-
-    let users = props.users.map(users => {
-        return <User name={users.name} id={users.id} photo={users.photo} followed={users.followed}
-                     location={users.location} key={users.id}/>
-    })
+    let onAddUser = () => {
+        let userId = props.users.id
+        props.follow(userId);
+    }
+    let onDeleteUser = () => {
+        let userId = props.users.id
+        props.unfollow(userId);
+    }
 
     return (
         <section className="users__content ">
@@ -52,15 +58,58 @@ function Users(props) {
                 </div>
                 <div className="users">
                     <div className="users__column-1">
+                    {props.users.map(u =>
+                        <ul  className="collection z-depth-2">
+                            <li className="collection-item avatar">
+                                <img src={u.photo} alt="" className="circle"/>
+                                <div className="user-info">
+                                    <span className="title">{u.name}</span>
+                                    <p>{u.location.country}<br/>
+                                        {u.location.city}
+                                    </p>
+                                </div>
+                                {u.followed
+                                    ?
+                                    <a  onClick={onAddUser}
+                                             className="btn-floating btn-user red darken-2">
+                                        <i className="material-icons">delete</i>
+                                    </a>
+                                    :
+                                    <a onClick={onDeleteUser} className="btn-floating btn-user yellow darken-2">
+                                        <i className="material-icons">add</i>
+                                    </a>}
 
-                        {users}
-
+                            </li>
+                        </ul>
+                    )
+                    }
                     </div>
-
                     <div className="users__column-2">
+                        {props.users.map(u =>
+                            <ul  className="collection z-depth-2">
+                                <li className="collection-item avatar">
+                                    <img src={u.photo} alt="" className="circle"/>
+                                    <div className="user-info">
+                                        <span className="title">{u.name}</span>
+                                        <p>{u.location.country}<br/>
+                                            {u.location.city}
+                                        </p>
+                                    </div>
+                                    {u.followed
+                                        ?
+                                        <a  onClick={onAddUser}
+                                            className="btn-floating btn-user red darken-2">
+                                            <i className="material-icons">delete</i>
+                                        </a>
+                                        :
+                                        <a onClick={onDeleteUser} className="btn-floating btn-user yellow darken-2">
+                                            <i className="material-icons">add</i>
+                                        </a>}
 
-                        {users}
-
+                                </li>
+                            </ul>
+                        )
+                        }
                     </div>
                 </div>
             </div>
