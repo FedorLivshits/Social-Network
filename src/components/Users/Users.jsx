@@ -130,14 +130,14 @@ function Users(props) {
                                     </div>
                                     {u.followed
                                         ?
-                                        <a onClick={() => {
+                                        <a onClick={() => { debugger
                                             props.follow(u.id)
                                         }}
-                                           className="btn-floating btn-user red darken-2">
+                                           className="btn-floating btn-user indigo darken-3">
                                             <i className="material-icons">delete</i>
                                         </a>
                                         :
-                                        <a onClick={() => {
+                                        <a onClick={() => { debugger
                                             props.unfollow(u.id)
                                         }} className="btn-floating btn-user yellow darken-2">
                                             <i className="material-icons">add</i>
