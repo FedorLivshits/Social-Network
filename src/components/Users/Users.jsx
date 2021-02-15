@@ -1,6 +1,7 @@
 import React from 'react'
 import './Users.css'
-
+import * as axios from 'axios';
+import photo from '../../images/profile-photo.svg'
 
 // function User(props) {
 //     return <ul className="collection z-depth-2">
@@ -44,64 +45,11 @@ function Users(props) {
     //     props.unfollow(userId);
     // }
     if (props.users.length === 0) {
-        props.setUsers([
-            {
-                id: '1',
-                photo: 'https://www.svgrepo.com/show/275245/man-profile.svg',
-                followed: false,
-                name: 'Alexander Sarygin',
-                location: {country: 'Russia', city: 'St-Petersburg'}
-            },
-            {
-                id: '2',
-                photo: 'https://www.svgrepo.com/show/275245/man-profile.svg',
-                followed: false,
-                name: 'Sergey Solod',
-                location: {country: 'Russia', city: 'Moscow'}
-            },
-            {
-                id: '3',
-                photo: 'https://www.svgrepo.com/show/275245/man-profile.svg',
-                followed: false,
-                name: 'Vlad Sosaysky',
-                location: {country: 'Russia', city: 'St-Petersburg'}
-            },
-            {
-                id: '4',
-                photo: 'https://www.svgrepo.com/show/275245/man-profile.svg',
-                followed: true,
-                name: 'Artem Kirpu',
-                location: {country: 'Russia', city: 'St-Petersburg'}
-            },
-            {
-                id: '5',
-                photo: 'https://www.svgrepo.com/show/275245/man-profile.svg',
-                followed: false,
-                name: 'Sam kopylov',
-                location: {country: 'Russia', city: 'St-Petersburg'}
-            },
-            {
-                id: '6',
-                photo: 'https://www.svgrepo.com/show/275245/man-profile.svg',
-                followed: false,
-                name: 'Pavel Ostapchuk',
-                location: {country: 'Russia', city: 'St-Petersburg'}
-            },
-            {
-                id: '7',
-                photo: 'https://www.svgrepo.com/show/275245/man-profile.svg',
-                followed: false,
-                name: 'Misha Vlaskin',
-                location: {country: 'Litva', city: 'Vilnus'}
-            },
-            {
-                id: '8',
-                photo: 'https://www.svgrepo.com/show/275253/woman-avatar.svg',
-                followed: true,
-                name: 'Alisa Konovalova',
-                location: {country: 'Russia', city: 'Gelendzhik'}
-            },
-        ],)
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response =>{
+            props.setUsers(response.data.items)
+        })
+
+
     }
 
     return (
@@ -121,11 +69,11 @@ function Users(props) {
                         {props.users.map(u =>
                             <ul className="collection z-depth-2">
                                 <li className="collection-item avatar">
-                                    <img src={u.photo} alt="" className="circle"/>
+                                    <img src={u.photos.small != null ? u.photos.small : photo } alt="ava" className="circle"/>
                                     <div className="user-info">
                                         <span className="title">{u.name}</span>
-                                        <p>{u.location.country}<br/>
-                                            {u.location.city}
+                                        <p>{"u.location.country"}<br/>
+                                            {"u.location.city"}
                                         </p>
                                     </div>
                                     {u.followed
