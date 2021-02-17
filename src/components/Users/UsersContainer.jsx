@@ -33,27 +33,14 @@ class UsersContainer extends React.Component {
 
     render() {
         return (
-            <>
-                {this.props.isFetching ? <div className="preloader-wrapper big active">
-                    <div className="spinner-layer spinner-yellow-only">
-                        <div className="circle-clipper left">
-                            <div className="circle"></div>
-                        </div>
-                        <div className="gap-patch">
-                            <div className="circle"></div>
-                        </div>
-                        <div className="circle-clipper right">
-                            <div className="circle"></div>
-                        </div>
-                    </div>
-                </div> : null}
+
 
                 <Users totalUsersCount={this.props.totalUsersCount} pageSize={this.props.pageSize}
                        currentPage={this.props.currentPage} follow={this.props.follow}
                        unfollow={this.props.unfollow} onPageChanged={this.onPageChanged} users={this.props.users}
-        />
+       isFetching={this.props.isFetching} />
 
-        </>)
+        )
 
     }
 }
@@ -83,8 +70,8 @@ const mapDispatchToProps = (dispatch) => {
         setCurrentPage: (page) => {
             dispatch(setCurrentPageAC(page))
         },
-        setTotalUsersCount: (count) => {
-            dispatch(setTotalUsersCountAC(count))
+        setTotalUsersCount: (totalUsersCount) => {
+            dispatch(setTotalUsersCountAC(totalUsersCount))
         },
         setIsFetching: (isFetching) => {
             dispatch(setIsFetchingAC(isFetching))

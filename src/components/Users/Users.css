@@ -57,9 +57,9 @@
     display: flex;
 }
 .users__column-1{
-    width: 100%;
+    width: 50%;
     margin-right: 15px;
 }
 .users__column-2{
-    width: 0%;
+    width: 50%;
 }

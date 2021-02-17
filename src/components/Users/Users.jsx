@@ -1,6 +1,8 @@
 import React from 'react'
 import './Users.css'
 import photo from '../../images/profile-photo.svg'
+import Preloader from "../Preloader/Preloader";
+
 
 function Users(props) {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -20,22 +22,11 @@ function Users(props) {
                     <div className="users-search__input">
                         <input type="text" placeholder="find a user"/>
                     </div>
-                    <ul className="pagination">
-                        <li className="disabled"><a href="#!"><i className="material-icons">chevron_left</i></a>
-                        </li>
-                        {pages.map(page => {
-                            return (
-                                <li className={props.currentPage === page && "active"} onClick={(e) => {
-                                   props.onPageChanged(page)
-                                }}><a href="#!">{page}</a>
-                                </li>)
-                        })}
 
-                        <li className="waves-effect"><a href="#!"><i
-                            className="material-icons">chevron_right</i></a></li>
-                    </ul>
 
                 </div>
+
+                {props.isFetching ? <Preloader/> : null}
 
                 <div className="users">
 
@@ -73,7 +64,20 @@ function Users(props) {
                         }
                     </div>
                     <div className="users__column-2">
+                        <ul className="pagination">
+                            <li className="disabled"><a href="#!"><i className="material-icons">chevron_left</i></a>
+                            </li>
+                            {pages.map(page => {
+                                return (
+                                    <li className={props.currentPage === page && "active"} onClick={(e) => {
+                                        props.onPageChanged(page)
+                                    }}><a href="#!">{page}</a>
+                                    </li>)
+                            })}
 
+                            <li className="waves-effect"><a href="#!"><i
+                                className="material-icons">chevron_right</i></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
