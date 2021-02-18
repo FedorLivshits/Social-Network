@@ -65,6 +65,13 @@
     font-weight: 600;
     font-size: 16px;
 }
+.profile___info-descr li b{
+    color: #202020;
+    font-weight: 700;
+    font-size: 16px;
+    opacity: 1;
+}
+
 
 .profile__photo-box {
    width: 40%;
@@ -76,7 +83,6 @@
     position: relative;
 }
 .profile__photo img{
-    border-radius: 50%;
     background-color: white;
 }
 
@@ -85,8 +91,4 @@
     right: 10px;
     bottom: 5px;
 }
-
-/*.btn{*/
-/*    margin-left: 20px;*/
-/*}*/
 

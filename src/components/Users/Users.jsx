@@ -2,6 +2,7 @@ import React from 'react'
 import './Users.css'
 import photo from '../../images/profile-photo.svg'
 import Preloader from "../Preloader/Preloader";
+import {NavLink} from "react-router-dom";
 
 
 function Users(props) {
@@ -35,8 +36,10 @@ function Users(props) {
                         {props.users.map(u =>
                             <ul className="collection z-depth-2">
                                 <li className="collection-item avatar">
+                                    <NavLink to={'/profile/' + u.id}>
                                     <img src={u.photos.small != null ? u.photos.small : photo} alt="ava"
                                          className="circle"/>
+                                    </NavLink>
                                     <div className="user-info">
                                         <span className="title">{u.name}</span>
                                         <p>{"u.location.country"}<br/>

@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const SET_USER_PROFILE = 'SET_USER_PROFILE'
 
 let initialState = {
     postMessages: [
@@ -8,6 +9,7 @@ let initialState = {
         {id: 3, message: 'Использую метод массива map'},
     ],
     newPostText: '',
+    profile: null,
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -32,6 +34,10 @@ const profileReducer = (state = initialState, action) => {
                 stateCopy.newPostText = '';
             }
             return stateCopy;
+        case SET_USER_PROFILE: {
+            return {...state, profile: action.profile}
+        }
+
         default:
             return state;
     }
@@ -50,9 +56,6 @@ export const updateNewPostTextActionCreator = (text) => {
     }
 }
 
-// let text = state.newPostText;
-// if (text === '') {
-//     alert('nothing to post, darling')
-// }
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 
 export default profileReducer;
