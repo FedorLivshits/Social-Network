@@ -88,7 +88,8 @@
 }
 
 .profile__photo img {
-    background-color: white;
+    border-radius: 3px;
+
 }
 
 .profile__photo-btn .btn {
