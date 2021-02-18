@@ -31,6 +31,13 @@ a {
     color: white;
 }
 
+.login:hover {
+    opacity: 1;
+    transition: all .3s;
+    color: rgb(251,192,45);
+}
+
+
 .sign-up {
     color: #250F8A;
     font-weight: 600;

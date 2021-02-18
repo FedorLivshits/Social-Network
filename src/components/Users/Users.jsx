@@ -24,11 +24,24 @@ function Users(props) {
                         <input type="text" placeholder="find a user"/>
                     </div>
 
-
                 </div>
+                <ul className="pagination z-depth-2">
+                    <li className="disabled"><a href="#!"><i className="material-icons">chevron_left</i></a>
+                    </li>
+                    {pages.slice(0, 10).map(page => {
+                        return (
+                            <li className={props.currentPage === page && "active"} onClick={(e) => {
+                                props.onPageChanged(page)
+                            }}><a href="#!">{page}</a>
+                            </li>)
+                    })}
 
-                {props.isFetching ? <Preloader/> : null}
-
+                    <li className="waves-effect"><a href="#!"><i
+                        className="material-icons">chevron_right</i></a></li>
+                </ul>
+                <div className="preloader__box">
+                    {props.isFetching ? <Preloader/> : null}
+                </div>
                 <div className="users">
 
                     <div className="users__column-1">
@@ -37,15 +50,15 @@ function Users(props) {
                             <ul className="collection z-depth-2">
                                 <li className="collection-item avatar">
                                     <NavLink to={'/profile/' + u.id}>
-                                    <img src={u.photos.small != null ? u.photos.small : photo} alt="ava"
-                                         className="circle"/>
+                                        <img src={u.photos.small != null ? u.photos.small : photo} alt="ava"
+                                             className="circle"/>
+                                        <div className="user-info">
+                                            <span className="title">{u.name}</span>
+                                            <p>{"u.location.country"}<br/>
+                                                {"u.location.city"}
+                                            </p>
+                                        </div>
                                     </NavLink>
-                                    <div className="user-info">
-                                        <span className="title">{u.name}</span>
-                                        <p>{"u.location.country"}<br/>
-                                            {"u.location.city"}
-                                        </p>
-                                    </div>
                                     {u.followed
                                         ?
                                         <a onClick={() => {
@@ -67,20 +80,7 @@ function Users(props) {
                         }
                     </div>
                     <div className="users__column-2">
-                        <ul className="pagination">
-                            <li className="disabled"><a href="#!"><i className="material-icons">chevron_left</i></a>
-                            </li>
-                            {pages.map(page => {
-                                return (
-                                    <li className={props.currentPage === page && "active"} onClick={(e) => {
-                                        props.onPageChanged(page)
-                                    }}><a href="#!">{page}</a>
-                                    </li>)
-                            })}
 
-                            <li className="waves-effect"><a href="#!"><i
-                                className="material-icons">chevron_right</i></a></li>
-                        </ul>
                     </div>
                 </div>
             </div>

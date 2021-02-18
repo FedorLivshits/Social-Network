@@ -2,6 +2,7 @@ import React from 'react'
 import './Header.css'
 import logo from '../../images/logo.svg'
 import {NavLink} from "react-router-dom";
+import Preloader from "../Preloader/Preloader";
 
 function Header () {
     return (
@@ -18,7 +19,7 @@ function Header () {
                     </div>
                     <div className="header-log-in">
                         <div className="header-btn">
-                            <a className="login" href="#">LOGIN</a>
+                            <NavLink to="/login" className="login" href="#">LOGIN</NavLink>
                             <a className="sign-up yellow darken-2" href="#">SIGN UP</a>
                         </div>
                     </div>

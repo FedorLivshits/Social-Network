@@ -1,6 +1,6 @@
 .profile__content {
     border-radius: 3px;
-    width: 85%;
+    width: 85%
 }
 
 
@@ -8,9 +8,10 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
-    background-color: rgb(51,109,171);
+    background-color: rgb(51, 109, 171);
 
 }
+
 .profile-search__input {
     margin-right: 60px;
     padding-top: 25px;
@@ -26,11 +27,13 @@
     margin-bottom: 50px;
 }
 
-.color__wrapper{
+.color__wrapper {
     background-color: rgba(255, 255, 255, 1);
     padding-top: 15px;
     padding-bottom: 15px;
+    border-radius: 3px;
 }
+
 .profile__inner {
     display: flex;
     justify-content: space-between;
@@ -44,12 +47,12 @@
 .profile-text__info {
     width: 60%;
     margin: 0 auto;
-   padding-left: 15%;
+    padding-left: 15%;
 }
 
 .title__info {
-    color: #202020;
-    font-size: 30px;
+    color: rgb(27, 36, 99);
+    font-size: 28px;
     line-height: 45px;
     font-weight: 700;
     text-transform: uppercase;
@@ -65,7 +68,8 @@
     font-weight: 600;
     font-size: 16px;
 }
-.profile___info-descr li b{
+
+.profile___info-descr li b {
     color: #202020;
     font-weight: 700;
     font-size: 16px;
@@ -74,7 +78,7 @@
 
 
 .profile__photo-box {
-   width: 40%;
+    width: 40%;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 15px;
@@ -82,7 +86,8 @@
     margin-left: 50px;
     position: relative;
 }
-.profile__photo img{
+
+.profile__photo img {
     background-color: white;
 }
 
