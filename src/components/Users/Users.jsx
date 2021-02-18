@@ -3,6 +3,7 @@ import './Users.css'
 import photo from '../../images/profile-photo.svg'
 import Preloader from "../Preloader/Preloader";
 import {NavLink} from "react-router-dom";
+import * as axios from "axios";
 
 
 function Users(props) {
@@ -62,15 +63,36 @@ function Users(props) {
                                     {u.followed
                                         ?
                                         <a onClick={() => {
-                                            props.follow(u.id)
+                                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                                                {}, {
+                                                    withCredentials: true,
+                                                    headers: {
+                                                        "API-KEY": "6bc1146e-24f2-4be4-a0fc-4f85d3b15120"
+                                                    }
+                                                }).then(response => {
+                                                if (response.data.resultCode === 0) {
+                                                    props.follow(u.id)
+                                                }
+                                            })
                                         }}
                                            className="btn-floating btn-user indigo darken-3">
                                             <i className="material-icons">delete</i>
                                         </a>
                                         :
                                         <a onClick={() => {
-                                            props.unfollow(u.id)
-                                        }} className="btn-floating btn-user yellow darken-2">
+                                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                                                {
+                                                    withCredentials: true,
+                                                    headers: {
+                                                        "API-KEY": "6bc1146e-24f2-4be4-a0fc-4f85d3b15120"
+                                                    }
+                                                }).then(response => {
+                                                if (response.data.resultCode === 0) {
+                                                    props.unfollow(u.id)
+                                                }
+                                            })
+                                        }}
+                                           className="btn-floating btn-user yellow darken-2">
                                             <i className="material-icons">add</i>
                                         </a>}
 
