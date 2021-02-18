@@ -62,3 +62,13 @@ a {
     font-size: 14px;
     color: #718db2;
 }
+
+.user__name{
+    margin-right: 44px;
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+}
+.material-icons.settings{
+    color: white;
+}

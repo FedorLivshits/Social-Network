@@ -32,12 +32,13 @@
     justify-content: space-between;
     align-items: center;
 }
-.title{
+
+.title {
     font-size: 18px;
     font-weight: 700;
 }
 
-.collection .collection-item.avatar:not(.circle-clipper)>.circle, .collection .collection-item.avatar :not(.circle-clipper)>.circle {
+.collection .collection-item.avatar:not(.circle-clipper) > .circle, .collection .collection-item.avatar :not(.circle-clipper) > .circle {
     position: absolute;
     width: 60px;
     height: 60px;
@@ -56,7 +57,8 @@
 .users {
     display: flex;
 }
-.users__column-1{
+
+.users__column-1 {
     width: 100%;
 }
 
@@ -70,4 +72,5 @@
     background-color: white;
     border-radius: 3px;
     text-align: center;
+    height: 50px;
 }

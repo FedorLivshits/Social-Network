@@ -68,15 +68,6 @@ function Dialogs(props) {
                 <div className="dialog__window z-depth-2">
                     <div className="dialog__messages">
                         {myDialogMessages}
-                        {/*<div className="my__message">*/}
-                        {/*    <span>hello</span>*/}
-                        {/*</div>*/}
-                        {/*<div className="friend__message ">*/}
-                        {/*    <span>how are you?</span>*/}
-                        {/*</div>*/}
-                        {/*<div className="my__message">*/}
-                        {/*    <span>I need something to tell you</span>*/}
-                        {/*</div>*/}
                     </div>
 
 
