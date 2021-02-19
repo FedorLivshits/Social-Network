@@ -62,7 +62,9 @@ function Users(props) {
                                     </NavLink>
                                     {u.followed
                                         ?
-                                        <a onClick={() => {
+
+                                        <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                                            props.toggleFollowingInProgress(true,u.id)
                                             axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
                                                 {
                                                     withCredentials: true,
@@ -72,12 +74,14 @@ function Users(props) {
                                                     if (response.data.resultCode === 0) {
                                                         props.unfollow(u.id)
                                                     }
+                                                    props.toggleFollowingInProgress(false,u.id)
                                                 })
                                         }} className="btn-floating btn-user indigo darken-3">
                                             <i className="material-icons">delete</i>
-                                        </a>
+                                        </button>
                                         :
-                                        <a onClick={() => {
+                                        <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                                            props.toggleFollowingInProgress(true,u.id)
                                             axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
                                                 {
                                                     withCredentials: true,
@@ -87,10 +91,11 @@ function Users(props) {
                                                     if (response.data.resultCode === 0) {
                                                         props.follow(u.id)
                                                     }
+                                                    props.toggleFollowingInProgress(false,u.id)
                                                 })
                                         }} className="btn-floating btn-user yellow darken-2">
                                             <i className="material-icons">add</i>
-                                        </a>}
+                                        </button>}
 
                                 </li>
                             </ul>
@@ -110,29 +115,3 @@ function Users(props) {
 export default Users;
 
 
-// {user.followed
-//     ? <button className="btn btn-primary"
-//               disabled={props.followingInProgress
-//                   .some(id => id === user.id)}
-//               onClick={() => {
-//                   props.unfollow(user.id)
-//               }}>
-//         Удалить</button>
-//     : <button className="btn btn-primary"
-//               disabled={props.followingInProgress.some(id => id === user.id)}
-//               onClick={() => {
-//                   props.follow(user.id)
-//               }}>
-//         Добавить</button>}
-
-
-// axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-//     {}, {
-//         withCredentials: true,
-//         headers: {
-//             "API-KEY": "6bc1146e-24f2-4be4-a0fc-4f85d3b15120"
-//         }
-//     }).then(response => {
-//     if (response.data.resultCode === 0)
-
-//

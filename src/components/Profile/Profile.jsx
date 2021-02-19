@@ -1,9 +1,10 @@
 import React from "react";
 import './Profile.css'
 import photo from '../../images/profile-photo.svg'
+import photo1 from '../../images/profile-images/bandit-svgrepo-com.svg'
 import MyPostsContainer from "../MyPosts/MyPostsContainer";
-import {NavLink} from "react-router-dom";
 import Preloader from "../Preloader/Preloader";
+
 
 function Profile(props) {
     if(!props.profile){
@@ -15,7 +16,7 @@ function Profile(props) {
             <div className="profile__inner z-depth-2">
                 <div className="profile__photo-box">
                     <div className="profile__photo">
-                        <img src={props.profile.photos.large != null ? props.profile.photos.large : photo} alt=""/>
+                        <img src={(props.profile.photos.large != null) ? props.profile.photos.large : (props.match.params.userId === 15052) ? photo1 : photo} alt=""/>
                     </div>
                     <div className="profile__photo-btn">
                         <a className="btn-floating btn-large waves-effect waves-light btn yellow darken-2"><i
@@ -30,18 +31,11 @@ function Profile(props) {
                     <div className="profile___info-descr">
                         <li> <b>ABOUT ME:</b> {props.profile.aboutMe}</li>
                         <li> <b>LOOKING FOR A JOB:</b> {props.profile.lookingForAJobDescription}</li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
                     </div>
                 </div>
             </div>
 
-            <MyPostsContainer store={props.store}
-                              // postMessages={props.state.postMessages}
-                              // dispatch={props.dispatch}
-                              // newPostText={props.state.newPostText}
-            />
+            <MyPostsContainer store={props.store}/>
 
             </div>
         </section>

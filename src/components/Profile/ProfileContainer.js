@@ -9,7 +9,7 @@ class ProfileContainer extends React.Component {
     componentDidMount() {
        let userId = this.props.match.params.userId
         if (!userId){
-            userId = 2;
+            userId = 15052;
         }
 
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId).then(response => {
@@ -18,8 +18,7 @@ class ProfileContainer extends React.Component {
     }
         render() {
             return (
-                <Profile {...this.props} profile={this.props.profile
-                    }/>
+                <Profile {...this.props} profile={this.props.profile}/>
             )
         }
 }
