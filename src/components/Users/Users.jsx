@@ -63,36 +63,32 @@ function Users(props) {
                                     {u.followed
                                         ?
                                         <a onClick={() => {
-                                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                                                {}, {
+                                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                                                {
                                                     withCredentials: true,
-                                                    headers: {
-                                                        "API-KEY": "6bc1146e-24f2-4be4-a0fc-4f85d3b15120"
+                                                    headers: {"API-KEY": "6bc1146e-24f2-4be4-a0fc-4f85d3b15120"}
+                                                })
+                                                .then(response => {
+                                                    if (response.data.resultCode === 0) {
+                                                        props.unfollow(u.id)
                                                     }
-                                                }).then(response => {
-                                                if (response.data.resultCode === 0) {
-                                                    props.follow(u.id)
-                                                }
-                                            })
-                                        }}
-                                           className="btn-floating btn-user indigo darken-3">
+                                                })
+                                        }} className="btn-floating btn-user indigo darken-3">
                                             <i className="material-icons">delete</i>
                                         </a>
                                         :
                                         <a onClick={() => {
-                                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
                                                 {
                                                     withCredentials: true,
-                                                    headers: {
-                                                        "API-KEY": "6bc1146e-24f2-4be4-a0fc-4f85d3b15120"
+                                                    headers: {"API-KEY": "6bc1146e-24f2-4be4-a0fc-4f85d3b15120"}
+                                                })
+                                                .then(response => {
+                                                    if (response.data.resultCode === 0) {
+                                                        props.follow(u.id)
                                                     }
-                                                }).then(response => {
-                                                if (response.data.resultCode === 0) {
-                                                    props.unfollow(u.id)
-                                                }
-                                            })
-                                        }}
-                                           className="btn-floating btn-user yellow darken-2">
+                                                })
+                                        }} className="btn-floating btn-user yellow darken-2">
                                             <i className="material-icons">add</i>
                                         </a>}
 
@@ -112,3 +108,31 @@ function Users(props) {
 
 
 export default Users;
+
+
+// {user.followed
+//     ? <button className="btn btn-primary"
+//               disabled={props.followingInProgress
+//                   .some(id => id === user.id)}
+//               onClick={() => {
+//                   props.unfollow(user.id)
+//               }}>
+//         Удалить</button>
+//     : <button className="btn btn-primary"
+//               disabled={props.followingInProgress.some(id => id === user.id)}
+//               onClick={() => {
+//                   props.follow(user.id)
+//               }}>
+//         Добавить</button>}
+
+
+// axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+//     {}, {
+//         withCredentials: true,
+//         headers: {
+//             "API-KEY": "6bc1146e-24f2-4be4-a0fc-4f85d3b15120"
+//         }
+//     }).then(response => {
+//     if (response.data.resultCode === 0)
+
+//
