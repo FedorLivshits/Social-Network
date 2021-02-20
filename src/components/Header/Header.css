@@ -34,7 +34,7 @@ a {
 .login:hover {
     opacity: 1;
     transition: all .3s;
-    color: rgb(251,192,45);
+    font-weight: 900;
 }
 
 
@@ -44,6 +44,12 @@ a {
     background-color: #fff;
     padding: 8px 43px;
     border-radius: 25px;
+}
+
+.sign-up:hover{
+    font-weight: 900;
+    opacity: 1;
+    transition: all .3s;
 }
 .header-btn{
 

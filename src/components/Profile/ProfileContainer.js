@@ -1,10 +1,10 @@
 import React from "react";
 import Profile from "./Profile";
-import * as axios from "axios";
 import {connect} from "react-redux";
 import {getUserProfile} from "../../redux/profile-reducer";
 import {withRouter} from "react-router-dom";
-import {usersAPI} from "../../api/api";
+import {withAuthRedirect} from "../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
@@ -22,10 +22,21 @@ this.props.getUserProfile(userId)
         }
 }
 
+
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
 })
 
-let WithUrlDataContainer = withRouter(ProfileContainer)
+export default compose(
+    connect (mapStateToProps, {getUserProfile}),
+    withRouter,
+    withAuthRedirect
+)(ProfileContainer);
 
-export default connect (mapStateToProps, {getUserProfile})(WithUrlDataContainer);
+
+
+// Profile - отрисовывает jsx
+// ProfileContainer - получает страницу профайл
+// withAuthRedirect - редиректит на логин, если не залогинены
+// withRouter - контролирует url адресс
+// connect - взаимодействует со state, диспатчит экшены  в редьюсер
