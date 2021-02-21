@@ -1,5 +1,47 @@
-.login-form{
-    background-color: white;
-    margin-left: 15px;
+.login__content{
     border-radius: 3px;
+    width: 100%;
+   display: flex;
+    justify-content: space-between;
+    margin-top: 90px;
+}
+.login-form {
+    background-color: white;
+    border-radius: 3px;
+    margin-top: 14px;
+    margin-right: 75px;
+}
+
+.login-btns{
+    display: flex;
+}
+
+.login-slider__item-info {
+    max-width: 700px;
+    color: white;
+    margin-left: 75px;
+}
+
+.login-slider__title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 60px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.login-slider__descr {
+    line-height: 40px;
+    font-size: 24px;
+    margin-bottom: 60px;
+}
+
+.login-slider__btn {
+    color: #250F8A;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 13px 39px;
+    background: #FFCA00;
+    border-radius: 25px;
+    outline: none;
 }

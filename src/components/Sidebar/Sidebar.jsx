@@ -1,6 +1,8 @@
 import React from 'react'
 import './Sidebar.css'
 import {NavLink} from "react-router-dom";
+import {compose} from "redux";
+import {withAuthRedirect} from "../hoc/withAuthRedirect";
 
 function Sidebar() {
     return (
@@ -17,4 +19,7 @@ function Sidebar() {
     );
 
 }
-export default Sidebar;
+
+export default compose (
+    withAuthRedirect
+)(Sidebar);
