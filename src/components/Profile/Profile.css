@@ -98,3 +98,7 @@
     bottom: 5px;
 }
 
+.status-form{
+    display: flex;
+    justify-content: space-between;
+}
