@@ -9,7 +9,7 @@ let initialState = {
     postMessages: [
         {id: 1, message: 'В процессе разработки'},
         {id: 2, message: 'Свободу Алексею Навальному!'},
-        {id: 3, message: 'Использую метод массива map'},
+        {id: 3, message: 'HTML5/CSS3, JavaScript, TypeScript, React/Redux, REST-API'},
     ],
     newPostText: '',
     profile: null,
