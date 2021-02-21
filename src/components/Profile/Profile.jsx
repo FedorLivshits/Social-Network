@@ -4,6 +4,7 @@ import photo from '../../images/profile-photo.svg'
 import photo1 from '../../images/profile-images/bandit-svgrepo-com.svg'
 import MyPostsContainer from "../MyPosts/MyPostsContainer";
 import Preloader from "../Preloader/Preloader";
+import {updateProfileStatus} from "../../redux/profile-reducer";
 
 
 function Profile(props) {
@@ -31,11 +32,11 @@ function Profile(props) {
                             {props.profile.fullName}
                         </div>
 
-                        <ProfileStatus status={'hello my friends'}/>
+                        <ProfileStatus status={props.status} updateProfileStatus={props.updateProfileStatus}/>
 
                         <div className="profile___info-descr">
-                            <li><b>ABOUT ME:</b> {props.profile.aboutMe}</li>
-                            <li><b>LOOKING FOR A JOB:</b> {props.profile.lookingForAJobDescription}</li>
+                            {/*<li><b>ABOUT ME:</b> {props.profile.aboutMe}</li>*/}
+                            {/*<li><b>LOOKING FOR A JOB:</b> {props.profile.lookingForAJobDescription}</li>*/}
                         </div>
                     </div>
                 </div>
@@ -51,6 +52,7 @@ class ProfileStatus extends React.Component {
 
     state = {
         editMode: false,
+        status: this.props.status,
     }
     activateEditMode = () => {
         this.setState({
@@ -61,6 +63,13 @@ class ProfileStatus extends React.Component {
         this.setState({
             editMode: false
         })
+        this.props.updateProfileStatus(this.state.status)
+    }
+
+    onStatusChange = (event) => {
+        this.setState({
+            status: event.currentTarget.value
+        })
     }
 
     render() {
@@ -68,11 +77,12 @@ class ProfileStatus extends React.Component {
             <div className="profile-status">
                 {!this.state.editMode ?
                     <div className="status-text" onClick={this.activateEditMode}>
-                        {this.props.status}
+                        {this.props.status || <div className="profile_no-status-text">Click to wtite a status</div>}
                     </div> :
                     <div className="status-form">
                         <div className="input-field col s6">
-                            <input autoFocus={true} id="input_text" type="text" placeholder="status" value={this.props.status}
+                            <input onChange={this.onStatusChange} autoFocus={true} id="input_text" type="text"
+                                   placeholder="write and click anywhere" value={this.state.status}
                                    onBlur={this.deactivateEditMode}/>
                         </div>
                     </div>}

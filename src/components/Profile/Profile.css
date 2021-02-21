@@ -102,3 +102,12 @@
     display: flex;
     justify-content: space-between;
 }
+
+.profile_no-status-text{
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 600;
+}
+
+.profile_no-status-text:hover{
+    color: rgba(2, 30, 127, 0.8);
+}
