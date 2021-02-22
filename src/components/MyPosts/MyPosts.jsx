@@ -2,6 +2,7 @@ import React from "react";
 import './MyPosts.css'
 import Post from "./Post/Post";
 import {Field, reduxForm} from "redux-form";
+import {required} from "../../utils/validators";
 
 
 function MyPosts(props) {
@@ -42,6 +43,7 @@ const MyPostsForm = (props) => {
                                name={"newPostText"}
                                component={"textarea"}
                                placeholder="What's new, darling?"
+                               validate={required}
                         />
                         <button className="post-btn btn waves-effect waves-light yellow darken-2">
                             POST

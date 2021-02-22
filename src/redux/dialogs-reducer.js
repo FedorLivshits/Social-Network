@@ -1,4 +1,3 @@
-
 const SEND_MESSAGE = 'SEND-MESSAGE'
 
 let initialState = {
@@ -23,15 +22,10 @@ const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SEND_MESSAGE:
             let message = action.newMessageText;
-            if (message === '') {
-                alert('nothing to send, darling')
-            } else {
-               return {
-                    ...state,
-                    myMessages: [...state.myMessages, {id: "Fedor", message: message}]
-                }
+            return {
+                ...state,
+                myMessages: [...state.myMessages, {id: "Fedor", message: message}]
             }
-            break
         default:
             return state
     }

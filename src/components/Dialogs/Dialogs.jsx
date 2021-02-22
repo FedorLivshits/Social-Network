@@ -3,6 +3,7 @@ import './Dialogs.css'
 import photo from '../../images/profile-photo.svg'
 import {NavLink} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
+import {required} from "../../utils/validators";
 
 
 function DialogUser(props) {
@@ -39,7 +40,7 @@ function Dialogs(props) {
     const addNewMessage = (values) => {
         props.sendMessage(values.newMessageText);
     }
-    let state= props.dialogsPage
+    let state = props.dialogsPage
     let dialogsUsers = state.dialogsData.map(el => <DialogUser name={el.name} id={el.id}/>)
     let myDialogMessages = state.myMessages.map(m => <MyDialogMessages id={m.id} message={m.message}/>)
 
@@ -66,7 +67,7 @@ function Dialogs(props) {
                     </div>
 
 
-                   <MessageReduxForm onSubmit={addNewMessage}/>
+                    <MessageReduxForm onSubmit={addNewMessage}/>
                 </div>
 
             </div>
@@ -79,9 +80,9 @@ const MessageForm = (props) => {
     return (
         <form className="dialog__message-form z-depth-2" onSubmit={props.handleSubmit}>
             <div className="input-field dialog__message-form-inside">
-                            <Field  className="materialize-textarea" placeholder="Your message"
-                                      name={"newMessageText"}
-                            component={"textarea"}/>
+                <Field className="materialize-textarea" placeholder="Your message"
+                       name={"newMessageText"}
+                       component={"textarea"} validate={required}/>
                 <button className="message-btn btn waves-effect waves-light yellow darken-2">
                     POST
                 </button>
@@ -91,7 +92,6 @@ const MessageForm = (props) => {
 }
 
 const MessageReduxForm = reduxForm({form: 'messageForm'})(MessageForm)
-
 
 
 export default Dialogs;

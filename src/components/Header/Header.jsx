@@ -7,7 +7,7 @@ import {withAuthRedirect} from "../hoc/withAuthRedirect";
 
 function Header(props) {
     return (
-        <header className="header z-depth-2 indigo darken-3">
+        <header className="header ">
             <div className="container">
                 <div className="header__inner">
                     <div className="header-logo">

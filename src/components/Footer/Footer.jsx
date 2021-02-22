@@ -7,13 +7,11 @@ const Footer = () => {
             <div className="footer__inner">
                 <div className="footer-menu">
 
-                    <a href="#">About Martaup </a>
-                    <a href="#"> Help </a>
-                    <a href="#">Privacy Policy</a>
+                    <a href="https://github.com/FedorLivshits/Social-Network">Github</a>
 
                 </div>
                 <div className="footer-rights ">
-                    © 2021 All rights reserved.
+                    © 2021 Created by Fedor Livshits.
                 </div>
             </div>
         </div>
