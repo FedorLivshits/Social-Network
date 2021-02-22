@@ -2,7 +2,8 @@ import React from 'react'
 import './Header.css'
 import logo from '../../images/logo.svg'
 import {NavLink} from "react-router-dom";
-import Preloader from "../Preloader/Preloader";
+import {compose} from "redux";
+import {withAuthRedirect} from "../hoc/withAuthRedirect";
 
 function Header(props) {
     return (
@@ -11,7 +12,7 @@ function Header(props) {
                 <div className="header__inner">
                     <div className="header-logo">
                         <NavLink to="/profile">
-                            <img src={logo}/>
+                            <img src={logo} alt='logo'/>
                         </NavLink>
                     </div>
                     <div className="header-search__line">
@@ -32,4 +33,4 @@ function Header(props) {
     );
 }
 
-export default Header;
+export default compose(withAuthRedirect) (Header);

@@ -1,10 +1,8 @@
 import React from "react";
 import './Profile.css'
 import photo from '../../images/profile-photo.svg'
-import photo1 from '../../images/profile-images/bandit-svgrepo-com.svg'
 import MyPostsContainer from "../MyPosts/MyPostsContainer";
 import Preloader from "../Preloader/Preloader";
-import {updateProfileStatus} from "../../redux/profile-reducer";
 
 
 function Profile(props) {
@@ -18,7 +16,7 @@ function Profile(props) {
                     <div className="profile__photo-box">
                         <div className="profile__photo">
                             <img
-                                src={(props.profile.photos.large != null) ? props.profile.photos.large : (props.match.params.userId === 15052) ? photo1 : photo}
+                                src={(props.profile.photos.large != null) ? props.profile.photos.large : photo}
                                 alt=""/>
                         </div>
                         <div className="profile__photo-btn">
