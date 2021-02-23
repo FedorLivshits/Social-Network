@@ -1,11 +1,10 @@
 import React from 'react'
 import './Header.css'
 import logo from '../../images/logo.svg'
-import {NavLink} from "react-router-dom";
-import {compose} from "redux";
-import {withAuthRedirect} from "../hoc/withAuthRedirect";
+import {NavLink, Redirect} from "react-router-dom";
 
 function Header(props) {
+
     return (
         <header className="header ">
             <div className="container">
@@ -17,12 +16,15 @@ function Header(props) {
                     </div>
                     <div className="header-log-in">
 
-                        {props.isAuth ? <div className="user__name">
-                            {props.login}
-                        </div> : <div className="header-btn">
-                            <NavLink to="/login" className="login" href="#">LOGIN</NavLink>
-                            <a className="sign-up yellow darken-2" href="#">SIGN UP</a>
-                        </div>}
+                        {props.isAuth ?
+                            <div className="header-btn">
+                            <div className="user__name">
+                                {props.login}
+                            </div>
+                              <button onClick={props.logout} className="logout">EXIT</button>
+                            </div>
+                            : <NavLink to="/login">Login</NavLink>
+                            }
                     </div>
                 </div>
             </div>
@@ -30,4 +32,5 @@ function Header(props) {
     );
 }
 
-export default compose(withAuthRedirect) (Header);
+
+export default Header;

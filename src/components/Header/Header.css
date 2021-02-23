@@ -35,43 +35,20 @@ a {
 }
 
 
-.sign-up {
+.logout {
     color: #250F8A;
     font-weight: 600;
     background-color: #fff;
-    padding: 8px 43px;
-    border-radius: 25px;
 }
 
-.sign-up:hover{
-    font-weight: 900;
-    opacity: 1;
-    transition: all .3s;
-}
 .header-btn{
-
-}
-.header-search__line{
-  margin-right: 35%;
+display: flex;
 }
 
-.header-search__line input{
-    padding: 8px 43px;
-    border-radius: 25px;
-    color: #250F8A;
-    border-style: none;
-}
-.header-search__line input::placeholder {
-    font-size: 14px;
-    color: #718db2;
-}
 
 .user__name{
     margin-right: 15px;
     font-size: 20px;
     font-weight: 400;
-    color: white;
-}
-.material-icons.settings{
     color: white;
 }

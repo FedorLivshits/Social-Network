@@ -3,10 +3,16 @@ import './Login.css'
 import {Field, reduxForm} from "redux-form";
 import login_img from "../../images/login-img.svg"
 import {required} from "../../utils/validators";
+import {connect} from "react-redux";
+import {login, logout} from "../../redux/auth-reducer";
+import {Redirect} from "react-router-dom";
 
-function Login() {
+function Login(props) {
     const onSubmit = (formData) => {
-        console.log(formData)
+        props.login(formData.email, formData.password, formData.rememberMe)
+    }
+    if(props.isAuth){
+        return <Redirect to={'/profile'}/>
     }
     return (
         <section className="login__content">
@@ -80,4 +86,8 @@ export const Input = ({input, meta, ...props}) => {
 
 const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 
-export default Login;
+const mapStateToProps = (state) => ({
+    isAuth:state.auth.isAuth
+})
+
+export default connect(mapStateToProps, {login,logout})(Login);
