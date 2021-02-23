@@ -12,7 +12,8 @@ function Sidebar() {
                     <li><NavLink to="/profile">HOME</NavLink></li>
                     <li><NavLink to="/dialogs">MESSAGES</NavLink></li>
                     <li><NavLink to="/users">USERS</NavLink></li>
-                    <li><NavLink to="community">COMMUNITY</NavLink></li>
+                    <li><NavLink to="/about">ABOUT</NavLink></li>
+                    <li><NavLink to="/login">EXIT</NavLink></li>
                 </ul>
             </aside>
         </section>

@@ -15,9 +15,6 @@ function Header(props) {
                             <img src={logo} alt='logo'/>
                         </NavLink>
                     </div>
-                    <div className="header-search__line">
-                        <input type="search" placeholder="Search"/>
-                    </div>
                     <div className="header-log-in">
 
                         {props.isAuth ? <div className="user__name">

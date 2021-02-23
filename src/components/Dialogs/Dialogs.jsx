@@ -83,7 +83,7 @@ const MessageForm = (props) => {
                 <Field className="materialize-textarea" placeholder="Your message"
                        name={"newMessageText"}
                        component={"textarea"} validate={required}/>
-                <button className="message-btn btn waves-effect waves-light yellow darken-2">
+                <button className="message-btn btn waves-effect waves-light">
                     POST
                 </button>
             </div>

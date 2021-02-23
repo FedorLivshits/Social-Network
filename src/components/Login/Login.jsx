@@ -1,6 +1,8 @@
 import React from 'react'
 import './Login.css'
 import {Field, reduxForm} from "redux-form";
+import login_img from "../../images/login-img.svg"
+import {required} from "../../utils/validators";
 
 function Login() {
     const onSubmit = (formData) => {
@@ -20,7 +22,8 @@ function Login() {
                         </div>
 
                     </div>
-                    <div className="login-slider__item-images">
+                    <div className="login__item-images">
+                        <img src={login_img} alt=""/>
                     </div>
                 </div>
             </div>
@@ -35,26 +38,24 @@ const LoginForm = (props) => {
             <div className="row">
                 <form className="col s12" onSubmit={props.handleSubmit}>
                     <div className="row">
-                        <div className="input-field col s12">
-                            <Field id="email" type="email" name={"email"} className="validate" placeholder="email"
-                                   component={'input'}/>
-                        </div>
+                        <Field id="email" type="email" name={"email"}  placeholder="email" className="validate"
+                               component={Input} validate={required}/>
                     </div>
                     <div className="row">
-                        <div className="input-field col s12">
-                            <Field id="password" type="password" name={"password"} className="validate" placeholder="password"
-                                   component={'input'}/>
-                        </div>
+                            <Field id="password" type="password" name={"password"}
+                                   className="validate"
+                                   placeholder="password"
+                                   component={Input} validate={required}/>
                     </div>
                     <div className="login-btns">
                         <p>
                             <label>
-                                <Field type="checkbox" className="filled-in"  name={"rememberMe"}  component={'input'}/>
+                                <Field type="checkbox" className="filled-in" name={"rememberMe"} component={'input'}/>
                                 <span className="span">Remember me</span>
                             </label>
                         </p>
                         <div className="btn-login__form">
-                            <button className="post-btn btn  login-btn yellow darken-2">
+                            <button className="post-btn btn  login-btn">
                                 Login
                             </button>
                         </div>
@@ -64,6 +65,18 @@ const LoginForm = (props) => {
         </div>
     )
 }
+
+export const Input = ({input, meta, ...props}) => {
+
+    const hasError = meta.touched &&  meta.error;
+    return(
+        <div className={"input-field col s12 " + (hasError ? "error" : "")} >
+            <input{...input} {...props}/>
+            { hasError && <div>{meta.error}</div>}
+        </div>
+    )
+}
+
 
 const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 

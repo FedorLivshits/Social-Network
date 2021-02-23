@@ -106,12 +106,12 @@
 }
 
 .my__message span{
-    background-color: rgba(250, 117, 100, 0.78);
+    background-color: white;
     color: #250F8A;
     font-weight: 600;
     font-size: 16px;
     padding: 10px 15px;
-    border-radius: 15px;
+    border-radius: 10px;
     max-width: 85%;
 }
 .friend__message{

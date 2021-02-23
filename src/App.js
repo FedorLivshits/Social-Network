@@ -9,6 +9,7 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import Footer from "./components/Footer/Footer";
+import About from "./components/About/About";
 
 
 
@@ -24,6 +25,7 @@ function App(props) {
                     <Route path='/dialogs' render={() => <DialogsContainer />}/>
                     <Route path='/users' render={() => <UsersContainer />}/>
                     <Route path='/login' render={() => <Login />}/>
+                    <Route path='/about' render={() => <About />}/>
                 </div>
             </div>
             <Footer/>

@@ -1,10 +1,11 @@
-.login__content{
+.login__content {
     border-radius: 3px;
     width: 100%;
-   display: flex;
+    display: flex;
     justify-content: space-between;
     margin-top: 200px;
 }
+
 .login-form {
     background-color: white;
     border-radius: 3px;
@@ -13,7 +14,7 @@
     min-width: 400px;
 }
 
-.login-btns{
+.login-btns {
     display: flex;
     justify-content: space-between;
 }
@@ -38,3 +39,21 @@
     margin-bottom: 60px;
 }
 
+.login__item-images {
+    position: absolute;
+    margin: 10px 82px 0 0;
+}
+
+.error {
+    border: 2px solid red;
+    border-radius: 3px;
+}
+
+.error div {
+    color: red;
+    margin-left: 10px;
+}
+
+.btn {
+    background-color: rgb(255, 202, 0);
+}

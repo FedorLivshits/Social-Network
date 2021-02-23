@@ -20,7 +20,7 @@ function Profile(props) {
                                 alt=""/>
                         </div>
                         <div className="profile__photo-btn">
-                            <a className="btn-floating btn-large waves-effect waves-light btn yellow darken-2"><i
+                            <a className="btn-floating btn-large waves-effect waves-light btn"><i
                                 className="material-icons">add</i></a>
                         </div>
                     </div>

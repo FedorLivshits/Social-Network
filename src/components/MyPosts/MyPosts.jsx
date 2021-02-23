@@ -45,7 +45,7 @@ const MyPostsForm = (props) => {
                                placeholder="What's new, darling?"
                                validate={required}
                         />
-                        <button className="post-btn btn waves-effect waves-light yellow darken-2">
+                        <button className="post-btn btn waves-effect waves-light">
                             POST
                         </button>
                     </div>

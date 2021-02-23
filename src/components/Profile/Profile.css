@@ -111,3 +111,7 @@
 .profile_no-status-text:hover{
     color: rgba(2, 30, 127, 0.8);
 }
+
+.btn {
+    background-color: rgb(251,192,45);
+}
