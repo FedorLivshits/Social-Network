@@ -29,7 +29,7 @@ function Login(props) {
 
                     </div>
                     <div className="login__item-images">
-                        <img src={login_img} alt=""/>
+                        {/*<img src={login_img} alt=""/>*/}
                     </div>
                 </div>
             </div>
@@ -60,6 +60,7 @@ const LoginForm = (props) => {
                                 <span className="span">Remember me</span>
                             </label>
                         </p>
+                        {props.error && <div>Error</div>}
                         <div className="btn-login__form">
                             <button className="post-btn btn  login-btn">
                                 Login

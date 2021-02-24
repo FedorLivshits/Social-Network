@@ -56,9 +56,6 @@ function Users(props) {
                                              className="circle"/>
                                         <div className="user-info">
                                             <span className="title">{u.name}</span>
-                                            <p>{"u.location.country"}<br/>
-                                                {"u.location.city"}
-                                            </p>
                                         </div>
                                     </NavLink>
                                     {u.followed

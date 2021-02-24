@@ -35,14 +35,24 @@ a {
 }
 
 
-.logout {
+.logout-btn {
     color: #250F8A;
     font-weight: 600;
-    background-color: #fff;
+    background-color: white;
+    padding: 5px 25px;
+    border-radius: 15px;
+    font-size: 16px;
 }
 
+.logout-btn:hover{
+    cursor: pointer;
+    background-color: rgb(255,202,0);
+    opacity: 1;
+    transition: all .3s;
+}
 .header-btn{
 display: flex;
+    align-items: center;
 }
 
 

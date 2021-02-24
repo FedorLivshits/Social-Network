@@ -1,7 +1,7 @@
 import React from 'react'
 import './Header.css'
 import logo from '../../images/logo.svg'
-import {NavLink, Redirect} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 function Header(props) {
 
@@ -21,9 +21,12 @@ function Header(props) {
                             <div className="user__name">
                                 {props.login}
                             </div>
-                              <button onClick={props.logout} className="logout">EXIT</button>
+                              {/*<button   className="logout">EXIT</button>*/}
+                                <a onClick={props.logout} className="logout-btn">
+                                    LOGOUT
+                                </a>
                             </div>
-                            : <NavLink to="/login">Login</NavLink>
+                            :  ""
                             }
                     </div>
                 </div>
