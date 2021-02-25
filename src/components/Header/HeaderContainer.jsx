@@ -4,6 +4,7 @@ import {logout} from "../../redux/auth-reducer";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {setLanguage} from "../../redux/lang-reducer";
 
 
 class HeaderContainer extends React.Component {
@@ -15,10 +16,11 @@ class HeaderContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
-    login: state.auth.login
+    login: state.auth.login,
+    lang: state.language.lang
 
 })
 
 export default compose(
-    connect(mapStateToProps, {logout}),
+    connect(mapStateToProps, {logout, setLanguage}),
 )(HeaderContainer);

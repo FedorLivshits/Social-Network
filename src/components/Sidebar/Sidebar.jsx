@@ -3,23 +3,39 @@ import './Sidebar.css'
 import {NavLink} from "react-router-dom";
 import {compose} from "redux";
 import {withAuthRedirect} from "../hoc/withAuthRedirect";
+import {connect} from "react-redux";
+import {setLanguage} from "../../redux/lang-reducer";
 
-function Sidebar() {
+function Sidebar(props) {
     return (
-        <section className="sidebar z-depth-2 ">
-            <aside className="menu">
+        <section className="sidebar">
+            { props.lang ? <aside className="menu">
                 <ul className="menu__list">
                     <li><NavLink to="/profile">HOME</NavLink></li>
                     <li><NavLink to="/dialogs">MESSAGES</NavLink></li>
                     <li><NavLink to="/users">USERS</NavLink></li>
                     <li><NavLink to="/about">ABOUT</NavLink></li>
                 </ul>
-            </aside>
+            </aside> :
+                <aside className="menu">
+                    <ul className="menu__list">
+                        <li><NavLink to="/profile">ПРОФИЛЬ</NavLink></li>
+                        <li><NavLink to="/dialogs">СООБЩЕНИЯ</NavLink></li>
+                        <li><NavLink to="/users">ПОЛЬЗОВАТЕЛИ</NavLink></li>
+                        <li><NavLink to="/about">О ПРОЕКТЕ</NavLink></li>
+                    </ul>
+                </aside>
+            }
+
         </section>
     );
 
 }
+const mapStateToProps = (state) => ({
+    lang: state.language.lang
+})
 
 export default compose (
-    withAuthRedirect
+    withAuthRedirect,
+    connect(mapStateToProps, {setLanguage})
 )(Sidebar);

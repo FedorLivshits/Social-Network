@@ -18,16 +18,20 @@ function Header(props) {
 
                         {props.isAuth ?
                             <div className="header-btn">
+                                <a className="lang-btn" onClick={props.setLanguage}>
+                                    {props.lang ?   "EN" : "RU"}
+                                </a>
                             <div className="user__name">
                                 {props.login}
                             </div>
-                              {/*<button   className="logout">EXIT</button>*/}
+
                                 <a onClick={props.logout} className="logout-btn">
                                     LOGOUT
                                 </a>
                             </div>
                             :  ""
                             }
+
                     </div>
                 </div>
             </div>

@@ -11,7 +11,7 @@ function Profile(props) {
     }
     return (
         <section className="profile__content">
-            <div className="color__wrapper z-depth-2">
+            <div className="color__wrapper ">
                 <div className="profile__inner z-depth-2">
                     <div className="profile__photo-box">
                         <div className="profile__photo">

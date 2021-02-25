@@ -31,11 +31,11 @@
     font-size: 35px;
     line-height: 45px;
     font-weight: 700;
-    padding: 68px 0 27px 48px;
+    padding: 0 0 27px 25px;
 }
 
 .advantages-box__text {
-    padding-left: 48px;
+    padding-left: 25px;
     color: white;
 }
 
@@ -49,4 +49,11 @@ max-width: 500px;
 .advantages-box--reverse .advantages-box__info {
     order: 1;
     background-position: 22px 130px;
+}
+
+p {
+    background-color: rgb(255, 255, 255);
+    color: #250F8A;
+    padding: 20px 20px;
+    border-radius: 3px;
 }

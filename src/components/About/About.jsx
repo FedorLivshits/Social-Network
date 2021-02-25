@@ -9,6 +9,9 @@ import advant_2 from "../../images/advant-2.png"
 const About = () => {
     return (
         <section className="about__content">
+
+
+
             <div className="advantages-box">
                 <div className="advantages-box__info">
                     <div className="advantages-box__title">
@@ -62,7 +65,36 @@ const About = () => {
                     <div className="advantages-box__images">
                         <img src={advant_1} alt=""/>
                     </div>
+
                 </div>
+            <div className="advantages-box">
+                <div className="advantages-box__info">
+                    <div className="advantages-box__title">
+                        Проект соц сети
+                    </div>
+                    <div className="advantages-box__text">
+                        <p>Представленная социальная сеть является почти что венцом React приложений. В этой социальной
+                            сети можно:
+
+                        </p>
+                        <p>
+                            Во вкладке "Пользователи":<br/>
+                            1. Добавлять других пользователей в друзья, а также их удалять (синхронизировано с сервером
+                            и Вашим логином)<br/>
+                            2. Смотреть профиль других пользователей (синхронизировано с сервером, каждый день новые
+                            пользователи)<br/>
+                            3. Переключаться между десятками страниц на каждой из которых можно увидеть до 12
+                            потенциальных друзей<br/>
+                            4. Переключение оформлено в юзабельный и симпатичный пагинатор<br/>
+                            5. При слабом интернет соединении вы увидите специальный загрузчик, а при добавлении в
+                            друзья, кнопка будет дизейблиться, чтобы не было соблазна нажать на неё 829 раз<br/>
+                        </p>
+                    </div>
+                </div>
+                <div className="advantages-box__images">
+                    <img src={advant_2} alt=""/>
+                </div>
+            </div>
         </section>
     )
 }

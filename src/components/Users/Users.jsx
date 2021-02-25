@@ -27,7 +27,7 @@ function Users(props) {
                     </div>
 
                 </div>
-                <ul className="pagination z-depth-2">
+                <ul className="pagination">
                     <li className="disabled"><a href="#!"><i className="material-icons">chevron_left</i></a>
                     </li>
                     {pages.slice(0, 10).map(page => {
@@ -49,7 +49,7 @@ function Users(props) {
                     <div className="users__column-1">
 
                         {props.users.map(u =>
-                            <ul className="collection z-depth-2">
+                            <ul className="collection">
                                 <li className="collection-item avatar">
                                     <NavLink to={'/profile/' + u.id}>
                                         <img src={u.photos.small != null ? u.photos.small : photo} alt="ava"

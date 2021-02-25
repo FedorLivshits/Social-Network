@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="footer__inner">
                 <div className="footer-menu">
 
-                    <a href="https://github.com/FedorLivshits/Social-Network">Github</a>
+                    <a href="https://github.com/FedorLivshits/Social-Network">GitHub</a>
 
                 </div>
                 <div className="footer-rights ">

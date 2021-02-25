@@ -62,3 +62,17 @@ display: flex;
     font-weight: 400;
     color: white;
 }
+
+.lang-btn{
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    margin-right: 35px;
+}
+.lang-btn:hover {
+    cursor: pointer;
+    opacity: 1;
+    transition: all .3s;
+    color: rgb(255,202,0)
+;
+}

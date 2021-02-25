@@ -56,13 +56,13 @@ function Dialogs(props) {
                 </div>
             </div>
             <div className="dialogs__inner">
-                <div className="dialogs__list z-depth-2">
+                <div className="dialogs__list">
                     <div className="collection">
                         {dialogsUsers}
                     </div>
                 </div>
 
-                <div className="dialog__window z-depth-2">
+                <div className="dialog__window">
                     <div className="dialog__messages">
                         {myDialogMessages}
                     </div>
@@ -79,7 +79,7 @@ function Dialogs(props) {
 
 const MessageForm = (props) => {
     return (
-        <form className="dialog__message-form z-depth-2" onSubmit={props.handleSubmit}>
+        <form className="dialog__message-form" onSubmit={props.handleSubmit}>
             <div className="input-field dialog__message-form-inside">
                 <Field className="materialize-textarea" placeholder="Your message"
                        name={"newMessageText"}
