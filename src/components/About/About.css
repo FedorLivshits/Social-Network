@@ -46,3 +46,7 @@
 .advantages-box__images img{
 max-width: 500px;
 }
+.advantages-box--reverse .advantages-box__info {
+    order: 1;
+    background-position: 22px 130px;
+}
