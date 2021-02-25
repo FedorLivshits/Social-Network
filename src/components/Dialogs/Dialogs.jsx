@@ -37,6 +37,7 @@ function MyDialogMessages(props) {
 
 
 function Dialogs(props) {
+
     const addNewMessage = (values) => {
         props.sendMessage(values.newMessageText);
     }

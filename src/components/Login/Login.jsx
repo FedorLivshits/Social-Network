@@ -20,11 +20,12 @@ function Login(props) {
                 <div className="login-slider__item-content">
                     <div className="login-slider__item-info">
                         <h3 className="login-slider__title">
-                            Welcome to MartaUP!
+                           Добро пожаловать в Социальную сеть!
                         </h3>
                         <div className="login-slider__descr">
-                            This is a social-network <br/>
-                            For startups, For businesses & For you
+                           - Это учебный, но тем не менее полноценный проект, написанный на React<br/>
+                         -  Подробнее почитать о том, что реализованно в приложении вы можете  во вкладке About<br/>
+                         - Спасибо и приятного вам User Experience!
                         </div>
 
                     </div>

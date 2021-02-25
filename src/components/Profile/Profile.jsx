@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './Profile.css'
 import photo from '../../images/profile-photo.svg'
 import MyPostsContainer from "../MyPosts/MyPostsContainer";
@@ -46,57 +46,104 @@ function Profile(props) {
     );
 }
 
-class ProfileStatus extends React.Component {
+// class ProfileStatus extends React.Component {
+//
+//     state = {
+//         editMode: false,
+//         status: this.props.status,
+//     }
+//     activateEditMode = () => {
+//         this.setState({
+//             editMode: true
+//         })
+//     }
+//     deactivateEditMode = () => {
+//         this.setState({
+//             editMode: false
+//         })
+//         this.props.updateProfileStatus(this.state.status)
+//     }
+//
+//     onStatusChange = (event) => {
+//         this.setState({
+//             status: event.currentTarget.value
+//         })
+//     }
+//
+//     componentDidUpdate(prevProps, prevState) {
+//         if(prevProps.status !== this.props.status){
+//             this.setState({
+//                 status:this.props.status
+//             })
+//         }
+//     }
+//
+//     render() {
+//         return (
+//             <div className="profile-status">
+//                 {!this.state.editMode ?
+//                     <div className="status-text" onClick={this.activateEditMode}>
+//                         {this.props.status || <div className="profile_no-status-text">Click to wtite a status</div>}
+//                     </div> :
+//                     <div className="status-form">
+//                         <div className="input-field col s6">
+//                             <input onChange={this.onStatusChange} autoFocus={true} id="input_text" type="text"
+//                                    placeholder="write and click anywhere" value={this.state.status}
+//                                    onBlur={this.deactivateEditMode}/>
+//                         </div>
+//                     </div>}
+//
+//             </div>
+//         )
+//     }
+//
+// }
 
-    state = {
-        editMode: false,
-        status: this.props.status,
-    }
-    activateEditMode = () => {
-        this.setState({
-            editMode: true
-        })
-    }
-    deactivateEditMode = () => {
-        this.setState({
-            editMode: false
-        })
-        this.props.updateProfileStatus(this.state.status)
+function ProfileStatus(props) {
+
+    let [editMode, setEditMode] = useState(false)
+    let [status, setStatus] = useState(props.status)
+
+    useEffect( () => {
+        setStatus(props.status)
+    }, [props.status])
+
+    let activateEditMode = () => {
+        setEditMode(true)
     }
 
-    onStatusChange = (event) => {
-        this.setState({
-            status: event.currentTarget.value
-        })
+    let  deactivateEditMode = () => {
+       setEditMode(false)
+       props.updateProfileStatus(status)
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if(prevProps.status !== this.props.status){
-            this.setState({
-                status:this.props.status
-            })
-        }
+     let  onStatusChange = (event) => {
+       setStatus(event.currentTarget.value)
     }
-
-    render() {
-        return (
-            <div className="profile-status">
-                {!this.state.editMode ?
-                    <div className="status-text" onClick={this.activateEditMode}>
-                        {this.props.status || <div className="profile_no-status-text">Click to wtite a status</div>}
-                    </div> :
-                    <div className="status-form">
-                        <div className="input-field col s6">
-                            <input onChange={this.onStatusChange} autoFocus={true} id="input_text" type="text"
-                                   placeholder="write and click anywhere" value={this.state.status}
-                                   onBlur={this.deactivateEditMode}/>
-                        </div>
+    return (
+        <div className="profile-status">
+            {!editMode
+                ?
+                <div className="status-text" onClick={activateEditMode}>
+                    {props.status ||
+                    <div className="profile_no-status-text" >
+                        Click to wtite a status
                     </div>}
+                </div>
+                :
+                <div className="status-form">
+                    <div className="input-field col s6">
+                        <input  onChange={onStatusChange} autoFocus={true} id="input_text" type="text"
+                               placeholder="write and click anywhere"
+                               onBlur={deactivateEditMode}
+                                value={status}
+                        />
+                    </div>
+                </div>
+            }
 
-            </div>
-        )
-    }
-
+        </div>
+    )
 }
 
 export default Profile;
