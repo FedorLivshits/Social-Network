@@ -31,7 +31,7 @@
 
 .menu__list li a.active{
     opacity: 1;
-    color: darkblue;
+    color: rgb(27, 36, 99);
     font-size: 16px;
 }
 
@@ -53,7 +53,7 @@
 
 .menu__list-ru li a.active{
     opacity: 1;
-    color: darkblue;
+    color: rgb(27, 36, 99);
     font-size: 15px;
 }
 

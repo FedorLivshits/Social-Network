@@ -4,9 +4,10 @@ import about_img from "../../images/about-img.png"
 import advant_1 from "../../images/advant-1.png"
 import advant_2 from "../../images/advant-2.png"
 import login_img from "../../images/login-img.svg"
+import {connect} from "react-redux";
 
 
-const About = () => {
+const About = (props) => {
     return (
         <section className="about__content">
 
@@ -98,11 +99,20 @@ const About = () => {
             <div className="about__item-images">
                 <img src={login_img} alt=""/>
                 <div className="advantages-box__title-end">
-                   Спасибо!
+                    {props.lang === "EN" ? "Спасибо!" : "Thank you!"}
                 </div>
             </div>
         </section>
     )
 }
 
-export default About;
+const mapStateToProps = (state) =>(
+    {
+       lang: state.language.lang
+    }
+)
+
+
+
+
+export default connect(mapStateToProps)(About);

@@ -73,19 +73,28 @@ a {
 }
 
 .lang-btn {
+    margin-right: 35px;
+    display: flex;
+    align-items: center;
+
+}
+.lang-btn a{
     font-size: 18px;
     font-weight: 400;
     color: white;
-    margin-right: 35px;
 }
 
 .lang-btn:hover {
     cursor: pointer;
-    opacity: 1;
-    transition: all .3s;
     color: rgb(255, 202, 0);
 }
 
-.material-icons{
+.lang-btn i{
     color: white;
+    padding-left: 5px;
+}
+.lang-btn i:hover {
+    opacity: 1;
+    transition: all .3s;
+    color: rgb(255, 202, 0);
 }

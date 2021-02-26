@@ -15,13 +15,16 @@ function Header(props) {
                     </div>
                     <div className="header-log-in">
                         <div className="header-all-btn">
-                            {(props.lang === "RU") ?
-                                <a className="lang-btn" onClick={props.setEnLanguage}>
-                                EN
-                            </a> : <a className="lang-btn" onClick={props.setRuLanguage}>
-                                RU
-                            </a>}
-                            <i className="small material-icons">language</i>
+                            {(props.lang === "RU")
+                                ?
+                                <div className="lang-btn" onClick={props.setEnLanguage}><a >
+                                    EN
+                                </a> <i className="small material-icons">language</i></div>
+                                :
+                                <div className="lang-btn" onClick={props.setRuLanguage}><a >
+                                    RU
+                                </a> <i className="small material-icons">language</i></div>}
+
                             {props.isAuth ?
                                 <div className="header-btn">
 
