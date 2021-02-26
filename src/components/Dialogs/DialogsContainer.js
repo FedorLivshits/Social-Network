@@ -11,6 +11,7 @@ import {compose} from "redux";
 let mapStateToProps = (state) => {
     return {
         dialogsPage: state.dialogsPage,
+        lang: state.language.lang
     }
 }
 let mapDispatchToProps = (dispatch) => {

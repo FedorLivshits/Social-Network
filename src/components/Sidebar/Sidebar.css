@@ -20,7 +20,7 @@
     color: #202020;
     font-weight: 600;
     font-size: 14px;
-    margin: 21%;
+    margin: 25%;
 }
 
 .menu__list a:hover {
@@ -34,3 +34,26 @@
     color: darkblue;
     font-size: 16px;
 }
+
+.menu__list-ru a {
+    /*margin-left: 55px;*/
+    line-height: 35px;
+    opacity: 0.5;
+    color: #202020;
+    font-weight: 600;
+    font-size: 13px;
+    margin: 21%;
+}
+
+.menu__list-ru a:hover {
+    opacity: 1;
+    transition: all .3s;
+    color: darkblue;
+}
+
+.menu__list-ru li a.active{
+    opacity: 1;
+    color: darkblue;
+    font-size: 15px;
+}
+

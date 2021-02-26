@@ -1,10 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Header.css'
 import logo from '../../images/logo.svg'
 import {NavLink} from "react-router-dom";
 
 function Header(props) {
-
     return (
         <header className="header ">
             <div className="container">
@@ -15,23 +14,26 @@ function Header(props) {
                         </NavLink>
                     </div>
                     <div className="header-log-in">
+                        <div className="header-all-btn">
+                            {(props.lang === "RU") ? <a className="lang-btn" onClick={props.setEnLanguage}>
+                                EN
+                            </a> : <a className="lang-btn" onClick={props.setRuLanguage}>
+                                RU
+                            </a>}
+                            {props.isAuth ?
+                                <div className="header-btn">
 
-                        {props.isAuth ?
-                            <div className="header-btn">
-                                <a className="lang-btn" onClick={props.setLanguage}>
-                                    {props.lang ?   "EN" : "RU"}
-                                </a>
-                            <div className="user__name">
-                                {props.login}
-                            </div>
+                                    <div className="user__name">
+                                        {props.login}
+                                    </div>
 
-                                <a onClick={props.logout} className="logout-btn">
-                                    LOGOUT
-                                </a>
-                            </div>
-                            :  ""
+                                    <a onClick={props.logout} className="logout-btn">
+                                        {(props.lang === "EN") ? "ВЫЙТИ" : "LOGOUT"}
+                                    </a>
+                                </div>
+                                : ""
                             }
-
+                        </div>
                     </div>
                 </div>
             </div>

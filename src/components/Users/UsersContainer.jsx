@@ -37,6 +37,7 @@ class UsersContainer extends React.Component {
                    isFetching={this.props.isFetching}
                    followingInProgress={this.props.followingInProgress}
                    toggleFollowingInProgress={this.props.toggleFollowingInProgress}
+                   lang={this.props.lang}
             />
 
         )
@@ -52,7 +53,8 @@ const mapStateToProps = (state) => {
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress
+        followingInProgress: state.usersPage.followingInProgress,
+        lang: state.language.lang
     }
 }
 export default compose(

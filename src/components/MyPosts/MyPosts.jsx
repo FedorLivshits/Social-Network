@@ -18,11 +18,11 @@ function MyPosts(props) {
     return (
         <div className="posts__inner">
             <div className="posts-title">
-                My Posts
+                {(props.lang === "EN") ? "Мои Посты" : "My Posts"}
             </div>
             <div className="posts__box z-depth-2">
 
-                <MyPostsReduxForm onSubmit={addNewPost} />
+                <MyPostsReduxForm onSubmit={addNewPost} {...props}/>
 
                 {posts}
 
@@ -42,11 +42,11 @@ const MyPostsForm = (props) => {
                         <Field className="materialize-textarea"
                                name={"newPostText"}
                                component={"textarea"}
-                               placeholder="What's new, darling?"
+                               placeholder= {(props.lang === "EN") ? "Что нового?" : "What's new?"}
                                validate={required}
                         />
                         <button className="post-btn btn waves-effect waves-light">
-                            POST
+                            {(props.lang === "EN") ? "Пост" : "POST"}
                         </button>
                     </div>
                 </div>

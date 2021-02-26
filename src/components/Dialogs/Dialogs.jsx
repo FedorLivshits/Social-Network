@@ -49,10 +49,7 @@ function Dialogs(props) {
         <section className="dialogs__content">
             <div className="dialogs__header z-depth-2">
                 <div className="dialogs__title">
-                    Write friends here
-                </div>
-                <div className="dialogs-search__input">
-                    <input type="text" placeholder="find a friend"/>
+                    {(props.lang === "EN") ? "Напишите друзьям здесь" : "Write friends here"}
                 </div>
             </div>
             <div className="dialogs__inner">
@@ -68,7 +65,7 @@ function Dialogs(props) {
                     </div>
 
 
-                    <MessageReduxForm onSubmit={addNewMessage}/>
+                    <MessageReduxForm onSubmit={addNewMessage} lang={props.lang}/>
                 </div>
 
             </div>
@@ -85,7 +82,7 @@ const MessageForm = (props) => {
                        name={"newMessageText"}
                        component={"textarea"} validate={required}/>
                 <button className="message-btn btn waves-effect waves-light">
-                    POST
+                    {(props.lang === "EN") ? "Отпр" : "Send"}
                 </button>
             </div>
         </form>

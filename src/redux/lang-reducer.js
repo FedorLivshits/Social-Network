@@ -1,16 +1,22 @@
-const SET_LANGUAGE = 'SET_LANGUAGE'
+const SET_ENGLISH_LANGUAGE = 'SET_ENGLISH_LANGUAGE'
+const SET_RUSSIAN_LANGUAGE = 'SET_RUSSIAN_LANGUAGE'
 
 let initialState = {
-    lang: false,
+    lang: "RU",
 }
 
 const langReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case SET_LANGUAGE:
+        case SET_ENGLISH_LANGUAGE:
             return {
                 ...state,
-                lang: true,
+                lang: "EN",
+            };
+        case SET_RUSSIAN_LANGUAGE:
+            return {
+                ...state,
+                lang: "RU",
             };
 
         default:
@@ -19,7 +25,8 @@ const langReducer = (state = initialState, action) => {
     }
 }
 
-export const setLanguage = () => ({type: SET_LANGUAGE})
+export const setEnLanguage = () => ({type: SET_ENGLISH_LANGUAGE})
+export const setRuLanguage = () => ({type: SET_RUSSIAN_LANGUAGE})
 
 
 export default langReducer;

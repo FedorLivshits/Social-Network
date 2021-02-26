@@ -4,12 +4,13 @@ import {NavLink} from "react-router-dom";
 import {compose} from "redux";
 import {withAuthRedirect} from "../hoc/withAuthRedirect";
 import {connect} from "react-redux";
-import {setLanguage} from "../../redux/lang-reducer";
+import {setEnLanguage, setRuLanguage} from "../../redux/lang-reducer";
+
 
 function Sidebar(props) {
     return (
         <section className="sidebar">
-            { props.lang ? <aside className="menu">
+            { (props.lang === "RU") ? <aside className="menu">
                 <ul className="menu__list">
                     <li><NavLink to="/profile">HOME</NavLink></li>
                     <li><NavLink to="/dialogs">MESSAGES</NavLink></li>
@@ -18,7 +19,7 @@ function Sidebar(props) {
                 </ul>
             </aside> :
                 <aside className="menu">
-                    <ul className="menu__list">
+                    <ul className="menu__list-ru">
                         <li><NavLink to="/profile">ПРОФИЛЬ</NavLink></li>
                         <li><NavLink to="/dialogs">СООБЩЕНИЯ</NavLink></li>
                         <li><NavLink to="/users">ПОЛЬЗОВАТЕЛИ</NavLink></li>
@@ -37,5 +38,5 @@ const mapStateToProps = (state) => ({
 
 export default compose (
     withAuthRedirect,
-    connect(mapStateToProps, {setLanguage})
+    connect(mapStateToProps, {setEnLanguage, setRuLanguage})
 )(Sidebar);

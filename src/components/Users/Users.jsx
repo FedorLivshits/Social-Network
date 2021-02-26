@@ -20,12 +20,8 @@ function Users(props) {
 
                 <div className="users__header z-depth-2">
                     <div className="users__title">
-                        Find and add friends here
+                        {(props.lang === "EN") ? "Найдите и добавьте друзей здесь" : "Find and add friends here"}
                     </div>
-                    <div className="users-search__input">
-                        <input type="text" placeholder="find a user"/>
-                    </div>
-
                 </div>
                 <ul className="pagination">
                     <li className="disabled"><a href="#!"><i className="material-icons">chevron_left</i></a>
