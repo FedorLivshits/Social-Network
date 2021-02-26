@@ -3,7 +3,7 @@ import './About.css'
 import about_img from "../../images/about-img.png"
 import advant_1 from "../../images/advant-1.png"
 import advant_2 from "../../images/advant-2.png"
-
+import login_img from "../../images/login-img.svg"
 
 
 const About = () => {
@@ -93,6 +93,12 @@ const About = () => {
                 </div>
                 <div className="advantages-box__images">
                     <img src={advant_2} alt=""/>
+                </div>
+            </div>
+            <div className="about__item-images">
+                <img src={login_img} alt=""/>
+                <div className="advantages-box__title-end">
+                   Спасибо!
                 </div>
             </div>
         </section>

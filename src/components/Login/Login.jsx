@@ -1,7 +1,6 @@
 import React from 'react'
 import './Login.css'
 import {Field, reduxForm} from "redux-form";
-import login_img from "../../images/login-img.svg"
 import {required} from "../../utils/validators";
 import {connect} from "react-redux";
 import {login, logout} from "../../redux/auth-reducer";
@@ -45,9 +44,6 @@ function Login(props) {
                         </div>}
 
 
-                    <div className="login__item-images">
-                        {/*<img src={login_img} alt=""/>*/}
-                    </div>
                 </div>
             </div>
             <LoginReduxForm onSubmit={onSubmit} lang={props.lang}/>
@@ -67,13 +63,13 @@ const LoginForm = (props) => {
                     <div className="row">
                         <Field id="password" type="password" name={"password"}
                                className="validate"
-                               placeholder="password"
+                               placeholder={(props.lang === "EN") ? "Пароль" : "Password"}
                                component={Input} validate={required}/>
                     </div>
                     <div className="login-btns">
                         <label>
                             <Field type="checkbox" className="filled-in" name={"rememberMe"} component={'input'}/>
-                            <span className="span">Remember me</span>
+                            <span className="span">  {(props.lang === "EN") ? "Запомнить меня" : "Remember me"}</span>
                         </label>
                         {props.error && <div>Error</div>}
                         <div className="btn-login__form">

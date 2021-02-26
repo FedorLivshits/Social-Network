@@ -1,5 +1,8 @@
-
 .posts{
+    display: flex;
+    justify-content: space-between;
+}
+.post-text{
     margin-left: 50px;
     margin-bottom: 40px;
     padding-bottom: 30px;
@@ -19,4 +22,8 @@
 .post{
     position: relative;
     margin-left: 70px;
+}
+
+.delete__post-btn{
+    margin-right: 62px;
 }

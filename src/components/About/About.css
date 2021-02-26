@@ -41,6 +41,7 @@
 
 .advantages-box__text p {
     margin: 12px 0;
+    font-size: 15px;
 }
 
 .advantages-box__images img{
@@ -56,4 +57,17 @@ p {
     color: #250F8A;
     padding: 20px 20px;
     border-radius: 3px;
+}
+
+.about__item-images{
+    text-align: center;
+    margin-top: 80px;
+}
+
+.advantages-box__title-end{
+    color: #ffffff;
+    font-size: 35px;
+    line-height: 45px;
+    font-weight: 700;
+    margin-top: 30px;
 }

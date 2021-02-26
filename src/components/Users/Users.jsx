@@ -57,15 +57,17 @@ function Users(props) {
                                     {u.followed
                                         ?
 
-                                        <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                                            props.unfollow(u.id)
-                                        }} className="btn-floating btn-user indigo darken-3">
+                                        <button disabled={props.followingInProgress.some(id => id === u.id)}
+                                                onClick={() => {
+                                                    props.unfollow(u.id)
+                                                }} className="btn-floating btn-user indigo darken-3">
                                             <i className="material-icons">delete</i>
                                         </button>
                                         :
-                                        <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                                            props.follow(u.id)
-                                        }} className="btn-floating btn-user yellow darken-2">
+                                        <button disabled={props.followingInProgress.some(id => id === u.id)}
+                                                onClick={() => {
+                                                    props.follow(u.id)
+                                                }} className="btn-floating btn-user yellow darken-2">
                                             <i className="material-icons">add</i>
                                         </button>}
 
