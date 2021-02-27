@@ -3,13 +3,14 @@ import './Users.css'
 import photo from '../../images/profile-photo.svg'
 import Preloader from "../Preloader/Preloader";
 import {NavLink} from "react-router-dom";
+import Paginator from "../Paginator/Paginator";
 
 function Users(props) {
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
-    let pages = []
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i)
-    }
+    // let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
+    // let pages = []
+    // for (let i = 1; i <= pagesCount; i++) {
+    //     pages.push(i)
+    // }
     return (
         <section className="users__content ">
 
@@ -20,20 +21,20 @@ function Users(props) {
                         {(props.lang === "EN") ? "Найдите и добавьте друзей здесь" : "Find and add friends here"}
                     </div>
                 </div>
-                <ul className="pagination">
-                    <li className="disabled"><a href="#!"><i className="material-icons">chevron_left</i></a>
-                    </li>
-                    {pages.slice(0, 10).map(page => {
-                        return (
-                            <li className={props.currentPage === page && "active"} onClick={(e) => {
-                                props.onPageChanged(page)
-                            }}><a href="#!">{page}</a>
-                            </li>)
-                    })}
-
-                    <li className="waves-effect"><a href="#!"><i
-                        className="material-icons">chevron_right</i></a></li>
-                </ul>
+                {/*<ul className="pagination">*/}
+                {/*    <li className="disabled"><a href="#!"><i className="material-icons">chevron_left</i></a>*/}
+                {/*    </li>*/}
+                {/*    {pages.slice(0, 10).map(page => {*/}
+                {/*        return (*/}
+                {/*            <li className={props.currentPage === page && "active"} onClick={(e) => {*/}
+                {/*                props.onPageChanged(page)*/}
+                {/*            }}><a href="#!">{page}</a>*/}
+                {/*            </li>)*/}
+                {/*    })}*/}
+                {/*    <li className="waves-effect"><a href="#!"><i*/}
+                {/*        className="material-icons">chevron_right</i></a></li>*/}
+                {/*</ul>*/}
+                <Paginator {...props}/>
                 <div className="preloader__box">
                     {props.isFetching ? <Preloader/> : null}
                 </div>
