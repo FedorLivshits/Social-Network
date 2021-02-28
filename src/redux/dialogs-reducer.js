@@ -1,4 +1,5 @@
 const SEND_MESSAGE = 'dialogs/SEND-MESSAGE'
+const SET_FRIENDS = 'dialogs/SET_FRIENDS'
 
 let initialState = {
     dialogsData: [
@@ -10,10 +11,8 @@ let initialState = {
         {name: 'Pavel Ostapchuk', id: '6'},
     ],
     myMessages: [
-        {id: "Fedor", message: 'Я давно хотел сказать'},
-        {id: "Fedor", message: 'мне тяжело это признавать'},
-        {id: "Fedor", message: 'и вспоминать свое грязное прошлое...'},
-        {id: "Fedor", message: 'я закончил юрфак спбгу'},
+        {id: "Fedor", message: 'Привет)'},
+        {id: "Fedor", message: 'Как твои дела?'},
     ],
 }
 
