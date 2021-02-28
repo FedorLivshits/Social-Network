@@ -34,7 +34,9 @@ function Users(props) {
                 {/*    <li className="waves-effect"><a href="#!"><i*/}
                 {/*        className="material-icons">chevron_right</i></a></li>*/}
                 {/*</ul>*/}
-                <Paginator {...props}/>
+                <Paginator totalUsersCount={props.totalUsersCount} pageSize={props.pageSize}
+                           onPageChanged={props.onPageChanged}
+                           currentPage={props.currentPage} portionSize={props.portionSize}/>
                 <div className="preloader__box">
                     {props.isFetching ? <Preloader/> : null}
                 </div>
