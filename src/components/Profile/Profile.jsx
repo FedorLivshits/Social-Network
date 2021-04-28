@@ -33,8 +33,8 @@ function Profile(props) {
                         <ProfileStatus status={props.status} updateProfileStatus={props.updateProfileStatus}/>
 
                         <div className="profile___info-descr">
-                            {/*<li><b>ABOUT ME:</b> {props.profile.aboutMe}</li>*/}
-                            {/*<li><b>LOOKING FOR A JOB:</b> {props.profile.lookingForAJobDescription}</li>*/}
+                            <li><b>ABOUT ME:</b> {props.profile.aboutMe}</li>
+                            <li><b>LOOKING FOR A JOB:</b> {props.profile.lookingForAJobDescription}</li>
                         </div>
                     </div>
                 </div>

@@ -6,12 +6,11 @@ const SET_USER_PROFILE = 'profile/SET_USER_PROFILE'
 const SET_PROFILE_STATUS = 'profile/SET_PROFILE_STATUS'
 
 
-let todoId = 4;
+let todoId = 3;
 let initialState = {
     postMessages: [
-        {id: 1, message: 'В процессе разработки'},
-        {id: 2, message: 'Свободу Алексею Навальному!'},
-        {id: 3, message: 'HTML5/CSS3, JavaScript, TypeScript, React/Redux, REST-API'},
+        {id: 1, message: 'В процессе разработки'}, ,
+        {id: 2, message: 'HTML5/CSS3, JavaScript, TypeScript, React/Redux, REST-API'},
     ],
     profile: null,
     status: '',
