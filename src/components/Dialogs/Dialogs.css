@@ -83,9 +83,6 @@
     overflow: auto;
     height: 500px;
 }
-::-webkit-scrollbar{
-    width: 0px;
-}
 
 
 .dialog__window{

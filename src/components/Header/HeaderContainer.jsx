@@ -2,9 +2,8 @@ import React from 'react'
 import Header from "./Header";
 import {logout} from "../../redux/auth-reducer";
 import {connect} from "react-redux";
-import {withAuthRedirect} from "../hoc/withAuthRedirect";
 import {compose} from "redux";
-import {setEnLanguage, setLanguage, setRuLanguage} from "../../redux/lang-reducer";
+import {setEnLanguage, setRuLanguage} from "../../redux/lang-reducer";
 
 
 class HeaderContainer extends React.Component {

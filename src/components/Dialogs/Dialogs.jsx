@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Dialogs.css'
 import photo from '../../images/profile-photo.svg'
 import {NavLink} from "react-router-dom";
@@ -65,7 +65,7 @@ function Dialogs(props) {
                     </div>
 
 
-                    <MessageReduxForm onSubmit={addNewMessage} lang={props.lang}/>
+                    <MessageForm sendMessage={props.sendMessage} lang={props.lang}/>
                 </div>
 
             </div>
@@ -75,21 +75,37 @@ function Dialogs(props) {
 
 
 const MessageForm = (props) => {
+    const [text, setText] = useState("")
+
+
+    const onTextChange = (e) =>{
+        setText(e.target.value)
+    }
+    const onAddMessage = () =>{
+        props.sendMessage(text)
+        setText('')
+    }
+    const enterCity = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault()
+            props.sendMessage(text)
+            setText('')
+        }
+    }
     return (
-        <form className="dialog__message-form" onSubmit={props.handleSubmit}>
+        <div className="dialog__message-form" >
             <div className="input-field dialog__message-form-inside">
-                <Field className="materialize-textarea" placeholder="Your message"
-                       name={"newMessageText"}
-                       component={"textarea"} validate={required}/>
-                <button className="message-btn btn waves-effect waves-light">
+                <textarea className="materialize-textarea" placeholder="Your message"
+                       name={"newMessageText"} onChange={onTextChange} value={text} onKeyPress={enterCity}/>
+                <button className="message-btn btn waves-effect waves-light" onClick={onAddMessage}>
                     {(props.lang === "EN") ? "Отпр" : "Send"}
                 </button>
             </div>
-        </form>
+        </div>
     )
 }
 
-const MessageReduxForm = reduxForm({form: 'messageForm'})(MessageForm)
+
 
 
 export default Dialogs;

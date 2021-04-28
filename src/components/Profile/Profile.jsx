@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import './Profile.css'
 import photo from '../../images/profile-photo.svg'
 import MyPostsContainer from "../MyPosts/MyPostsContainer";
 import Preloader from "../Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus";
 
 
 function Profile(props) {
@@ -46,104 +47,5 @@ function Profile(props) {
     );
 }
 
-// class ProfileStatus extends React.Component {
-//
-//     state = {
-//         editMode: false,
-//         status: this.props.status,
-//     }
-//     activateEditMode = () => {
-//         this.setState({
-//             editMode: true
-//         })
-//     }
-//     deactivateEditMode = () => {
-//         this.setState({
-//             editMode: false
-//         })
-//         this.props.updateProfileStatus(this.state.status)
-//     }
-//
-//     onStatusChange = (event) => {
-//         this.setState({
-//             status: event.currentTarget.value
-//         })
-//     }
-//
-//     componentDidUpdate(prevProps, prevState) {
-//         if(prevProps.status !== this.props.status){
-//             this.setState({
-//                 status:this.props.status
-//             })
-//         }
-//     }
-//
-//     render() {
-//         return (
-//             <div className="profile-status">
-//                 {!this.state.editMode ?
-//                     <div className="status-text" onClick={this.activateEditMode}>
-//                         {this.props.status || <div className="profile_no-status-text">Click to wtite a status</div>}
-//                     </div> :
-//                     <div className="status-form">
-//                         <div className="input-field col s6">
-//                             <input onChange={this.onStatusChange} autoFocus={true} id="input_text" type="text"
-//                                    placeholder="write and click anywhere" value={this.state.status}
-//                                    onBlur={this.deactivateEditMode}/>
-//                         </div>
-//                     </div>}
-//
-//             </div>
-//         )
-//     }
-//
-// }
-
-function ProfileStatus(props) {
-
-    let [editMode, setEditMode] = useState(false)
-    let [status, setStatus] = useState(props.status)
-
-    useEffect( () => {
-        setStatus(props.status)
-    }, [props.status])
-
-    let activateEditMode = () => {
-        setEditMode(true)
-    }
-
-    let  deactivateEditMode = () => {
-       setEditMode(false)
-       props.updateProfileStatus(status)
-    }
-
-     let  onStatusChange = (event) => {
-       setStatus(event.currentTarget.value)
-    }
-    return (
-        <div className="profile-status">
-            {!editMode
-                ?
-                <div className="status-text" onClick={activateEditMode}>
-                    {props.status ||
-                    <div className="profile_no-status-text" >
-                        Click to wtite a status
-                    </div>}
-                </div>
-                :
-                <div className="status-form">
-                    <div className="input-field col s6">
-                        <input  onChange={onStatusChange} autoFocus={true} id="input_text" type="text"
-                               placeholder="write and click anywhere"
-                               onBlur={deactivateEditMode}
-                                value={status}
-                        />
-                    </div>
-                </div>
-            }
-
-        </div>
-    )
-}
 
 export default Profile;

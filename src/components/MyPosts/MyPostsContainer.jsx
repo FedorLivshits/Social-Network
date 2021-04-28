@@ -2,7 +2,6 @@ import React from "react";
 import {addPostActionCreator, deletePost} from "../../redux/profile-reducer";
 import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
-import {setEnLanguage, setRuLanguage} from "../../redux/lang-reducer";
 
 
 let mapStateToProps = (state) => {
