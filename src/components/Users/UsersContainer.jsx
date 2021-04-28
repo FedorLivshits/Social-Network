@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {connect} from "react-redux";
 import {
     follow, getUsers,
@@ -21,35 +21,32 @@ import {
 } from "../../redux/users-selectors";
 
 
-class UsersContainer extends React.Component {
+function UsersContainer(props) {
 
-    componentDidMount() {
-      this.props.getUsers(this.props.currentPage, this.props.pageSize) // thunk - getUsers
+    useEffect(() => {
+        props.getUsers(props.currentPage, props.pageSize)
+    }, [])
+
+    const onPageChanged = (page) => {
+        props.setCurrentPage(page);
+        props.getUsers(page, props.pageSize)
     }
 
-    onPageChanged = (page) => {
-        this.props.setCurrentPage(page);
-       this.props.getUsers(page, this.props.pageSize)
-    }
+    return (
+        <Users totalUsersCount={props.totalUsersCount}
+               pageSize={props.pageSize}
+               currentPage={props.currentPage}
+               follow={props.follow}
+               unfollow={props.unfollow}
+               onPageChanged={onPageChanged}
+               users={props.users}
+               isFetching={props.isFetching}
+               followingInProgress={props.followingInProgress}
+               toggleFollowingInProgress={props.toggleFollowingInProgress}
+               lang={props.lang}
+        />
 
-    render() {
-        return (
-            <Users totalUsersCount={this.props.totalUsersCount}
-                   pageSize={this.props.pageSize}
-                   currentPage={this.props.currentPage}
-                   follow={this.props.follow}
-                   unfollow={this.props.unfollow}
-                   onPageChanged={this.onPageChanged}
-                   users={this.props.users}
-                   isFetching={this.props.isFetching}
-                   followingInProgress={this.props.followingInProgress}
-                   toggleFollowingInProgress={this.props.toggleFollowingInProgress}
-                   lang={this.props.lang}
-            />
-
-        )
-
-    }
+    )
 }
 
 
