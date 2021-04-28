@@ -1,5 +1,5 @@
 import React from "react";
-import {addPostActionCreator} from "../../redux/profile-reducer";
+import {addPostActionCreator, deletePost} from "../../redux/profile-reducer";
 import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
 import {setEnLanguage, setRuLanguage} from "../../redux/lang-reducer";
@@ -15,6 +15,9 @@ let mapDispatchToProps = (dispatch) => {
     return {
         addPost: (newPostText) => {
             dispatch(addPostActionCreator(newPostText))
+        },
+        deletePost: (id) => {
+            dispatch(deletePost(id))
         }
     }
 }

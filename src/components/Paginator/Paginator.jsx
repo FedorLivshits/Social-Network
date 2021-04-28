@@ -15,11 +15,6 @@ const Paginator = ({totalUsersCount, pageSize, onPageChanged, currentPage, porti
     let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1
     let rightPortionPageNumber = portionNumber * portionSize
 
-
-
-
-
-
     return  <ul className="pagination">
         {portionNumber > 1 &&
         <i className="material-icons chevron"  onClick={() => {setPortionNumber(portionNumber-1)}}>chevron_left</i>

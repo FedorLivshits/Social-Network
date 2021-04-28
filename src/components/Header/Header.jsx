@@ -31,7 +31,6 @@ function Header(props) {
                                     <div className="user__name">
                                         {props.login}
                                     </div>
-
                                     <a onClick={props.logout} className="logout-btn">
                                         {(props.lang === "EN") ? "ВЫЙТИ" : "LOGOUT"}
                                     </a>

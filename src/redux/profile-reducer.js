@@ -1,10 +1,12 @@
 import {profileAPI} from "../api/api";
 
 const ADD_POST = 'profile/ADD-POST';
+const DELETE_POST = 'profile/DELETE_POST'
 const SET_USER_PROFILE = 'profile/SET_USER_PROFILE'
 const SET_PROFILE_STATUS = 'profile/SET_PROFILE_STATUS'
 
 
+let todoId = 4;
 let initialState = {
     postMessages: [
         {id: 1, message: 'В процессе разработки'},
@@ -23,7 +25,7 @@ const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             let newPost = {
-                id: 4,
+                id: todoId++,
                 message: action.newPostText,
             };
             let text = action.newPostText;
@@ -39,14 +41,16 @@ const profileReducer = (state = initialState, action) => {
         case SET_PROFILE_STATUS: {
             return {...state, status: action.status}
         }
+        case DELETE_POST: {
+            return {...state, postMessages: state.postMessages.filter(p => p.id !== action.id) }
+        }
         default:
             return state;
     }
 }
 
 export const addPostActionCreator = (newPostText) => ({type: ADD_POST, newPostText});
-
-
+export const deletePost = (id) => ({type: DELETE_POST, id});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 export const setProfileStatus = (status) => ({type: SET_PROFILE_STATUS, status})
 

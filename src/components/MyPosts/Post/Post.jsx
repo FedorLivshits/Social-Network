@@ -3,6 +3,9 @@ import './Post.css'
 import photo from '../../../images/profile-photo.svg'
 
 function Post(props) {
+const onPostDelete = () => {
+    props.deletePost(props.id)
+}
     return (
         <div className="posts">
             <div className="post-text">
@@ -13,7 +16,7 @@ function Post(props) {
                 {props.message}
             </div>
             </div>
-            <button className="btn-floating btn-user delete__post-btn indigo darken-3">
+            <button className="btn-floating btn-user delete__post-btn indigo darken-3" onClick={onPostDelete}>
                 <i className="material-icons">delete</i>
             </button>
         </div>

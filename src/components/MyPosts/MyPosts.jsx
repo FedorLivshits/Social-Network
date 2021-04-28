@@ -1,17 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import './MyPosts.css'
 import Post from "./Post/Post";
-import {Field, reduxForm} from "redux-form";
-import {required} from "../../utils/validators";
 
 
 function MyPosts(props) {
-    const addNewPost = (values) => {
-        props.addPost(values.newPostText);
-    }
 
     let posts = props.postMessages.map(post => {
-        return <Post message={post.message} key={post.id}/>
+        return <Post  id={post.id} message={post.message} key={post.id} deletePost={props.deletePost}/>
     })
 
 
@@ -22,7 +17,7 @@ function MyPosts(props) {
             </div>
             <div className="posts__box z-depth-2">
 
-                <MyPostsReduxForm onSubmit={addNewPost} {...props}/>
+                <MyPostsForm addPost={props.addPost} {...props}/>
 
                 {posts}
 
@@ -33,28 +28,34 @@ function MyPosts(props) {
 }
 
 const MyPostsForm = (props) => {
+    const [text, setText] = useState('')
 
+    const onTextChange = (e) =>{
+        setText(e.target.value)
+    }
+    const onAddPost = () =>{
+        props.addPost(text)
+        setText('')
+    }
     return (
         <div className="row">
-            <form className="col s12" onSubmit={props.handleSubmit}>
+            <div className="col s12" >
                 <div className="row">
                     <div className="input-field col s12">
-                        <Field className="materialize-textarea"
+                        <textarea className="materialize-textarea"
+                                  value={text}
+                                  onChange={onTextChange}
                                name={"newPostText"}
-                               component={"textarea"}
                                placeholder= {(props.lang === "EN") ? "Что нового?" : "What's new?"}
-                               validate={required}
                         />
-                        <button className="post-btn btn waves-effect waves-light">
+                        <button className="post-btn btn waves-effect waves-light" onClick={onAddPost}>
                             {(props.lang === "EN") ? "Пост" : "POST"}
                         </button>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     )
 }
-
-const MyPostsReduxForm = reduxForm({form: 'myPostsForm'})(MyPostsForm)
 
 export default MyPosts;
