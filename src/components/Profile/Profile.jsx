@@ -7,6 +7,13 @@ import ProfileStatus from "./ProfileStatus";
 
 
 function Profile(props) {
+
+const onPhotoSelected = (e) => {
+    if(e.target.files.length){
+        props.savePhoto(e.target.files[0])
+    }
+}
+
     if (!props.profile) {
         return <Preloader/>
     }
@@ -21,8 +28,7 @@ function Profile(props) {
                                 alt=""/>
                         </div>
                         <div className="profile__photo-btn">
-                            <a className="btn-floating btn-large waves-effect waves-light btn"><i
-                                className="material-icons">add</i></a>
+                            {props.isOwner ? <input onChange={onPhotoSelected} type="file"/> : ""}
                         </div>
                     </div>
 
