@@ -1,19 +1,41 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import './Profile.css'
 import photo from '../../images/profile-photo.svg'
 import MyPostsContainer from "../MyPosts/MyPostsContainer";
 import Preloader from "../Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
+import {ContactsType, ProfileType} from "../../types/types";
+import {AppStateType} from "../../redux/redux-store";
 
-
-function Profile(props) {
-
-const onPhotoSelected = (e) => {
-    if(e.target.files.length){
-        props.savePhoto(e.target.files[0])
-    }
+type PropsType = {
+    profile: ProfileType | null
+    isFetching: boolean
+    savePhoto: (file: File) => void
+    updateProfileStatus: (status: string) => void
+    status: string
+    isOwner: boolean
 }
 
+type ProfileDescriptionType = {
+    profile: ProfileType
+}
+const ProfileDescription: React.FC<ProfileDescriptionType> = ({profile}) => {
+    return <ul className="profile___info-descr">
+        <li>Full name: {profile.fullName}</li>
+        <li>Looking for a job: {profile.lookingForAJobDescription}</li>
+        <li>Contacts: {Object.keys(profile.contacts).map(key => {
+            return <li key={key}>{key}: {profile.contacts[key as keyof ContactsType]}</li>
+        })}</li>
+    </ul>
+}
+
+const Profile: React.FC<PropsType> = props => {
+
+    const onPhotoSelected = (e: ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files?.length) {
+            props.savePhoto(e.target.files[0])
+        }
+    }
     if (!props.profile) {
         return <Preloader/>
     }
@@ -31,9 +53,9 @@ const onPhotoSelected = (e) => {
                         <div className="profile__photo-btn">
                             {props.isOwner ?
                                 <label className="custom-file-upload">
-                                <input onChange={onPhotoSelected} type="file"/>
-                                Загрузить
-                                </label>: ""}
+                                    <input onChange={onPhotoSelected} type="file"/>
+                                    Загрузить
+                                </label> : ""}
                         </div>
                     </div>
 
@@ -43,24 +65,16 @@ const onPhotoSelected = (e) => {
                         </div>
 
                         <ProfileStatus status={props.status} updateProfileStatus={props.updateProfileStatus}/>
-
-                        <ul className="profile___info-descr">
-                            <li>Full name: {props.profile.fullName}</li>
-                            <li>About Me: {props.profile.aboutMe}</li>
-                            <li>Looking for a job: {props.profile.lookingForAJobDescription}</li>
-                            <li>Contacts: {Object.keys(props.profile.contacts).map(key =>{
-                                return <li key={key}>{key}: {props.profile.contacts[key]}</li>
-                            })   }</li>
-                        </ul>
+                        <ProfileDescription profile={props.profile}/>
                     </div>
                 </div>
 
-                <MyPostsContainer store={props.store}/>
+                <MyPostsContainer/>
 
             </div>
         </section>
     );
-}
+};
 
 
 export default Profile;

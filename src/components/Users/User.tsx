@@ -2,7 +2,15 @@ import React from 'react';
 import {NavLink} from "react-router-dom";
 import photo from "../../images/profile-photo.svg";
 
-function User({user, followingInProgress, unfollow, follow}) {
+type PropsType = {
+    user: any
+    followingInProgress: Array<number>
+    unfollow: (userId: number) => void
+    follow: (userId: number) => void
+}
+
+
+const User : React.FC<PropsType> = ({user, followingInProgress, unfollow, follow}) => {
     return (
         <li className="collection-item avatar">
             <NavLink to={'/profile/' + user.id}>

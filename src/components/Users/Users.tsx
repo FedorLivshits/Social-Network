@@ -3,8 +3,22 @@ import './Users.css'
 import Preloader from "../Preloader/Preloader";
 import Paginator from "../Paginator/Paginator";
 import User from "./User";
+import {UsersType} from "../../types/types"
 
-function Users(props) {
+type PropsType = {
+    totalUsersCount: number
+    pageSize: number
+    currentPage: number
+    follow: (userId: number) => void
+    unfollow: (userId: number) => void
+    onPageChanged: (page: number) => void
+    users: Array<UsersType>
+    isFetching: boolean
+    followingInProgress: Array<number>
+    lang: string
+}
+
+const Users: React.FC<PropsType> = (props) => {
     return (
         <section className="users__content ">
 
@@ -17,7 +31,7 @@ function Users(props) {
                 </div>
                 <Paginator totalUsersCount={props.totalUsersCount} pageSize={props.pageSize}
                            onPageChanged={props.onPageChanged}
-                           currentPage={props.currentPage} portionSize={props.portionSize}/>
+                           currentPage={props.currentPage}/>
                 <div className="preloader__box">
                     {props.isFetching ? <Preloader/> : null}
                 </div>

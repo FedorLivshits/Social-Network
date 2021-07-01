@@ -4,15 +4,11 @@ import about_img from "../../images/about-img.png"
 import advant_1 from "../../images/advant-1.png"
 import advant_2 from "../../images/advant-2.png"
 import login_img from "../../images/login-img.svg"
-import {connect} from "react-redux";
 
 
-const About = (props) => {
+const About: React.FC = () => {
     return (
         <section className="about__content">
-
-
-
             <div className="advantages-box">
                 <div className="advantages-box__info">
                     <div className="advantages-box__title">
@@ -21,7 +17,6 @@ const About = (props) => {
                     <div className="advantages-box__text">
                         <p>Представленная социальная сеть является почти что венцом React приложений. В этой социальной
                             сети можно:
-
                         </p>
                         <p>
                             Во вкладке "Пользователи":<br/>
@@ -41,33 +36,33 @@ const About = (props) => {
                     <img src={about_img} alt=""/>
                 </div>
             </div>
-                <div className="advantages-box advantages-box--reverse">
-                    <div className="advantages-box__info">
-                        <div className="advantages-box__title">
-                            Information Architect &
-                            Visual Prototyping
-                        </div>
-                        <div className="advantages-box__text">
-                            <p> Поиграться с логином
-                                1. Обязательно придётся войти в свой (чужой) профиль, потому что посмотреть профиль свой
-                                можно только, если вы залогинены, как иначе? Мы должны знать, кто вы. Редактирование также
-                                только при успешном входе
-                                2. Много раз введёте неправильные логин/пароль, придётся отправить на сервер капчу, она
-                                здесь также успешно реализована
-                                3. Надоест смотреть другие профили и редактировать свой - можно вылогиниться, но тогда не
-                                найдетесь остаться на странице своего профиля</p>
-                            <p>Планы на будущее
-                                Развития UI социальной сети полностью зависит от развития серверной части. При реализации на
-                                сервере упомянутых выше возможностей, они сразу же будут реализованы и здесь
-                                Удачного просмотра чужих профилей! Это довольно забавно</p>
-
-                        </div>
+            <div className="advantages-box advantages-box--reverse">
+                <div className="advantages-box__info">
+                    <div className="advantages-box__title">
+                        Information Architect &
+                        Visual Prototyping
                     </div>
-                    <div className="advantages-box__images">
-                        <img src={advant_1} alt=""/>
-                    </div>
+                    <div className="advantages-box__text">
+                        <p> Поиграться с логином
+                            1. Обязательно придётся войти в свой (чужой) профиль, потому что посмотреть профиль свой
+                            можно только, если вы залогинены, как иначе? Мы должны знать, кто вы. Редактирование также
+                            только при успешном входе
+                            2. Много раз введёте неправильные логин/пароль, придётся отправить на сервер капчу, она
+                            здесь также успешно реализована
+                            3. Надоест смотреть другие профили и редактировать свой - можно вылогиниться, но тогда не
+                            найдетесь остаться на странице своего профиля</p>
+                        <p>Планы на будущее
+                            Развития UI социальной сети полностью зависит от развития серверной части. При реализации на
+                            сервере упомянутых выше возможностей, они сразу же будут реализованы и здесь
+                            Удачного просмотра чужих профилей! Это довольно забавно</p>
 
+                    </div>
                 </div>
+                <div className="advantages-box__images">
+                    <img src={advant_1} alt=""/>
+                </div>
+
+            </div>
             <div className="advantages-box">
                 <div className="advantages-box__info">
                     <div className="advantages-box__title">
@@ -99,20 +94,12 @@ const About = (props) => {
             <div className="about__item-images">
                 <img src={login_img} alt=""/>
                 <div className="advantages-box__title-end">
-                    {props.lang === "EN" ? "Спасибо!" : "Thank you!"}
+                    "Спасибо!"
                 </div>
             </div>
         </section>
     )
 }
 
-const mapStateToProps = (state) =>(
-    {
-       lang: state.language.lang
-    }
-)
 
-
-
-
-export default connect(mapStateToProps)(About);
+export default About;

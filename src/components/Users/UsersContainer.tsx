@@ -1,17 +1,13 @@
 import React, {useEffect} from 'react'
 import {connect} from "react-redux";
 import {
+    actions,
     follow, getUsers,
-    setCurrentPage,
-    setIsFetching,
-    setTotalUsersCount,
-    setUsers,
-    toggleFollowingInProgress,
     unfollow
 } from "../../redux/users-reducer";
 import Users from "./Users";
 import {compose} from "redux";
-import {withAuthRedirect} from "../hoc/withAuthRedirect";
+import {withAuthToRedirect} from "../hoc/withAuthToRedirect";
 import {
     getCurrentPage, getFollowingInProgress,
     getIsFetching, getLang,
@@ -19,15 +15,34 @@ import {
     getTotalUsersCount,
     getUsersPage
 } from "../../redux/users-selectors";
+import {UsersType} from "../../types/types";
+import {AppStateType} from "../../redux/redux-store";
 
+type OwnPropsType = {}
+type MapStateToPropsType = {
+    currentPage: number
+    pageSize: number
+    totalUsersCount: number
+    users: Array<UsersType>
+    isFetching: boolean
+    followingInProgress: Array<number>
+    lang: string
+}
+type MapDispatchToPropsType = {
+    follow: (userId: number) => void
+    unfollow: (userId: number) => void
+    setCurrentPage: (page: number) => void
+    getUsers: (currentPage: number, pageSize: number) => void
+}
+type PropsType = MapStateToPropsType & MapDispatchToPropsType & OwnPropsType
 
-const UsersContainer = (props) => {
+const UsersContainer: React.FC<PropsType> = (props) => {
 
     useEffect(() => {
         props.getUsers(props.currentPage, props.pageSize)
     }, [])
 
-    const onPageChanged = (page) => {
+    const onPageChanged = (page: number) => {
         props.setCurrentPage(page);
         props.getUsers(page, props.pageSize)
     }
@@ -42,7 +57,6 @@ const UsersContainer = (props) => {
                users={props.users}
                isFetching={props.isFetching}
                followingInProgress={props.followingInProgress}
-               toggleFollowingInProgress={props.toggleFollowingInProgress}
                lang={props.lang}
         />
 
@@ -50,7 +64,7 @@ const UsersContainer = (props) => {
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
         users: getUsersPage(state),
         pageSize: getPageSize(state),
@@ -58,19 +72,15 @@ const mapStateToProps = (state) => {
         currentPage: getCurrentPage(state),
         isFetching: getIsFetching(state),
         followingInProgress: getFollowingInProgress(state),
-        lang: getLang(state)
+        lang: getLang(state),
     }
 }
 export default compose(
-    connect(mapStateToProps, {
+    connect<MapStateToPropsType, MapDispatchToPropsType, OwnPropsType, AppStateType>(mapStateToProps, {
         follow,
         unfollow,
-        setUsers,
-        setCurrentPage,
-        setTotalUsersCount,
-        setIsFetching,
-        toggleFollowingInProgress,
-        getUsers
+        getUsers,
+        setCurrentPage: actions.setCurrentPage
     }),
-    withAuthRedirect
-)(UsersContainer)
+    withAuthToRedirect
+)(UsersContainer) as React.ComponentType

@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css';
 import 'materialize-css/dist/css/materialize.min.css'
-import Sidebar from "./components/Sidebar/Sidebar";
+import SidebarContainer from "./components/Sidebar/Sidebar";
 import {Route, withRouter} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
@@ -14,9 +14,14 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/Preloader/Preloader";
+import {AppStateType} from "./redux/redux-store";
 
+type MapStatePropsType = ReturnType<typeof mapStateToProps>
+type MapDispatchToPropsType = {
+    initializeApp: () => void
+}
 
-class App extends React.Component {
+class App extends React.Component<MapStatePropsType & MapDispatchToPropsType>{
     componentDidMount() {
         this.props.initializeApp()
     }
@@ -29,7 +34,7 @@ class App extends React.Component {
                 <HeaderContainer/>
                 <div className="container">
                     <div className="main">
-                        <Sidebar/>
+                        <SidebarContainer/>
                         <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                         <Route path='/dialogs' render={() => <DialogsContainer/>}/>
                         <Route path='/users' render={() => <UsersContainer/>}/>
@@ -42,10 +47,10 @@ class App extends React.Component {
         );
     }
 }
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppStateType) => ({
     initialized: state.app.initialized
 })
 
-export default compose (withRouter, connect(mapStateToProps, {initializeApp})) (App) ;
+export default compose (withRouter, connect(mapStateToProps, {initializeApp})) (App) as React.ComponentType ;
 
 

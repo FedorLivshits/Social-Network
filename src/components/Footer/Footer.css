@@ -1,8 +1,9 @@
 
 .footer{
     background-color: white;
-    margin-bottom: 0;
+    flex: 0 0 auto;
 }
+
 .footer__inner {
     display: flex;
     justify-content: space-between;
