@@ -1,11 +1,16 @@
+import {InferActionTypes} from "./redux-store";
+
 const SET_ENGLISH_LANGUAGE = 'lang/SET_ENGLISH_LANGUAGE'
 const SET_RUSSIAN_LANGUAGE = 'lang/SET_RUSSIAN_LANGUAGE'
+
 
 let initialState = {
     lang: "RU",
 }
 
-const langReducer = (state = initialState, action) => {
+type InitialStateType = typeof initialState
+
+const langReducer = (state = initialState, action: ActionTypes) : InitialStateType=> {
 
     switch (action.type) {
         case SET_ENGLISH_LANGUAGE:
@@ -25,8 +30,11 @@ const langReducer = (state = initialState, action) => {
     }
 }
 
-export const setEnLanguage = () => ({type: SET_ENGLISH_LANGUAGE})
-export const setRuLanguage = () => ({type: SET_RUSSIAN_LANGUAGE})
+type ActionTypes = InferActionTypes<typeof actions>
 
+export const actions = {
+    setEnLanguage: () => ({type: SET_ENGLISH_LANGUAGE}),
+    setRuLanguage: () => ({type: SET_RUSSIAN_LANGUAGE})
+}
 
 export default langReducer;
