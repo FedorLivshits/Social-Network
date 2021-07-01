@@ -35,7 +35,7 @@ export const profileAPI = {
     },
     updateStatus(status){
         return (
-            instance.put(`profile/status/`, {status})
+            instance.put(`profile/status/`, {status: status})
         )
     },
     savePhoto(photo){

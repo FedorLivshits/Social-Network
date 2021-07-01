@@ -1,4 +1,5 @@
 import {profileAPI} from "../api/api";
+import {setIsFetching} from "./users-reducer";
 
 const ADD_POST = 'profile/ADD-POST';
 const DELETE_POST = 'profile/DELETE_POST'
@@ -81,10 +82,12 @@ export const updateProfileStatus = (status) => {
 }
 export const savePhoto = (file) => {
     return async (dispatch) => {
+        dispatch(setIsFetching(true))
         let response = await profileAPI.savePhoto(file)
         if (response.data.resultCode === 0) {
             dispatch(savePhotoSuccess(response.data.data.photos))
         }
+        dispatch(setIsFetching(false))
     }
 }
 

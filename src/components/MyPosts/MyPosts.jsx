@@ -48,7 +48,7 @@ const MyPostsForm = (props) => {
                                name={"newPostText"}
                                placeholder= {(props.lang === "EN") ? "Что нового?" : "What's new?"}
                         />
-                        <button className="post-btn btn waves-effect waves-light" onClick={onAddPost}>
+                        <button className="post-btn btn waves-effect " onClick={onAddPost}>
                             {(props.lang === "EN") ? "Пост" : "POST"}
                         </button>
                     </div>

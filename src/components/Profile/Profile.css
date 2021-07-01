@@ -62,7 +62,6 @@
 
 .profile___info-descr li {
     list-style-type: none;
-    line-height: 35px;
     opacity: 0.5;
     color: rgb(27, 36, 99);
     font-weight: 600;
@@ -79,10 +78,7 @@
 
 .profile__photo-box {
     width: 40%;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 15px 10px;
     margin-left: 50px;
     position: relative;
 }
@@ -106,6 +102,7 @@
 .profile_no-status-text{
     color: rgba(0, 0, 0, 0.4);
     font-weight: 600;
+    margin-bottom: 20px;
 }
 
 .profile_no-status-text:hover{
@@ -118,4 +115,18 @@
 
 .status-text{
     color: rgb(27, 36, 99);
+}
+
+
+/* Скрываем элемент <input type="file" /> */
+input[type="file"] {
+    display: none;
+}
+
+/* Собственно стилизируем кнопку в соответствии с нужным внешним видом */
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
 }

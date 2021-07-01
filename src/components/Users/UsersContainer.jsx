@@ -21,7 +21,7 @@ import {
 } from "../../redux/users-selectors";
 
 
-function UsersContainer(props) {
+const UsersContainer = (props) => {
 
     useEffect(() => {
         props.getUsers(props.currentPage, props.pageSize)

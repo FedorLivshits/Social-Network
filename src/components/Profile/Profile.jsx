@@ -23,12 +23,17 @@ const onPhotoSelected = (e) => {
                 <div className="profile__inner z-depth-2">
                     <div className="profile__photo-box">
                         <div className="profile__photo">
-                            <img
+                            {props.isFetching ? <Preloader/> : <img
                                 src={(props.profile.photos.large != null) ? props.profile.photos.large : photo}
-                                alt=""/>
+                                alt=""/>}
+
                         </div>
                         <div className="profile__photo-btn">
-                            {props.isOwner ? <input onChange={onPhotoSelected} type="file"/> : ""}
+                            {props.isOwner ?
+                                <label className="custom-file-upload">
+                                <input onChange={onPhotoSelected} type="file"/>
+                                Загрузить
+                                </label>: ""}
                         </div>
                     </div>
 
@@ -39,10 +44,14 @@ const onPhotoSelected = (e) => {
 
                         <ProfileStatus status={props.status} updateProfileStatus={props.updateProfileStatus}/>
 
-                        <div className="profile___info-descr">
-                            <li><b>ABOUT ME:</b> {props.profile.aboutMe}</li>
-                            <li><b>LOOKING FOR A JOB:</b> {props.profile.lookingForAJobDescription}</li>
-                        </div>
+                        <ul className="profile___info-descr">
+                            <li>Full name: {props.profile.fullName}</li>
+                            <li>About Me: {props.profile.aboutMe}</li>
+                            <li>Looking for a job: {props.profile.lookingForAJobDescription}</li>
+                            <li>Contacts: {Object.keys(props.profile.contacts).map(key =>{
+                                return <li key={key}>{key}: {props.profile.contacts[key]}</li>
+                            })   }</li>
+                        </ul>
                     </div>
                 </div>
 

@@ -5,8 +5,8 @@ const INITIALIZED_SUCCESS = 'app/INITIALIZED_SUCCESS'
 let initialState = {
     initialized: false,
 }
-
-const appReducer = (state = initialState, action) => {
+type InitialStateType = typeof initialState
+const appReducer = (state = initialState, action): InitialStateType => {
 
     switch (action.type) {
         case INITIALIZED_SUCCESS:
