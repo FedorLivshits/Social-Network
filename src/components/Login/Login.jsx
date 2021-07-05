@@ -8,6 +8,7 @@ function Login({login, logout, isAuth}) {
     let [email, setEmail] = useState('')
     let [password, setPassword] = useState('')
     let [rememberMe, setRememberMe] = useState(false)
+
     const onEmailChange = (e) => {
         setEmail(e.target.value)
     }
@@ -58,7 +59,8 @@ function Login({login, logout, isAuth}) {
                                 </div>
                                 <div className="text"><a href="#">Forgot password?</a></div>
                                 <div className="button input-box">
-                                    <button type="button" onClick={onSubmit} className="btn btn-outline-dark">Log in</button>
+                                    <button type="button" onClick={onSubmit} className="btn btn-outline-dark">Log in
+                                    </button>
                                 </div>
                                 <div className="text sign-up-text">Don't have an account? <label htmlFor="flip">Sigup
                                     now</label></div>

@@ -1,14 +1,15 @@
-.posts__inner{
+.posts__inner {
     margin-bottom: 40px;
 }
 
-.posts__box{
+.posts__box {
     margin-left: 50px;
     margin-right: 50px;
     background-color: white;
     border-radius: 3px;
 
 }
+
 .posts-title {
     color: rgb(27, 36, 99);
     font-size: 25px;
@@ -20,15 +21,16 @@
     padding-top: 40px;
 }
 
-.row{
+.row {
     margin-left: 40px;
     margin-right: 40px;
 }
 
-.input-field{
+.input-field {
     display: flex;
 }
-.post-btn{
+
+.post-btn {
     color: #250F8A;
     font-weight: 600;
     margin-left: 10px;

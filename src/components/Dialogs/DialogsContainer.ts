@@ -9,11 +9,9 @@ import {compose} from "redux";
 import {AppStateType} from "../../redux/redux-store";
 
 
-
 let mapStateToProps = (state: AppStateType) => {
     return {
         dialogsPage: state.dialogsPage,
-        lang: state.language.lang
     }
 }
 

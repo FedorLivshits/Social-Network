@@ -29,7 +29,6 @@ const authReducer = (state = initialState, action: ActionTypes): InitialStateTyp
     }
 }
 
-
 type ActionTypes = InferActionTypes<typeof actions>
 
 export const actions = {
@@ -56,6 +55,8 @@ export const login = (email: string, password: string, rememberMe: boolean): Thu
     let response = await authAPI.login(email, password, rememberMe)
     if (response.resultCode === ResponseCode.Success) {
         dispatch(getAuthUserData())
+    } else {
+        alert("some error")
     }
 }
 

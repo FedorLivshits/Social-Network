@@ -1,6 +1,7 @@
 import React from "react";
 import {ProfileType} from "../../types/types";
 
+
 type SocialLinksPropsType = {
     profile: ProfileType | null
 }

@@ -2,7 +2,6 @@ import {InferActionTypes} from "./redux-store";
 
 const SEND_MESSAGE = 'dialogs/SEND-MESSAGE'
 
-
 let initialState = {
     dialogsData: [
         {name: 'Alexander Sarygin', id: '1'},

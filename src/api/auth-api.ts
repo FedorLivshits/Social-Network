@@ -1,6 +1,5 @@
 import {instance, APIResponseType} from "./api";
 
-
 type AuthMeResponseType = {
     data: { id: number, login: string, email: string }
 }

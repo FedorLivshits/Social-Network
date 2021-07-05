@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -28,7 +27,8 @@ a {
     margin: 0 auto;
     position: relative;
 }
-.btn-dark{
+
+.btn-dark {
     background: #1d1b31 !important;
 }
 
@@ -106,9 +106,11 @@ a {
     color: #11101d;
     background: #fff;
 }
-a.active span{
-   text-decoration: underline solid white;
+
+a.active span {
+    text-decoration: underline solid white;
 }
+
 .sidebar ul li i {
     font-size: 18px;
     font-weight: 400;
@@ -160,7 +162,8 @@ a.active span{
     text-align: center;
     background: none
 }
-.spinner-preloader{
+
+.spinner-preloader {
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -168,6 +171,7 @@ a.active span{
     right: 0;
     text-align: center;
 }
+
 .home_content {
     position: absolute;
     height: 100%;
@@ -203,15 +207,17 @@ a.active span{
     top: 85px;
 }
 
-.input-file{
+.input-file {
     padding-left: 189px;
     padding-top: 10px;
 }
-.status{
+
+.status {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .profile__head-img {
     height: 150px;
     border-radius: 50%;

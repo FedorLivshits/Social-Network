@@ -1,6 +1,7 @@
-body{
+body {
     background: #f9f9f9 !important;
 }
+
 .body {
     min-height: 100vh;
     display: flex;
@@ -49,7 +50,7 @@ body{
     transform: rotateY(180deg);
 }
 
-.container__login #flip:checked~.cover {
+.container__login #flip:checked ~ .cover {
     transform: rotateY(-180deg);
 }
 
@@ -186,7 +187,6 @@ form .form-content .text a:hover {
 }
 
 
-
 form .form-content label {
     color: #5b13b9;
     cursor: pointer;
@@ -210,17 +210,21 @@ form .form-content .sign-up-text {
     .container__login .cover {
         display: none;
     }
+
     .form-content .login-form,
     .form-content .signup-form {
         width: 100%;
     }
+
     .form-content .signup-form {
         display: none;
     }
-    .container__login #flip:checked~form .signup-form {
+
+    .container__login #flip:checked ~ form .signup-form {
         display: block;
     }
-    .container__login #flip:checked~form .login-form {
+
+    .container__login #flip:checked ~ form .login-form {
         display: none;
     }
 }

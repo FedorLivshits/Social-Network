@@ -1,5 +1,4 @@
 import axios from "axios";
-import {PhotosType} from "../types/types";
 
 
 export const instance = axios.create({

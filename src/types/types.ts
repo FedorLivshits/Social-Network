@@ -1,4 +1,3 @@
-
 export type PostMessagesType = {
     id: number
     message: string

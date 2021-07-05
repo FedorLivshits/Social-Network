@@ -2,10 +2,9 @@ import React, {ChangeEvent, KeyboardEvent, useState} from "react";
 
 type PropsTypes = {
     sendMessage: (messageText: string) => void
-    lang: string
 }
 
-export const MessageForm: React.FC<PropsTypes> = ({sendMessage, lang}) => {
+export const MessageForm: React.FC<PropsTypes> = ({sendMessage}) => {
     const [text, setText] = useState("")
 
     const onTextChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -15,7 +14,7 @@ export const MessageForm: React.FC<PropsTypes> = ({sendMessage, lang}) => {
         sendMessage(text)
         setText('')
     }
-    const enterCity = (e: KeyboardEvent) : void => {
+    const enterCity = (e: KeyboardEvent): void => {
         if (e.key === 'Enter') {
             e.preventDefault()
             sendMessage(text)
@@ -28,7 +27,7 @@ export const MessageForm: React.FC<PropsTypes> = ({sendMessage, lang}) => {
                 <textarea className="materialize-textarea" placeholder="Your message"
                           name={"newMessageText"} onChange={onTextChange} value={text} onKeyPress={enterCity}/>
                 <button className="message-btn btn waves-effect waves-light" onClick={onAddMessage}>
-                    {(lang === "EN") ? "Отпр" : "Send"}
+                   Send
                 </button>
             </div>
         </div>

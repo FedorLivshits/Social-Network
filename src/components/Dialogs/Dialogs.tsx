@@ -1,13 +1,11 @@
 import React from 'react'
 import './Dialogs.css'
 import {DialogUser} from "./Dialogs.User";
-import {MessageForm} from "./MessageForm";
 import {InitialStateType} from "../../redux/dialogs-reducer";
 
 type PropsType = {
     sendMessage: (messageText: string) => void
     dialogsPage: InitialStateType
-    lang: string
 }
 
 type DialogMessagesPropsType = {
@@ -23,7 +21,7 @@ const MyDialogMessages: React.FC<DialogMessagesPropsType> = props => (
     </div>
 );
 
-const Dialogs: React.FC<PropsType> = ({sendMessage, dialogsPage, lang}) => {
+const Dialogs: React.FC<PropsType> = ({sendMessage, dialogsPage}) => {
 
     const addNewMessage = (values: { newMessageText: string }) => {
         sendMessage(values.newMessageText);

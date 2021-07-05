@@ -1,56 +1,50 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './App.css';
-import 'materialize-css/dist/css/materialize.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import SidebarContainer from "./components/Sidebar/Sidebar";
 import {Route, withRouter} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
-import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
-import Footer from "./components/Footer/Footer";
-import About from "./components/About/About";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/Preloader/Preloader";
 import {AppStateType} from "./redux/redux-store";
 
+
 type MapStatePropsType = ReturnType<typeof mapStateToProps>
 type MapDispatchToPropsType = {
     initializeApp: () => void
 }
 
-class App extends React.Component<MapStatePropsType & MapDispatchToPropsType>{
-    componentDidMount() {
-        this.props.initializeApp()
-    }
+const App: React.FC<MapStatePropsType & MapDispatchToPropsType> = (props) => {
 
-    render() {
-        if (!this.props.initialized) return <Preloader />
+    useEffect(() => {
+        props.initializeApp()
+    }, [])
 
-        return (
-            <div className='body'>
-                <HeaderContainer/>
-                <div className="container">
-                    <div className="main">
-                        <SidebarContainer/>
-                        <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
-                        <Route path='/dialogs' render={() => <DialogsContainer/>}/>
-                        <Route path='/users' render={() => <UsersContainer/>}/>
-                        <Route path='/login' render={() => <Login/>}/>
-                        <Route path='/about' render={() => <About/>}/>
-                    </div>
-                </div>
-                <Footer/>
+    if (!props.initialized) return <Preloader/>
+
+    return (
+        <>
+            <SidebarContainer/>
+            <div className="home_content">
+                <Route exact path='/profile/:userId?' render={() => <ProfileContainer/>}/>
+                <Route path='/users' render={() => <UsersContainer/>}/>
+                <Route path='/dialogs' render={() => <DialogsContainer/>}/>
+                <Route path='/login' render={() => <Login/>}/>
             </div>
-        );
-    }
+        </>
+
+
+    );
 }
+
 const mapStateToProps = (state: AppStateType) => ({
     initialized: state.app.initialized
 })
 
-export default compose (withRouter, connect(mapStateToProps, {initializeApp})) (App) as React.ComponentType ;
-
+export default compose(withRouter, connect(mapStateToProps, {initializeApp}))(App) as React.ComponentType;
 

@@ -17,7 +17,7 @@ type MapDispatchToPropsType = {
     deletePost: (id: any) => void
 }
 
-const MyPostsComponent: React.FC<any> = (props) =>{
+const MyPostsComponent: React.FC<any> = (props) => {
     return (
         <>
             <PostForm addPost={props.addPost} profile={props.profile}/>
@@ -27,7 +27,6 @@ const MyPostsComponent: React.FC<any> = (props) =>{
         </>
     )
 }
-
 
 const mapStateToProps = (state: AppStateType) => ({
     profile: state.profilePage.profile,

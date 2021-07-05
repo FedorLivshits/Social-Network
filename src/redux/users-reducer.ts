@@ -1,7 +1,6 @@
 import {Dispatch} from "redux";
 import {UsersType} from "../types/types";
-import {AppStateType, BaseThunkType, InferActionTypes} from "./redux-store";
-import {ThunkAction} from "redux-thunk";
+import {BaseThunkType, InferActionTypes} from "./redux-store";
 import {usersAPI} from "../api/users-api";
 
 let initialState = {

@@ -3,8 +3,6 @@ import { BaseThunkType, InferActionTypes} from "./redux-store";
 import {profileAPI} from "../api/profile-api";
 
 
-let todoId = 3;
-
 let initialState = {
     myPosts: localStorage.getItem("myPosts")
         ? JSON.parse(localStorage.getItem("myPosts") as string)

@@ -18,6 +18,7 @@ import bxLogOut from "@iconify-icons/bx/bx-log-out";
 type SidebarPropsType = {
     logout: () => void
 }
+
 const Sidebar: React.FC<SidebarPropsType> = props => {
 
     const logoutFn = () => {
@@ -74,7 +75,7 @@ const Sidebar: React.FC<SidebarPropsType> = props => {
                         <div className="profile_details">
                         </div>
                         <a onClick={logoutFn}>
-                            <Icon icon={bxLogOut} />
+                            <Icon icon={bxLogOut}/>
                         </a>
                     </div>
                 </div>
@@ -86,23 +87,18 @@ const Sidebar: React.FC<SidebarPropsType> = props => {
 }
 
 
-
 type MapDispatchToPropsType = {
     logout: () => void
 }
 
-type PropsType =  MapDispatchToPropsType
+type PropsType = MapDispatchToPropsType
 
 const SidebarContainer: React.FC<PropsType> = (props) => {
     return <Sidebar logout={props.logout}/>
 }
 
 
-const mapStateToProps = (state: AppStateType) => ({
-    lang: state.language.lang
-})
-
 export default compose(
     withAuthToRedirect,
-    connect(mapStateToProps, {logout})
+    connect(null, {logout})
 )(SidebarContainer) as React.ComponentType

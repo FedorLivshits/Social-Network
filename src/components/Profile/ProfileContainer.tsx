@@ -34,7 +34,7 @@ class ProfileContainer extends React.Component<PropsType> {
 
     componentDidUpdate(prevProps: PropsType, prevState: PropsType) {
         if (this.props.match.params.userId !== prevProps.match.params.userId) {
-            let userId: number | null  = +this.props.match.params.userId
+            let userId: number | null = +this.props.match.params.userId
             if (!userId) {
                 userId = this.props.authorizedUserId;
             }
@@ -47,7 +47,7 @@ class ProfileContainer extends React.Component<PropsType> {
     render() {
         return (
             <>
-            <Profile {...this.props} isOwner={!this.props.match.params.userId}/>
+                <Profile {...this.props} isOwner={!this.props.match.params.userId}/>
             </>
         )
     }

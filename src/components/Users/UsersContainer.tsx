@@ -1,16 +1,13 @@
 import React, {useEffect} from 'react'
 import {connect} from "react-redux";
-import {
-    actions,
-    follow, getUsers,
-    unfollow
-} from "../../redux/users-reducer";
+import {actions, follow, getUsers, unfollow} from "../../redux/users-reducer";
 import Users from "./Users";
 import {compose} from "redux";
 import {withAuthToRedirect} from "../hoc/withAuthToRedirect";
 import {
-    getCurrentPage, getFollowingInProgress,
-    getIsFetching, getLang,
+    getCurrentPage,
+    getFollowingInProgress,
+    getIsFetching,
     getPageSize,
     getTotalUsersCount,
     getUsersPage
@@ -26,7 +23,6 @@ type MapStateToPropsType = {
     users: Array<UsersType>
     isFetching: boolean
     followingInProgress: Array<number>
-    lang: string
 }
 type MapDispatchToPropsType = {
     follow: (userId: number) => void
@@ -57,12 +53,10 @@ const UsersContainer: React.FC<PropsType> = (props) => {
                users={props.users}
                isFetching={props.isFetching}
                followingInProgress={props.followingInProgress}
-               lang={props.lang}
         />
 
     )
 }
-
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
@@ -72,7 +66,6 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
         currentPage: getCurrentPage(state),
         isFetching: getIsFetching(state),
         followingInProgress: getFollowingInProgress(state),
-        lang: getLang(state),
     }
 }
 export default compose(

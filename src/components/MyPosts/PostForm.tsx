@@ -1,4 +1,4 @@
-import React, {ChangeEvent, KeyboardEventHandler, useState} from "react";
+import React, {ChangeEvent, useState} from "react";
 import './Post.css'
 import {ProfileType} from "../../types/types";
 

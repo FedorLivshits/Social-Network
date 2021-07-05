@@ -1,12 +1,12 @@
 import React, {ChangeEvent} from "react";
 import '../../App.css'
-import photo from '../../images/user-1.png'
+import photo from '../../images/user.png'
 import Preloader from "../Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
 import {ProfileType} from "../../types/types";
 import {NavLink, Route} from "react-router-dom";
 import {SocialLinksComponent} from "./SocialLinksComponent";
-import { UserContactsComponent } from "./UserContactsCompnent.";
+import {UserContactsComponent} from "./UserContactsCompnent.";
 import MyPostsComponent from "../MyPosts/MyPostsComponent";
 
 
@@ -20,7 +20,7 @@ type PropsType = {
 }
 
 const Profile: React.FC<PropsType> = props => {
-debugger
+    debugger
     const inputFileStyle = {
         width: "130px",
         opacity: "0.8"
@@ -93,7 +93,7 @@ debugger
             </div>
             <div className="container">
                 <Route exact path='/profile'
-                       render={() =>  <div className="row gutters-sm">
+                       render={() => <div className="row gutters-sm">
                            <div className="col-md-4 mb-3">
                                <SocialLinksComponent profile={props.profile}/>
                            </div>
@@ -101,7 +101,7 @@ debugger
                                <UserContactsComponent profile={props.profile} isOwner={props.isOwner}/>
                            </div>
                        </div>}/>
-                <Route exact path='/profile/posts' render={() => <MyPostsComponent />}/>
+                <Route exact path='/profile/posts' render={() => <MyPostsComponent/>}/>
             </div>
         </>
     );

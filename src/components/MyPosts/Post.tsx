@@ -17,6 +17,7 @@ export const Post: React.FC<PropsType> = props => {
     const onPostDelete = (id: string) => {
         props.deletePost(id)
     }
+
     let myPostsList = props.myPosts.map(p =>
         <div className="posts__item" id={p.id!} key={p.id}>
             <div className="posts__item-head">
@@ -35,7 +36,7 @@ export const Post: React.FC<PropsType> = props => {
                     </p>
                 </div>
                 <button className="btn btn-danger" onClick={() => onPostDelete(p.id!)}>
-                    <Icon icon={bxTrash} />
+                    <Icon icon={bxTrash}/>
                 </button>
             </div>
         </div>)

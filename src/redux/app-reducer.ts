@@ -1,7 +1,5 @@
 import {getAuthUserData} from "./auth-reducer";
 import {BaseThunkType, InferActionTypes} from "./redux-store";
-import {authAPI} from "../api/auth-api";
-import {ResponseCode} from "../api/api";
 
 const INITIALIZED_SUCCESS = 'app/INITIALIZED_SUCCESS'
 
