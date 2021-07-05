@@ -1,81 +1,68 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Login.css'
-import {Field, reduxForm} from "redux-form";
-import {required} from "../../utils/validators";
-import {connect} from "react-redux";
 import {login, logout} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
+import {connect} from "react-redux";
 
-function Login(props) {
-    const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe)
+function Login({login, logout, isAuth}) {
+    let [email, setEmail] = useState('')
+    let [password, setPassword] = useState('')
+    let [rememberMe, setRememberMe] = useState(false)
+    const onEmailChange = (e) => {
+        setEmail(e.target.value)
     }
-    if (props.isAuth) {
+    const onPasswordChange = (e) => {
+        setPassword(e.target.value)
+    }
+    const onRememberMeChange = () => {
+
+    }
+    const onSubmit = (e) => {
+        login(email, password, rememberMe = false)
+    }
+    if (isAuth) {
         return <Redirect to={'/profile'}/>
     }
     return (
-        <section className="login__content">
-            <div className="login-slider__item">
-                <div className="login-slider__item-content">
-                    {(props.lang === "EN")
-                        ?
-                        <div className="login-slider__item-info">
-                            <h3 className="login-slider__title">
-                                Добро пожаловать в Социальную сеть!
-                            </h3>
-                            <div className="login-slider__descr">
-                                - Это учебный, но тем не менее полноценный проект, написанный на React<br/>
-                                - Подробнее почитать о том, что реализованно в приложении вы можете во вкладке
-                                About<br/>
-                                - Спасибо и приятного вам User Experience!
-                            </div>
+        <div className="body">
+            <div className="container__login">
+                <input type="checkbox" id="flip"/>
+                <div className="cover">
+                    <div className="front">
+
+                        <div className="text">
+                            <span className="text-1">Every new friend is a <br/> new adventure</span>
+                            <span className="text-2">Let's get connected</span>
                         </div>
-                        :
-                        <div className="login-slider__item-info">
-                            <h3 className="login-slider__title">
-                                Welcome to the<br/> Social Network!
-                            </h3>
-                            <div className="login-slider__descr">
-                                - This is an educational, but nonetheless full-fledged project written in React <br/>
-                                - You can read more about what is implemented in the application in the About tab
-                                <br/>
-                                - Thank you and enjoy your User Experience!
-                            </div>
-                        </div>}
+                    </div>
+                    <div className="back">
 
-
+                        <div className="text">
+                            <span className="text-1">Complete miles of journey <br/> with one step</span>
+                            <span className="text-2">Let's get started</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <LoginReduxForm onSubmit={onSubmit} lang={props.lang}/>
-        </section>
-    )
-}
-
-const LoginForm = (props) => {
-    return (
-        <div className="login-form z-depth-2">
-            <div className="row">
-                <form className="col s12" onSubmit={props.handleSubmit}>
-                    <div className="row">
-                        <Field id="email" type="email" name={"email"} placeholder="email" className="validate"
-                               component={Input} validate={required}/>
-                    </div>
-                    <div className="row">
-                        <Field id="password" type="password" name={"password"}
-                               className="validate"
-                               placeholder={(props.lang === "EN") ? "Пароль" : "Password"}
-                               component={Input} validate={required}/>
-                    </div>
-                    <div className="login-btns">
-                        <label>
-                            <Field type="checkbox" className="filled-in" name={"rememberMe"} component={'input'}/>
-                            <span className="span">  {(props.lang === "EN") ? "Запомнить меня" : "Remember me"}</span>
-                        </label>
-                        {props.error && <div>Error</div>}
-                        <div className="btn-login__form">
-                            <button className="post-btn btn  login-btn">
-                                {(props.lang === "EN") ? "Войти" : "Login"}
-                            </button>
+                <form action="#">
+                    <div className="form-content">
+                        <div className="login-form">
+                            <div className="title">Login</div>
+                            <div className="input-boxes">
+                                <div className="input-box">
+                                    <input type="text" placeholder="Enter your email" required
+                                           onChange={onEmailChange}/>
+                                </div>
+                                <div className="input-box">
+                                    <input type="password" placeholder="Enter your password" required
+                                           onChange={onPasswordChange}/>
+                                </div>
+                                <div className="text"><a href="#">Forgot password?</a></div>
+                                <div className="button input-box">
+                                    <button type="button" onClick={onSubmit} className="btn btn-outline-dark">Log in</button>
+                                </div>
+                                <div className="text sign-up-text">Don't have an account? <label htmlFor="flip">Sigup
+                                    now</label></div>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -84,23 +71,10 @@ const LoginForm = (props) => {
     )
 }
 
-export const Input = ({input, meta, ...props}) => {
-
-    const hasError = meta.touched && meta.error;
-    return (
-        <div className={"input-field col s12 " + (hasError ? "error" : "")}>
-            <input{...input} {...props}/>
-            {hasError && <div>{meta.error}</div>}
-        </div>
-    )
-}
-
-
-const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 
 const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
-    lang: state.language.lang
 })
 
 export default connect(mapStateToProps, {login, logout})(Login);
+
