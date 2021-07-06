@@ -8,6 +8,7 @@ import {NavLink, Route} from "react-router-dom";
 import {SocialLinksComponent} from "./SocialLinksComponent";
 import {UserContactsComponent} from "./UserContactsCompnent.";
 import MyPostsComponent from "../MyPosts/MyPostsComponent";
+import { BreadcrumbsComponent } from "./BreadcrumbsComponent";
 
 
 type PropsType = {
@@ -19,8 +20,8 @@ type PropsType = {
     isOwner: boolean
 }
 
+
 const Profile: React.FC<PropsType> = props => {
-    debugger
     const inputFileStyle = {
         width: "130px",
         opacity: "0.8"
@@ -58,7 +59,6 @@ const Profile: React.FC<PropsType> = props => {
                         </div>
                         : ""}
                     <div className="profile__bar">
-
                         <div className="profile__status">
                             <ProfileStatus status={props.status} isOwner={props.isOwner}
                                            updateProfileStatus={props.updateProfileStatus}/>
@@ -80,15 +80,7 @@ const Profile: React.FC<PropsType> = props => {
                             </ul>
                         </div>
                     </div>
-
-                    <ul className="breadcrumbs">
-                        <li className="breadcrumbs__item">
-                            <NavLink className='breadcrumbs__item-link' exact to='/profile'>Profile</NavLink>
-                        </li>
-                        <li className="breadcrumbs__item">
-                            <NavLink className='breadcrumbs__item-link' exact to='/profile/posts'>My posts</NavLink>
-                        </li>
-                    </ul>
+                    <BreadcrumbsComponent isOwner={props.isOwner}/>
                 </div>
             </div>
             <div className="container">

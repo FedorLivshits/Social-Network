@@ -1,11 +1,9 @@
-import React, {useEffect} from 'react'
+import React, {lazy, Suspense, useEffect} from 'react'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SidebarContainer from "./components/Sidebar/Sidebar";
 import {Route, withRouter} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import UsersContainer from "./components/Users/UsersContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
 import Login from "./components/Login/Login";
 import {connect} from "react-redux";
 import {compose} from "redux";
@@ -13,6 +11,8 @@ import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/Preloader/Preloader";
 import {AppStateType} from "./redux/redux-store";
 
+const ProfileContainer = lazy(() => import("./components/Profile/ProfileContainer"))
+const UsersContainer = lazy(() => import("./components/Users/UsersContainer"))
 
 type MapStatePropsType = ReturnType<typeof mapStateToProps>
 type MapDispatchToPropsType = {
@@ -31,14 +31,20 @@ const App: React.FC<MapStatePropsType & MapDispatchToPropsType> = (props) => {
         <>
             <SidebarContainer/>
             <div className="home_content">
-                <Route exact path='/profile/:userId?' render={() => <ProfileContainer/>}/>
-                <Route path='/users' render={() => <UsersContainer/>}/>
+                <Route exact path='/profile/:userId?' render={() => {
+                    return <Suspense fallback={<Preloader/>}>
+                        <ProfileContainer/>
+                    </Suspense>
+                }}/>
+                <Route path='/users' render={() =>{
+                    return <Suspense fallback={<Preloader/>}>
+                        <UsersContainer/>
+                    </Suspense>
+                }}/>
                 <Route path='/dialogs' render={() => <DialogsContainer/>}/>
                 <Route path='/login' render={() => <Login/>}/>
             </div>
         </>
-
-
     );
 }
 

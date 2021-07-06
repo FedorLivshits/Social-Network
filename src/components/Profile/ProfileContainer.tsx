@@ -24,8 +24,10 @@ type PropsType = MapStateToPropsType & MapDispatchToPropsType & RouteComponentPr
 class ProfileContainer extends React.Component<PropsType> {
     componentDidMount() {
         let userId: number | null = +this.props.match.params.userId
+        console.log(userId)
         if (!userId) {
             userId = this.props.authorizedUserId;
+            console.log(userId)
         }
         this.props.getUserProfile(userId as number)
         this.props.getProfileStatus(userId as number)
@@ -47,7 +49,7 @@ class ProfileContainer extends React.Component<PropsType> {
     render() {
         return (
             <>
-                <Profile {...this.props} isOwner={!this.props.match.params.userId}/>
+                <Profile {...this.props} isOwner={this.props.match.params.userId === undefined || this.props.match.params.userId === 'posts'}/>
             </>
         )
     }
