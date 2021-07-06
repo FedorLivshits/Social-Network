@@ -8,7 +8,8 @@ import {NavLink, Route} from "react-router-dom";
 import {SocialLinksComponent} from "./SocialLinksComponent";
 import {UserContactsComponent} from "./UserContactsCompnent.";
 import MyPostsComponent from "../MyPosts/MyPostsComponent";
-import { BreadcrumbsComponent } from "./BreadcrumbsComponent";
+import {BreadcrumbsComponent} from "./BreadcrumbsComponent";
+import {ProfileOwnerContentComponent} from "./ProfileOwnerContentComponent";
 
 
 type PropsType = {
@@ -85,14 +86,7 @@ const Profile: React.FC<PropsType> = props => {
             </div>
             <div className="container">
                 <Route exact path='/profile'
-                       render={() => <div className="row gutters-sm">
-                           <div className="col-md-4 mb-3">
-                               <SocialLinksComponent profile={props.profile}/>
-                           </div>
-                           <div className="col-md-8">
-                               <UserContactsComponent profile={props.profile} isOwner={props.isOwner}/>
-                           </div>
-                       </div>}/>
+                       render={() => <ProfileOwnerContentComponent isOwner={props.isOwner} profile={props.profile}/>}/>
                 <Route exact path='/profile/posts' render={() => <MyPostsComponent/>}/>
             </div>
         </>

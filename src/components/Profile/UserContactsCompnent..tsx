@@ -22,7 +22,7 @@ export const UserContactsComponent: React.FC<UserContactsPropsType> = ({profile,
                 <hr/>
                 <div className="row">
                     <div className="col-sm-3">
-                        <h6 className="mb-0">Email</h6>
+                        <h6 className="mb-0">Write to</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
                         {profile.contacts.mainLink}
@@ -31,10 +31,10 @@ export const UserContactsComponent: React.FC<UserContactsPropsType> = ({profile,
                 <hr/>
                 <div className="row">
                     <div className="col-sm-3">
-                        <h6 className="mb-0">Phone</h6>
+                        <h6 className="mb-0">Job status</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                        (239) 816-9029
+
                     </div>
                 </div>
                 <hr/>
@@ -43,26 +43,9 @@ export const UserContactsComponent: React.FC<UserContactsPropsType> = ({profile,
                         <h6 className="mb-0">Mobile</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                        (320) 380-4539
+                        +7(000) 000-00-00
                     </div>
                 </div>
-                <hr/>
-                <div className="row">
-                    <div className="col-sm-3">
-                        <h6 className="mb-0">Address</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                        Bay Area, San Francisco, CA
-                    </div>
-                </div>
-                <hr/>
-                {isOwner ?
-                    <div className="row">
-                        <div className="col-sm-12">
-                            <button type="button" className="btn btn-dark">Edit</button>
-                        </div>
-                    </div> : ""}
-
             </div>
         </div>
     )
