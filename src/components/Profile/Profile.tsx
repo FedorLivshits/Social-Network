@@ -5,8 +5,6 @@ import Preloader from "../Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
 import {ProfileType} from "../../types/types";
 import {NavLink, Route} from "react-router-dom";
-import {SocialLinksComponent} from "./SocialLinksComponent";
-import {UserContactsComponent} from "./UserContactsCompnent.";
 import MyPostsComponent from "../MyPosts/MyPostsComponent";
 import {BreadcrumbsComponent} from "./BreadcrumbsComponent";
 import {ProfileOwnerContentComponent} from "./ProfileOwnerContentComponent";
@@ -19,10 +17,12 @@ type PropsType = {
     updateProfileStatus: (status: string) => void
     status: string
     isOwner: boolean
+    isNotPosts: boolean
 }
 
 
 const Profile: React.FC<PropsType> = props => {
+    console.log(props.isNotPosts)
     const inputFileStyle = {
         width: "130px",
         opacity: "0.8"
@@ -87,6 +87,9 @@ const Profile: React.FC<PropsType> = props => {
             <div className="container">
                 <Route exact path='/profile'
                        render={() => <ProfileOwnerContentComponent isOwner={props.isOwner} profile={props.profile}/>}/>
+                {!props.isOwner && props.isNotPosts ? <Route path='/profile'
+                                       render={() => <ProfileOwnerContentComponent isOwner={props.isOwner} profile={props.profile}/>}/> : null}
+
                 <Route exact path='/profile/posts' render={() => <MyPostsComponent/>}/>
             </div>
         </>

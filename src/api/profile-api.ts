@@ -1,5 +1,6 @@
 import {PhotosType, ProfileType} from "../types/types";
 import {instance, APIResponseType} from "./api";
+import {log} from "util";
 
 type SavePhotoResponseType = {
     photos: PhotosType
@@ -34,6 +35,12 @@ export const profileAPI = {
                 }
             }))
             .then(res => res.data)
+    },
+    saveProfile(profileInfo: any){
+        return(
+            instance.put<APIResponseType>(`profile`, profileInfo)
+                .then(res => res.data)
+        )
     }
 }
 

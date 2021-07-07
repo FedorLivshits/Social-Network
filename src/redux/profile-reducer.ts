@@ -1,6 +1,7 @@
-import {ProfileType, PhotosType} from "../types/types";
-import { BaseThunkType, InferActionTypes} from "./redux-store";
+import {PhotosType, ProfileType} from "../types/types";
+import {BaseThunkType, InferActionTypes} from "./redux-store";
 import {profileAPI} from "../api/profile-api";
+import {ResponseCode} from "../api/api";
 
 
 let initialState = {
@@ -83,6 +84,14 @@ export const savePhoto = (file: File) : ThunkType => {
             dispatch(actions.savePhotoSuccess(data.data.photos))
         }
         // dispatch(actions.setIsFetching(false))
+    }
+}
+export const saveProfileInfo = (profileInfo: any, userId: number) : ThunkType => {
+    return async (dispatch) => {
+        let data = await profileAPI.saveProfile(profileInfo)
+        if (data.resultCode === ResponseCode.Success) {
+            dispatch(getUserProfile(userId))
+        }
     }
 }
 

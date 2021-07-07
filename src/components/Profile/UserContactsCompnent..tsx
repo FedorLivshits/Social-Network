@@ -22,10 +22,10 @@ export const UserContactsComponent: React.FC<UserContactsPropsType> = ({profile,
                 <hr/>
                 <div className="row">
                     <div className="col-sm-3">
-                        <h6 className="mb-0">Write to</h6>
+                        <h6 className="mb-0">About me</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                        {profile.contacts.mainLink}
+                        {profile.aboutMe}
                     </div>
                 </div>
                 <hr/>
@@ -34,16 +34,16 @@ export const UserContactsComponent: React.FC<UserContactsPropsType> = ({profile,
                         <h6 className="mb-0">Job status</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-
+                        {profile.lookingForAJob ? "looking for a job" : "working"}
                     </div>
                 </div>
                 <hr/>
                 <div className="row">
                     <div className="col-sm-3">
-                        <h6 className="mb-0">Mobile</h6>
+                        <h6 className="mb-0">My skills</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                        +7(000) 000-00-00
+                        {profile.lookingForAJobDescription}
                     </div>
                 </div>
             </div>
