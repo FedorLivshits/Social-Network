@@ -38,3 +38,16 @@ export type MyPostsType = {
     time: string | null
 }
 
+export type PostType = {
+    id: string
+    likes: number
+    image: string
+    owner: {
+        firstName: string
+        lastName: string
+        picture: string
+    },
+    publishDate: string
+    text: string,
+    liked: boolean
+}

@@ -32,6 +32,7 @@ const ProfileInEditModeComponent: React.FC<MapStateToPropsType & MapDispatchToPr
       setInputAboutMe(profile!.aboutMe)
       setInputJobStatus(profile!.lookingForAJob)
       setInputSkills(profile!.lookingForAJobDescription)
+      setContacts({...contacts, github: profile!.contacts.github})
   }, [])
 
     const onInputNameChange = (e: ChangeEvent<HTMLInputElement>) => {

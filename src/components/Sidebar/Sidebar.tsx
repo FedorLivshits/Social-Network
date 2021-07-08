@@ -14,6 +14,7 @@ import bxChat from "@iconify-icons/bx/bx-chat";
 import bxHeart from "@iconify-icons/bx/bx-heart";
 import bxCog from "@iconify-icons/bx/bx-cog";
 import bxLogOut from "@iconify-icons/bx/bx-log-out";
+import bxNews from "@iconify-icons/bx/bx-news";
 
 type SidebarPropsType = {
     logout: () => void
@@ -49,6 +50,12 @@ const Sidebar: React.FC<SidebarPropsType> = props => {
                             <span className="links_name">Users</span>
                         </NavLink>
                         <span className="tooltip">Users</span>
+                    </li>
+                    <li>
+                        <NavLink to="/usersPosts">
+                            <Icon icon={bxNews} />
+                            <span className="links_name">Posts</span>
+                        </NavLink>
                     </li>
                     <li>
                         <NavLink to="/dialogs">

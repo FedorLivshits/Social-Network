@@ -5,10 +5,12 @@ import usersReducer from "./users-reducer";
 import authReducer from "./auth-reducer";
 import thunkMiddleware, {ThunkAction} from "redux-thunk";
 import appReducer from "./app-reducer";
+import postsReducer from "./posts-reducer";
 
 let rootReducer = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
+    postsPage: postsReducer,
     usersPage: usersReducer,
     auth: authReducer,
     app: appReducer,
