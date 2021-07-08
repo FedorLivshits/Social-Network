@@ -46,6 +46,7 @@ export type PostType = {
         firstName: string
         lastName: string
         picture: string
+        email: string
     },
     publishDate: string
     text: string,

@@ -89,7 +89,14 @@
     border-radius: 50%;
     margin-right: 20px;
 }
-
+.name-email{
+    display: flex;
+    flex-direction: column;
+}
+.user-posts__item-email{
+    font-size: 12px;
+    color: #808080;
+}
 .user-posts__item-date {
     font-size: 12px;
     color: #808080;

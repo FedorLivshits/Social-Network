@@ -4,10 +4,13 @@ import {PostType, UsersType} from "../types/types";
 
 const SET_POSTS = 'posts/SET_POSTS'
 const CHANGE_LIKE = 'posts/CHANGE_LIKE'
+const REMOVE_FROM_SAVED = 'posts/REMOVE_FROM_SAVED'
 
 let initialState = {
     posts: [] as Array<PostType>,
-    likedPosts: []  as Array<PostType>,
+    likedPosts: localStorage.getItem("likedPosts")
+        ? JSON.parse(localStorage.getItem("likedPosts") as string)
+        : [],
 }
 export type InitialStateType = typeof initialState
 
@@ -27,6 +30,11 @@ const postsReducer = (state = initialState, action: ActionTypes): InitialStateTy
                     return p
                 })
             }
+        case REMOVE_FROM_SAVED:
+            return {
+                // @ts-ignore
+                ...state, likedPosts: state.likedPosts.filter((p: PostType) => p.id !== action.id)
+            }
         default:
             return state
     }
@@ -37,7 +45,8 @@ type ThunkType = BaseThunkType<ActionTypes>
 
 export const actions = {
     setPosts: (posts: Array<PostType>) => ({type: SET_POSTS, posts}),
-    changeLike: (id: string) => ({type: CHANGE_LIKE, id})
+    changeLike: (id: string) => ({type: CHANGE_LIKE, id}),
+    removeFromSaved: (id: string) => ({type: REMOVE_FROM_SAVED, id})
 }
 
 export const getPosts = (): ThunkType => {
@@ -51,14 +60,16 @@ export const getPosts = (): ThunkType => {
                 owner: {
                     firstName: p.owner.firstName,
                     lastName: p.owner.lastName,
-                    picture: p.owner.picture
+                    picture: p.owner.picture,
+                    email: p.owner.email
                 },
                 publishDate: p.publishDate.slice(0, 16).split('T').join(' '),
                 text: p.text,
                 liked: false
             })
         })
-        dispatch(actions.setPosts(posts))
+        let filteredPosts = posts.filter(p => p.image !== undefined)
+        dispatch(actions.setPosts(filteredPosts))
     }
 }
 

@@ -65,10 +65,10 @@ const Sidebar: React.FC<SidebarPropsType> = props => {
                     </li>
 
                     <li>
-                        <a href="#">
+                        <NavLink to="/saved">
                             <Icon icon={bxHeart}/>
                             <span className="links_name">Saved</span>
-                        </a>
+                        </NavLink>
                     </li>
                     <li>
                         <a href="#">

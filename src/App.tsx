@@ -11,6 +11,8 @@ import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/Preloader/Preloader";
 import {AppStateType} from "./redux/redux-store";
 import PostsPage from "./components/Posts/PostsPage";
+import {LikedPost} from "./components/SavePage/LikedPost";
+import SavedPage from "./components/SavePage/SavedPage";
 
 const ProfileContainer = lazy(() => import("./components/Profile/ProfileContainer"))
 const UsersContainer = lazy(() => import("./components/Users/UsersContainer"))
@@ -44,6 +46,7 @@ const App: React.FC<MapStatePropsType & MapDispatchToPropsType> = (props) => {
                 }}/>
                 <Route path='/dialogs' render={() => <DialogsContainer/>}/>
                 <Route path='/usersPosts' render={() => <PostsPage/>}/>
+                <Route path='/saved' render={() => <SavedPage/>}/>
                 <Route path='/login' render={() => <Login/>}/>
             </div>
         </>
