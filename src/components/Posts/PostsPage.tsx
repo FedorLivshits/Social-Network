@@ -1,30 +1,52 @@
 import React, {useEffect, useState} from "react";
 import {actions, getPosts} from "../../redux/posts-reducer";
-import photo from "../../images/user.png";
 import './user-post.css'
 import {AppStateType} from "../../redux/redux-store";
 import {connect} from "react-redux";
 import {PostType} from "../../types/types";
-import Icon from "@iconify/react";
-import bxHeart from "@iconify-icons/bx/bx-heart";
-import bxHeartCircle from '@iconify-icons/bx/bx-heart-circle';
 import {UserPost} from "./UserPost";
 import Preloader from "../Preloader/Preloader";
 
 type MapStateToPropsType = {
     posts: Array<PostType>
+    totalCount: number
 }
 type MapDispatchToPropsType = {
-    getPosts: () => void
+    getPosts: (page: number) => Promise<void>
     changeLike: (userId: string) => void
 }
-const PostsPage: React.FC<MapStateToPropsType & MapDispatchToPropsType> = ({getPosts, posts, changeLike}) => {
-    const [endVisible, setEndVisible] = useState(10);
 
-    useEffect(() => getPosts(), [])
+const PostsPage: React.FC<MapStateToPropsType & MapDispatchToPropsType> = ({getPosts, posts, changeLike, totalCount}) => {
+    const [page, setPage] = useState(0);
+    const [isFetching, setIsFetching] = useState(true);
 
-    const showMore = () => {
-        setEndVisible(endVisible + 10);
+    //because the second page throws an error
+    if (page === 2) {
+        setPage(3)
+    }
+
+    useEffect(() => {
+        if (isFetching) {
+            getPosts(page)
+                .then(() => setPage(prevState => prevState + 1) )
+                .finally(() => {
+                    setIsFetching(false)
+                })
+        }
+    }, [isFetching])
+
+    useEffect(() => {
+        document.addEventListener('scroll', scrollHandler)
+        return function () {
+            document.removeEventListener('scroll', scrollHandler)
+        }
+    }, [])
+
+    const scrollHandler = (e: Event) => {
+        // @ts-ignore
+        if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100 && posts.length <= totalCount) {
+            setIsFetching(true)
+        }
     }
 
     return (
@@ -34,28 +56,23 @@ const PostsPage: React.FC<MapStateToPropsType & MapDispatchToPropsType> = ({getP
                 {posts.length
                     ?
                     <>
-                        <UserPost posts={posts} endVisible={endVisible} changeLike={changeLike}/>
-                        {endVisible <= posts.length
-                            ?
-                            <div className="posts__btn-section">
-                                <button className='posts__btn' onClick={showMore}
-                                >Show more
-                                </button>
-                            </div>
-                            :
-                            ''
-                        }
+                        <UserPost posts={posts} changeLike={changeLike}/>
                     </>
                     :
                     <Preloader/>
                 }
-
             </div>
+            {isFetching ? <Preloader/> : ''}
         </div>
     )
 }
 
 const mapStateToProps = (state: AppStateType) => ({
-    posts: state.postsPage.posts
+    posts: state.postsPage.posts,
+    totalCount: state.postsPage.totalCount
 })
-export default connect(mapStateToProps, {getPosts, changeLike: actions.changeLike})(PostsPage)
+export default connect(mapStateToProps, {
+    getPosts,
+    changeLike: actions.changeLike,
+    setPosts: actions.setPosts
+})(PostsPage)

@@ -31,8 +31,6 @@ const Paginator: React.FC<PropsType> = ({onPageChanged, currentPage, totalUsersC
                     setPortionNumber(portionNumber - 1)
                 }}/>
                 }
-
-
                 {totalPages
                     .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
                     .map(p => <Pagination.Item onClick={() => onPageChanged(p)}

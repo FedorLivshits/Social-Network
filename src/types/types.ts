@@ -37,17 +37,18 @@ export type MyPostsType = {
     date: string | null
     time: string | null
 }
+export type OwnerPostType = {
+    firstName: string
+    lastName: string
+    picture: string
+    email: string
+}
 
 export type PostType = {
     id: string
     likes: number
     image: string
-    owner: {
-        firstName: string
-        lastName: string
-        picture: string
-        email: string
-    },
+    owner: OwnerPostType
     publishDate: string
     text: string,
     liked: boolean

@@ -16,8 +16,8 @@ export const LikedPost: React.FC<PropsType> = ({likedPosts, removeFromSaved}) =>
     }
     return (
         <div className="col-lg-12">
-            {likedPosts.map(p => {
-                return <div className="user-posts__item" id={p.id} key={p.id}>
+            {likedPosts.map((p, i) => {
+                return <div className="user-posts__item" id={p.id} key={i}>
                     <div className="user-posts__item-head mb-3">
                         <img className="user-posts__item-img" src={p.owner.picture} alt={photo}/>
                         <div className="name-email">

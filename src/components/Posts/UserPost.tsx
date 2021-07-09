@@ -7,18 +7,17 @@ import {PostType} from "../../types/types";
 
 type PropsType = {
     posts: Array<PostType>
-    endVisible: number
     changeLike: (id: string) => void
 }
 
-export const UserPost: React.FC<PropsType> = ({posts, endVisible, changeLike}) => {
+export const UserPost: React.FC<PropsType> = ({posts, changeLike}) => {
     const onLikeChange = (userId: string) => {
         changeLike(userId)
     }
     return (
         <div className="col-lg-12">
-            {posts.slice(0, endVisible).map(p => {
-                return <div className="user-posts__item" id={p.id} key={p.id}>
+            {posts.map((p, i) => {
+                return <div className="user-posts__item" id={p.id} key={i}>
                     <div className="user-posts__item-head mb-3">
                         <img className="user-posts__item-img" src={p.owner.picture} alt={photo}/>
                         <div className="name-email">
