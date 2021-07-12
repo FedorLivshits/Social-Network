@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
-import {actions, getPosts} from "../../redux/posts-reducer";
+import React, { useEffect, useState } from "react";
+import { actions, getPosts } from "../../redux/posts-reducer";
 import './user-post.css'
-import {AppStateType} from "../../redux/redux-store";
-import {connect} from "react-redux";
-import {PostType} from "../../types/types";
-import {UserPost} from "./UserPost";
+import { AppStateType } from "../../redux/redux-store";
+import { connect } from "react-redux";
+import { PostType } from "../../types/types";
+import { UserPost } from "./UserPost";
 import Preloader from "../Preloader/Preloader";
 
 type MapStateToPropsType = {
@@ -16,7 +16,7 @@ type MapDispatchToPropsType = {
     changeLike: (userId: string) => void
 }
 
-const PostsPage: React.FC<MapStateToPropsType & MapDispatchToPropsType> = ({getPosts, posts, changeLike, totalCount}) => {
+const PostsPage: React.FC<MapStateToPropsType & MapDispatchToPropsType> = ({ getPosts, posts, changeLike, totalCount }) => {
     const [page, setPage] = useState(0);
     const [isFetching, setIsFetching] = useState(true);
 
@@ -28,7 +28,7 @@ const PostsPage: React.FC<MapStateToPropsType & MapDispatchToPropsType> = ({getP
     useEffect(() => {
         if (isFetching) {
             getPosts(page)
-                .then(() => setPage(prevState => prevState + 1) )
+                .then(() => setPage(prevState => prevState + 1))
                 .finally(() => {
                     setIsFetching(false)
                 })
@@ -56,13 +56,13 @@ const PostsPage: React.FC<MapStateToPropsType & MapDispatchToPropsType> = ({getP
                 {posts.length
                     ?
                     <>
-                        <UserPost posts={posts} changeLike={changeLike}/>
+                        <UserPost posts={posts} changeLike={changeLike} />
                     </>
                     :
-                    <Preloader/>
+                    <Preloader />
                 }
             </div>
-            {isFetching ? <Preloader/> : ''}
+            {isFetching ? <Preloader /> : ''}
         </div>
     )
 }

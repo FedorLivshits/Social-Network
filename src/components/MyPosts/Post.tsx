@@ -8,6 +8,7 @@ type PropsType = {
     profile: ProfileType
     deletePost: (id: any) => void
 }
+
 export const Post: React.FC<PropsType> = props => {
     useEffect(() => {
         localStorage.setItem("myPosts", JSON.stringify(props.myPosts));

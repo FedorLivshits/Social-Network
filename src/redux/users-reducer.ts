@@ -1,7 +1,7 @@
-import {Dispatch} from "redux";
-import {UsersType} from "../types/types";
-import {BaseThunkType, InferActionTypes} from "./redux-store";
-import {usersAPI} from "../api/users-api";
+import { Dispatch } from "redux";
+import { UsersType } from "../types/types";
+import { BaseThunkType, InferActionTypes } from "./redux-store";
+import { usersAPI } from "../api/users-api";
 
 let initialState = {
     users: [] as Array<UsersType>,
@@ -22,7 +22,7 @@ const usersReducer = (state = initialState, action: ActionTypes): InitialStateTy
                 ...state,
                 users: state.users.map(user => {
                     if (user.id === action.userId) {
-                        return {...user, followed: true}
+                        return { ...user, followed: true }
                     }
                     return user;
                 })
@@ -32,20 +32,20 @@ const usersReducer = (state = initialState, action: ActionTypes): InitialStateTy
                 ...state,
                 users: state.users.map(user => {
                     if (user.id === action.userId) {
-                        return {...user, followed: false}
+                        return { ...user, followed: false }
                     }
                     return user;
                 })
             };
         case 'SET_USERS':
-            return {...state, users: action.users}
+            return { ...state, users: action.users }
 
         case 'SET_CURRENT_PAGE':
-            return {...state, currentPage: action.page}
+            return { ...state, currentPage: action.page }
         case 'SET_TOTAL_USERS_COUNT':
-            return {...state, totalUsersCount: action.totalUsersCount}
+            return { ...state, totalUsersCount: action.totalUsersCount }
         case 'TOGGLE_IS_FETCHING':
-            return {...state, isFetching: action.isFetching}
+            return { ...state, isFetching: action.isFetching }
         case 'TOGGLE_IS_FOLLOWING_PROGRESS':
             return {
                 ...state,
@@ -62,13 +62,14 @@ const usersReducer = (state = initialState, action: ActionTypes): InitialStateTy
 export type ActionTypes = InferActionTypes<typeof actions>
 
 export const actions = {
-    followSuccess: (userId: number) => ({type: 'FOLLOW', userId} as const),
-    unfollowSuccess: (userId: number) => ({type: 'UNFOLLOW', userId} as const),
-    setUsers: (users: Array<UsersType>) => ({type: 'SET_USERS', users} as const),
-    setCurrentPage: (page: number) => ({type: 'SET_CURRENT_PAGE', page} as const),
-    setTotalUsersCount: (totalUsersCount: number) => ({type: 'SET_TOTAL_USERS_COUNT', totalUsersCount} as const),
-    setIsFetching: (isFetching: boolean) => ({type: 'TOGGLE_IS_FETCHING', isFetching} as const),
-    toggleFollowingInProgress: (isFetching: boolean, userId: number) => ({type: 'TOGGLE_IS_FOLLOWING_PROGRESS', isFetching,
+    followSuccess: (userId: number) => ({ type: 'FOLLOW', userId } as const),
+    unfollowSuccess: (userId: number) => ({ type: 'UNFOLLOW', userId } as const),
+    setUsers: (users: Array<UsersType>) => ({ type: 'SET_USERS', users } as const),
+    setCurrentPage: (page: number) => ({ type: 'SET_CURRENT_PAGE', page } as const),
+    setTotalUsersCount: (totalUsersCount: number) => ({ type: 'SET_TOTAL_USERS_COUNT', totalUsersCount } as const),
+    setIsFetching: (isFetching: boolean) => ({ type: 'TOGGLE_IS_FETCHING', isFetching } as const),
+    toggleFollowingInProgress: (isFetching: boolean, userId: number) => ({
+        type: 'TOGGLE_IS_FOLLOWING_PROGRESS', isFetching,
         userId
     } as const)
 }
@@ -89,7 +90,7 @@ export const getUsers = (currentPage: number, pageSize: number): ThunkType => {
 }
 
 const _followUnfollowFlow = async (dispatch: Dispatch<ActionTypes>, userId: number, apiMethod: any,
-                                   actionCreator: (userId: number) => ActionTypes)  => {
+    actionCreator: (userId: number) => ActionTypes) => {
     dispatch(actions.toggleFollowingInProgress(true, userId))
     let data = await apiMethod(userId)
     if (data.resultCode === 0) {

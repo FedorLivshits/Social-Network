@@ -1,12 +1,11 @@
 import React from "react";
 import Profile from "./Profile";
-import {connect} from "react-redux";
 import {getProfileStatus, getUserProfile, savePhoto, updateProfileStatus} from "../../redux/profile-reducer";
 import {RouteComponentProps, withRouter} from "react-router-dom";
 import {withAuthToRedirect} from "../hoc/withAuthToRedirect";
 import {compose} from "redux";
 import {AppStateType} from "../../redux/redux-store";
-
+import {connect} from "react-redux";
 type MapStateToPropsType = ReturnType<typeof mapStateToProps>
 type MapDispatchToPropsType = {
     getUserProfile: (userId: number) => void
@@ -63,7 +62,7 @@ let mapStateToProps = (state: AppStateType) => ({
 })
 
 export default compose(
-    connect(mapStateToProps, {
+     connect(mapStateToProps, {
         getUserProfile,
         getProfileStatus,
         updateProfileStatus,
