@@ -53,3 +53,13 @@ export type PostType = {
     text: string,
     liked: boolean
 }
+export type DialogsDataType = {
+    id: string
+    name: string
+}
+export type MyMessagesType = {
+    id: number
+    message: string
+    date: string
+    time: string
+}

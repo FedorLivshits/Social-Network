@@ -1,31 +1,31 @@
-import {InferActionTypes} from "./redux-store";
+import { MyMessagesType } from './../types/types';
+import { InferActionTypes } from "./redux-store";
+import { DialogsDataType } from '../types/types';
 
 const SEND_MESSAGE = 'dialogs/SEND-MESSAGE'
 
-let initialState = {
-    dialogsData: [
-        {name: 'Alexander Sarygin', id: '1'},
-        {name: 'Sergey Solod', id: '2'},
-        {name: 'Vlad Sosaysky', id: '3'},
-        {name: 'Artem Kirpu', id: '4'},
-        {name: 'Sam kopylov', id: '5'},
-        {name: 'Pavel Ostapchuk', id: '6'},
-    ],
-    myMessages: [
-        {id: "Fedor", message: 'Привет)'},
-        {id: "Fedor", message: 'Как твои дела?'},
-    ],
+type InitialStateType = {
+    dialogsData: Array<DialogsDataType>
+    myMessages: Array<MyMessagesType>
 }
-export type InitialStateType = typeof initialState
+let initialState: InitialStateType = {
+    dialogsData: [],
+    myMessages: [],
+}
 
-const dialogsReducer = (state = initialState, action: ActionTypes) : InitialStateType => {
+const dialogsReducer = (state = initialState, action: ActionTypes): InitialStateType => {
 
     switch (action.type) {
         case SEND_MESSAGE:
-            let message = action.newMessageText;
+            let newMessage = {
+                id: action.id, 
+                message: action.message,
+                date: `${new Date().toLocaleString('en', { weekday: 'long' })}  ${new Date().getDate()}  ${new Date().toLocaleString('en', { month: 'long' })}`,
+                time: `${new Date().getHours()}:${new Date().getMinutes()}`
+            }
             return {
                 ...state,
-                myMessages: [...state.myMessages, {id: "Fedor", message: message}]
+                myMessages: [...state.myMessages, newMessage]
             }
         default:
             return state
@@ -34,7 +34,7 @@ const dialogsReducer = (state = initialState, action: ActionTypes) : InitialStat
 type ActionTypes = InferActionTypes<typeof actions>
 
 export const actions = {
-    sendMessage: (newMessageText: string) => ({type: SEND_MESSAGE, newMessageText})
+    sendMessage: (message: string, id: number) => ({ type: SEND_MESSAGE, message, id})
 }
 
 

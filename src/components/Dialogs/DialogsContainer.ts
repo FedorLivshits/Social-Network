@@ -11,7 +11,8 @@ import {AppStateType} from "../../redux/redux-store";
 
 let mapStateToProps = (state: AppStateType) => {
     return {
-        dialogsPage: state.dialogsPage,
+        myMessages: state.dialogsPage.myMessages,
+        authUserId: state.auth.id
     }
 }
 
