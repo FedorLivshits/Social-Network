@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from "react";
-import "../../App.css";
+import "../../main.css";
 import photo from "../../images/user.png";
 import ProfileStatus from "./ProfileStatus";
 import { ProfileType } from "../../types/types";

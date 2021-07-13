@@ -7,27 +7,27 @@ import './Dialogs.css';
 
 const OutgoingMessage: React.FC<MyMessagesType> = ({id, message, date, time}) => {
     return (
-        <div className="outgoing_msg">
-            <div className="sent_msg">
+        <div className="outgoing__msg">
+            <div className="sent__msg">
                 <p>{message}</p>
-                <span className="time_date"> {time}    |    {date}</span></div>
+                <span className="time__date"> {time}    |    {date}</span></div>
         </div>
     )
 }
 
 const IncommingMessage = () => {
     return (
-        <div className="incoming_msg">
-            <div className="incoming_msg_img">
+        <div className="incoming__msg">
+            <div className="incoming__msg-img">
                 <img className='circle-img'
                     src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
                     alt="sunil" />
             </div>
-            <div className="received_msg">
-                <div className="received_withd_msg">
+            <div className="received__msg">
+                <div className="received__withd-msg">
                     <p>Test which is a new approach to have all
                         solutions</p>
-                    <span className="time_date"> 11:01 AM    |    June 9</span></div>
+                    <span className="time__date"> 11:01 AM    |    June 9</span></div>
             </div>
         </div>
     )
@@ -55,13 +55,13 @@ const Dialogs: React.FC<PropsType> = ({ sendMessage, myMessages, authUserId }) =
         <div className="container">
             <h3 className=" text-left mt-3 mb-5">Messaging</h3>
             <div className="messaging">
-                <div className="inbox_msg">
-                    <div className="inbox_people">
-                        <div className="headind_srch">
-                            <div className="recent_heading">
+                <div className="inbox__msg">
+                    <div className="inbox__people">
+                        <div className="headind__srch">
+                            <div className="recent__heading">
                                 <h4>Recent</h4>
                             </div>
-                            <div className="srch_bar">
+                            <div className="srch__bar">
                                 <div className="stylish-input-group">
                                     <input type="text" className="search-bar" placeholder="Search" />
                                     <span className="input-group-addon">
@@ -70,16 +70,16 @@ const Dialogs: React.FC<PropsType> = ({ sendMessage, myMessages, authUserId }) =
                                 </div>
                             </div>
                         </div>
-                        <div className="inbox_chat">
-                            <div className="chat_list active_chat">
-                                <div className="chat_people">
-                                    <div className="chat_img">
+                        <div className="inbox__chat">
+                            <div className="chat__list active__chat">
+                                <div className="chat__people">
+                                    <div className="chat__img">
                                         <img className='circle-img'
                                             src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
                                             alt="sunil" />
                                     </div>
-                                    <div className="chat_ib">
-                                        <h5>Sunil Rajput <span className="chat_date">Dec 25</span></h5>
+                                    <div className="chat__ib">
+                                        <h5>Sunil Rajput <span className="chat__date">Dec 25</span></h5>
                                         <p>Test, which is a new approach to have all solutions
                                             astrology under one roof.</p>
                                     </div>
@@ -88,14 +88,14 @@ const Dialogs: React.FC<PropsType> = ({ sendMessage, myMessages, authUserId }) =
                         </div>
                     </div>
                     <div className="mesgs">
-                        <div className="msg_history">
+                        <div className="msg__history">
                             <IncommingMessage />
                            {myMessages.map(m => <OutgoingMessage  id={m.id} message={m.message} date={m.date} time={m.time}/>)}
                         </div>
-                        <div className="type_msg">
-                            <div className="input_msg_write">
-                                <input type="text" className="write_msg" placeholder="Type a message" value={messageText} onChange={onMessageTextChange} />
-                                <button className="msg_send_btn" type="button" onClick={addNewMessage}>
+                        <div className="type__msg">
+                            <div className="input__msg-write">
+                                <input type="text" className="write__msg" placeholder="Type a message" value={messageText} onChange={onMessageTextChange} />
+                                <button className="msg__send-btn" type="button" onClick={addNewMessage}>
                                     <Icon icon={bxSend} />
                                 </button>
                             </div>
