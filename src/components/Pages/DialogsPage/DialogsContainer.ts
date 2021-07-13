@@ -1,12 +1,12 @@
 import React from 'react'
 import {
     actions,
-} from "../../redux/dialogs-reducer";
+} from "../../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
-import {withAuthToRedirect} from "../hoc/withAuthToRedirect";
+import {withAuthToRedirect} from "../../hoc/withAuthToRedirect";
 import {compose} from "redux";
-import {AppStateType} from "../../redux/redux-store";
+import {AppStateType} from "../../../redux/redux-store";
 
 
 let mapStateToProps = (state: AppStateType) => {

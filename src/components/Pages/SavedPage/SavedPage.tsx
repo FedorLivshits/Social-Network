@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
-import {actions} from "../../redux/posts-reducer";
+import {actions} from "../../../redux/posts-reducer";
 import {LikedPost} from "./LikedPost";
-import {AppStateType} from "../../redux/redux-store";
-import {PostType} from "../../types/types";
+import {AppStateType} from "../../../redux/redux-store";
+import {PostType} from "../../../types/types";
 
 type MapStateToPropsType = {
     likedPosts: Array<PostType>

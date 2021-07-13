@@ -1,5 +1,5 @@
 import React from "react";
-import {ProfileType} from "../../types/types";
+import {ProfileType} from "../../../types/types";
 
 
 type SocialLinksPropsType = {

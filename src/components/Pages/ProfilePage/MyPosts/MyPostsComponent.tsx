@@ -1,8 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
-import {actions} from "../../redux/profile-reducer";
-import {AppStateType} from "../../redux/redux-store";
-import {MyPostsType, ProfileType} from "../../types/types";
+import {actions} from "../../../../redux/profile-reducer";
+import {AppStateType} from "../../../../redux/redux-store";
+import {MyPostsType, ProfileType} from "../../../../types/types";
 import {PostForm} from "./PostForm";
 import {Post} from "./Post";
 

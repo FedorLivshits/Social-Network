@@ -2,7 +2,7 @@ import React from "react";
 import {SocialLinksComponent} from "./SocialLinksComponent";
 import {UserContactsComponent} from "./UserContactsCompnent.";
 import ProfileInEditModeComponent from "./ProfileInEditMode";
-import {ProfileType} from "../../types/types";
+import {ProfileType} from "../../../types/types";
 import {useState} from "react";
 
 type PropsType = {

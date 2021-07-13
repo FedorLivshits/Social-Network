@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { actions, getPosts } from "../../redux/posts-reducer";
+import { actions, getPosts } from "../../../redux/posts-reducer";
 import './user-post.css'
-import { AppStateType } from "../../redux/redux-store";
+import { AppStateType } from "../../../redux/redux-store";
 import { connect } from "react-redux";
-import { PostType } from "../../types/types";
+import { PostType } from "../../../types/types";
 import { UserPost } from "./UserPost";
-import Preloader from "../Preloader/Preloader";
+import Preloader from "../../Preloader/Preloader";
 
 type MapStateToPropsType = {
     posts: Array<PostType>

@@ -1,13 +1,13 @@
 import React, { ChangeEvent } from "react";
-import "../../main.css";
-import photo from "../../images/user.png";
+import "../../../main.css";
+import photo from "../../../images/user.png";
 import ProfileStatus from "./ProfileStatus";
-import { ProfileType } from "../../types/types";
+import { ProfileType } from "../../../types/types";
 import { NavLink, Route } from "react-router-dom";
-import MyPostsComponent from "../MyPosts/MyPostsComponent";
+import MyPostsComponent from "./MyPosts/MyPostsComponent";
 import { BreadcrumbsComponent } from "./BreadcrumbsComponent";
 import { ProfileOwnerContentComponent } from "./ProfileOwnerContentComponent";
-import Preloader from "../Preloader/Preloader";
+import Preloader from "../../Preloader/Preloader";
 
 type PropsType = {
   profile: ProfileType | null;

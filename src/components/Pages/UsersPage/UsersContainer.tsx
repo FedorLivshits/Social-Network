@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react'
 import {connect} from "react-redux";
-import {actions, follow, getUsers, unfollow} from "../../redux/users-reducer";
+import {actions, follow, getUsers, unfollow} from "../../../redux/users-reducer";
 import Users from "./Users";
 import {compose} from "redux";
-import {withAuthToRedirect} from "../hoc/withAuthToRedirect";
+import {withAuthToRedirect} from "../../hoc/withAuthToRedirect";
 import {
     getCurrentPage,
     getFollowingInProgress,
@@ -11,9 +11,9 @@ import {
     getPageSize,
     getTotalUsersCount,
     getUsersPage
-} from "../../redux/users-selectors";
-import {UsersType} from "../../types/types";
-import {AppStateType} from "../../redux/redux-store";
+} from "../../../redux/users-selectors";
+import {UsersType} from "../../../types/types";
+import {AppStateType} from "../../../redux/redux-store";
 
 type OwnPropsType = {}
 type MapStateToPropsType = {

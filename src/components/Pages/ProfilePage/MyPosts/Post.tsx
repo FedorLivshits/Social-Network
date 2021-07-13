@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import Icon from "@iconify/react";
 import bxTrash from "@iconify-icons/bx/bx-trash";
-import {MyPostsType, ProfileType} from "../../types/types";
+import {MyPostsType, ProfileType} from "../../../../types/types";
 
 type PropsType = {
     myPosts: Array<MyPostsType>

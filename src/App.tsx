@@ -3,19 +3,19 @@ import './main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SidebarContainer from "./components/Sidebar/Sidebar";
 import { Route, withRouter } from "react-router-dom";
-import DialogsContainer from "./components/DialogsPage/DialogsContainer";
-import Login from "./components/Login/Login";
+import DialogsContainer from "./components/Pages/DialogsPage/DialogsContainer";
+import Login from "./components/Pages/LoginPage/Login";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { initializeApp } from "./redux/app-reducer";
 import Preloader from "./components/Preloader/Preloader";
 import { AppStateType } from "./redux/redux-store";
-import PostsPage from "./components/PostsPage/PostsPage";
-import { LikedPost } from "./components/SavedPage/LikedPost";
-import SavedPage from "./components/SavedPage/SavedPage";
+import PostsPage from "./components/Pages/PostsPage/PostsPage";
+import { LikedPost } from "./components/Pages/SavedPage/LikedPost";
+import SavedPage from "./components/Pages/SavedPage/SavedPage";
 
-const ProfileContainer = lazy(() => import("./components/ProfilePage/ProfileContainer"))
-const UsersContainer = lazy(() => import("./components/UsersPage/UsersContainer"))
+const ProfileContainer = lazy(() => import("./components/Pages/ProfilePage/ProfileContainer"))
+const UsersContainer = lazy(() => import("./components/Pages/UsersPage/UsersContainer"))
 
 type MapStatePropsType = ReturnType<typeof mapStateToProps>
 type MapDispatchToPropsType = {

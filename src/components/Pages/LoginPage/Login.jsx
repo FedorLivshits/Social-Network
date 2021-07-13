@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './Login.css'
-import {login, logout} from "../../redux/auth-reducer";
+import {login, logout} from "../../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 

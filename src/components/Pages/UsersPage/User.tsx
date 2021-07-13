@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import photo from "../../images/user.png";
+import photo from "../../../images/user.png";
 import {Icon} from "@iconify/react";
 import bxTrash from '@iconify-icons/bx/bx-trash';
 import bxAddToQueue from '@iconify-icons/bx/bx-add-to-queue';

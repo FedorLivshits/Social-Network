@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { ChangeEvent } from "react";
-import { ProfileType } from "../../types/types";
+import { ProfileType } from "../../../types/types";
 import { connect } from "react-redux";
-import { saveProfileInfo } from "../../redux/profile-reducer"
+import { saveProfileInfo } from "../../../redux/profile-reducer"
 
 type MapStateToPropsType = {
 }

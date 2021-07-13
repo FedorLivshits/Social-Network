@@ -1,10 +1,10 @@
 import React from "react";
 import Profile from "./Profile";
-import {getProfileStatus, getUserProfile, savePhoto, updateProfileStatus} from "../../redux/profile-reducer";
+import {getProfileStatus, getUserProfile, savePhoto, updateProfileStatus} from "../../../redux/profile-reducer";
 import {RouteComponentProps, withRouter} from "react-router-dom";
-import {withAuthToRedirect} from "../hoc/withAuthToRedirect";
+import {withAuthToRedirect} from "../../hoc/withAuthToRedirect";
 import {compose} from "redux";
-import {AppStateType} from "../../redux/redux-store";
+import {AppStateType} from "../../../redux/redux-store";
 import {connect} from "react-redux";
 type MapStateToPropsType = ReturnType<typeof mapStateToProps>
 type MapDispatchToPropsType = {

@@ -1,7 +1,7 @@
 import bxSend from '@iconify-icons/bx/bx-send';
 import Icon from '@iconify/react';
 import React, { ChangeEvent, useState } from 'react';
-import { MyMessagesType } from '../../types/types';
+import { MyMessagesType } from '../../../types/types';
 import './Dialogs.css';
 
 

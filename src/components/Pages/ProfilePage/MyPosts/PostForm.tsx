@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useState} from "react";
 import './Post.css'
-import {ProfileType} from "../../types/types";
+import {ProfileType} from "../../../../types/types";
 
 type PropsType = {
     addPost: (text: string) => void

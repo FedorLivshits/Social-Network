@@ -1,9 +1,9 @@
 import React from 'react'
 import './Users.css'
-import Preloader from "../Preloader/Preloader";
-import Paginator from "../Paginator/Paginator";
+import Preloader from "../../Preloader/Preloader";
+import Paginator from "../../Paginator/Paginator";
 import User from "./User";
-import {UsersType} from "../../types/types"
+import {UsersType} from "../../../types/types"
 
 type PropsType = {
     totalUsersCount: number
