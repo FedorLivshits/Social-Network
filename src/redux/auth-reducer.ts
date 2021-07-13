@@ -56,7 +56,7 @@ export const login = (email: string, password: string, rememberMe: boolean): Thu
     if (response.resultCode === ResponseCode.Success) {
         dispatch(getAuthUserData())
     } else {
-        alert("some error")
+        alert(response.messages)
     }
 }
 

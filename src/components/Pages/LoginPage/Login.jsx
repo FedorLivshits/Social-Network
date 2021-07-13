@@ -1,69 +1,80 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './Login.css'
-import {login, logout} from "../../../redux/auth-reducer";
-import {Redirect} from "react-router-dom";
-import {connect} from "react-redux";
+import { login, logout } from "../../../redux/auth-reducer";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { useFormik } from "formik"
+import * as yup from "yup"
 
-function Login({login, logout, isAuth}) {
-    let [email, setEmail] = useState('')
-    let [password, setPassword] = useState('')
-    let [rememberMe, setRememberMe] = useState(false)
+function Login({ login, logout, isAuth }) {
 
-    const onEmailChange = (e) => {
-        setEmail(e.target.value)
-    }
-    const onPasswordChange = (e) => {
-        setPassword(e.target.value)
-    }
-    const onRememberMeChange = () => {
+    const validationSchema = yup.object({
+        email: yup.string().required("Email is required"),
+        password: yup.string().required("Password is required"),
+    })
 
-    }
-    const onSubmit = (e) => {
-        login(email, password, rememberMe = false)
-    }
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+            password: '',
+            rememberMe: false
+        },
+        onSubmit: (values) => {
+            console.log(values.email, values.password, values.rememberMe);
+            login(values.email, values.password, values.rememberMe)
+        },
+        validationSchema: validationSchema
+    })
+
+  const emailValidation = formik.touched.email && formik.errors.email
+  const passwordValidation = formik.touched.password && formik.errors.password
+
     if (isAuth) {
-        return <Redirect to={'/profile'}/>
+        return <Redirect to={'/profile'} />
     }
     return (
         <div className="body">
             <div className="container__login">
-                <input type="checkbox" id="flip"/>
+                <input type="checkbox" id="flip" />
                 <div className="cover">
                     <div className="front">
 
                         <div className="text">
-                            <span className="text-1">Every new friend is a <br/> new adventure</span>
+                            <span className="text-1">Every new friend is a <br /> new adventure</span>
                             <span className="text-2">Let's get connected</span>
                         </div>
                     </div>
                     <div className="back">
 
                         <div className="text">
-                            <span className="text-1">Complete miles of journey <br/> with one step</span>
+                            <span className="text-1">Complete miles of journey <br /> with one step</span>
                             <span className="text-2">Let's get started</span>
                         </div>
                     </div>
                 </div>
-                <form action="#">
+                <form onSubmit={formik.handleSubmit}>
                     <div className="form-content">
                         <div className="login-form">
                             <div className="title">Login</div>
                             <div className="input-boxes">
-                                <div className="input-box">
-                                    <input type="text" placeholder="Enter your email" required
-                                           onChange={onEmailChange}/>
+                                <div className={emailValidation ? "input-box error" : "input-box"}>
+                                    <input id="email" name="email" type="text" placeholder="Enter your email" value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} />
                                 </div>
-                                <div className="input-box">
-                                    <input type="password" placeholder="Enter your password" required
-                                           onChange={onPasswordChange}/>
+                                {emailValidation && <p className="error">{formik.errors.email}</p>}
+                                <div className={passwordValidation ? "input-box error" : "input-box"}>
+                                    <input id="password" name="password" type="password" placeholder="Enter your password" value={formik.values.password} onChange={formik.handleChange} />
                                 </div>
-                                <div className="text"><a href="#">Forgot password?</a></div>
+                                {passwordValidation && <p className="error">{formik.errors.password}</p>}
+                            
+                                <label className="checkbox-box" htmlFor="rememberMe">
+                                    <input id="rememberMe" name="rememberMe" type="checkbox" value={formik.values.rememberMe} onChange={formik.handleChange} />
+                                    <span className="label">Remember me</span>    
+                                </label>
                                 <div className="button input-box">
-                                    <button type="button" onClick={onSubmit} className="btn btn-outline-dark">Log in
+                                    <button type="submit" className="btn btn-outline-dark w-100" disabled={!formik.isValid && !formik.dirty}>
+                                        Log in
                                     </button>
                                 </div>
-                                <div className="text sign-up-text">Don't have an account? <label htmlFor="flip">Sigup
-                                    now</label></div>
                             </div>
                         </div>
                     </div>
@@ -78,5 +89,5 @@ const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
 })
 
-export default connect(mapStateToProps, {login, logout})(Login);
+export default connect(mapStateToProps, { login, logout })(Login);
 
