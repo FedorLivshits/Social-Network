@@ -1,6 +1,6 @@
 import bxSend from '@iconify-icons/bx/bx-send';
 import Icon from '@iconify/react';
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
 import { MyMessagesType } from '../../../types/types';
 import './Dialogs.css';
 
@@ -51,11 +51,19 @@ const Dialogs: React.FC<PropsType> = ({ sendMessage, myMessages, authUserId }) =
         setMessageText('')
     }
 
+    const onEnterPressTextarea = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            e.preventDefault()
+            sendMessage(messageText, authUserId);
+            setMessageText('')
+        }
+    }
+
     return (
         <div className="container">
             <h3 className=" text-left mt-3 mb-5">Messaging</h3>
             <div className="messaging">
-                <div className="inbox__msg">
+                <div className="inbox__msg rounded">
                     <div className="inbox__people">
                         <div className="headind__srch">
                             <div className="recent__heading">
@@ -94,8 +102,8 @@ const Dialogs: React.FC<PropsType> = ({ sendMessage, myMessages, authUserId }) =
                         </div>
                         <div className="type__msg">
                             <div className="input__msg-write">
-                                <input type="text" className="write__msg" placeholder="Type a message" value={messageText} onChange={onMessageTextChange} />
-                                <button className="msg__send-btn" type="button" onClick={addNewMessage}>
+                                <input type="text" className="write__msg" placeholder="Type a message" value={messageText} onChange={onMessageTextChange} onKeyPress={onEnterPressTextarea} />
+                                <button className="btn btn-dark float-right" type="button" onClick={addNewMessage}>
                                     <Icon icon={bxSend} />
                                 </button>
                             </div>

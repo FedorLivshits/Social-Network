@@ -13,8 +13,6 @@
 .form__input {
     width: 100%;
     padding: 10px;
-    border: 1px solid rgba(29, 27, 49, 0.4);
-    border-radius: 10px;
     margin-bottom: 30px;
     outline: none;
 }
@@ -22,6 +20,7 @@
 .form__input.textarea {
     resize: none;
     height: 100px;
+    border: none;
 }
 
 .form__input.validation {

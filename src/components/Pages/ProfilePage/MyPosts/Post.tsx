@@ -20,7 +20,7 @@ export const Post: React.FC<PropsType> = props => {
     }
 
     let myPostsList = props.myPosts.map(p =>
-        <div className="posts__item" id={p.id!} key={p.id}>
+        <div className="posts__item  border rounded" id={p.id!} key={p.id}>
             <div className="posts__item-head">
                 <img className="posts__item-img" src={props.profile.photos.small} alt=""/>
                 <h3 className="posts__item-user">

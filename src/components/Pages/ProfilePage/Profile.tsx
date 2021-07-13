@@ -97,6 +97,7 @@ const Profile: React.FC<PropsType> = (props) => {
             </div>
           </div>
           <BreadcrumbsComponent isOwner={props.isOwner} />
+          <hr/>
         </div>
       </div>
       <div className="container">

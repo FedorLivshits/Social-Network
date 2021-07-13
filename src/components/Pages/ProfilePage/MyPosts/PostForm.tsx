@@ -1,13 +1,13 @@
-import React, {ChangeEvent, useState} from "react";
+import React, { ChangeEvent, useState } from "react";
 import './Post.css'
-import {ProfileType} from "../../../../types/types";
+import { ProfileType } from "../../../../types/types";
 
 type PropsType = {
     addPost: (text: string) => void
     profile: ProfileType
 }
 
-export const PostForm: React.FC<PropsType> = ({addPost, profile}) => {
+export const PostForm: React.FC<PropsType> = ({ addPost, profile }) => {
     const [text, setText] = useState('');
 
     const onTextChanged = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -30,13 +30,13 @@ export const PostForm: React.FC<PropsType> = ({addPost, profile}) => {
     }
 
     return (
-        <section className="form mb-5">
+        <section className="form mb-5 border rounded">
             <div className="form__inner">
-                    <textarea className="form__input textarea" placeholder={`what's on your mind, ${profile.fullName}?`}
-                              onChange={onTextChanged} onKeyDown={onEnterPressTextarea} value={text}/>
+                <textarea className="form__input textarea" placeholder={`what's on your mind, ${profile.fullName}?`}
+                    onChange={onTextChanged} onKeyDown={onEnterPressTextarea} value={text} />
                 <button className="btn btn-dark ml-auto"
-                        onClick={onAddPost}
-                        disabled={!text}>
+                    onClick={onAddPost}
+                    disabled={!text}>
                     Add Article
                 </button>
             </div>

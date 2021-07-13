@@ -1,9 +1,9 @@
 import React from "react";
-import {SocialLinksComponent} from "./SocialLinksComponent";
-import {UserContactsComponent} from "./UserContactsCompnent.";
+import { SocialLinksComponent } from "./SocialLinksComponent";
+import { UserContactsComponent } from "./UserContactsCompnent.";
 import ProfileInEditModeComponent from "./ProfileInEditMode";
-import {ProfileType} from "../../../types/types";
-import {useState} from "react";
+import { ProfileType } from "../../../types/types";
+import { useState } from "react";
 
 type PropsType = {
     profile: ProfileType | null
@@ -23,23 +23,24 @@ export const ProfileOwnerContentComponent: React.FC<PropsType> = (props) => {
             {!editMode
                 ?
                 <>
-                    <div className="row gutters-sm">
-                        <div className="col-md-4 mb-3">
-                            <SocialLinksComponent profile={props.profile}/>
-                        </div>
-                        <div className="col-md-8">
-                            <UserContactsComponent profile={props.profile} isOwner={props.isOwner}/>
-                        </div>
-                    </div>
                     {props.isOwner ?
                         <div className="row">
                             <div className="col-sm-12">
-                                <button type="button" className="btn btn-dark" onClick={activateEditMode}>Edit</button>
+                                <button type="button" className="btn btn-dark float-right" onClick={activateEditMode}>Edit</button>
                             </div>
                         </div> : ""}
+                    <div className="row gutters-sm">
+                        <div className="col-md-4 mb-3">
+                            <SocialLinksComponent profile={props.profile} />
+                        </div>
+                        <div className="col-md-8">
+                            <UserContactsComponent profile={props.profile} isOwner={props.isOwner} />
+                        </div>
+                    </div>
+
                 </>
                 :
-                   <ProfileInEditModeComponent profile={props.profile} deactivateEditMode={deactivateEditMode}/>
+                <ProfileInEditModeComponent profile={props.profile} deactivateEditMode={deactivateEditMode} />
             }
         </>
     )
