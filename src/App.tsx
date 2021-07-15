@@ -1,18 +1,17 @@
-import React, { lazy, Suspense, useEffect } from 'react'
-import './main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SidebarContainer from "./components/Sidebar/Sidebar";
-import { Route, withRouter } from "react-router-dom";
+import React, { lazy, Suspense, useEffect } from 'react';
+import { connect } from "react-redux";
+import { Redirect, Route, withRouter } from "react-router-dom";
+import { compose } from "redux";
 import DialogsContainer from "./components/Pages/DialogsPage/DialogsContainer";
 import Login from "./components/Pages/LoginPage/Login";
-import { connect } from "react-redux";
-import { compose } from "redux";
-import { initializeApp } from "./redux/app-reducer";
-import Preloader from "./components/Preloader/Preloader";
-import { AppStateType } from "./redux/redux-store";
 import PostsPage from "./components/Pages/PostsPage/PostsPage";
-import { LikedPost } from "./components/Pages/SavedPage/LikedPost";
 import SavedPage from "./components/Pages/SavedPage/SavedPage";
+import Preloader from "./components/Preloader/Preloader";
+import SidebarContainer from "./components/Sidebar/Sidebar";
+import './main.css';
+import { initializeApp } from "./redux/app-reducer";
+import { AppStateType } from "./redux/redux-store";
 
 const ProfileContainer = lazy(() => import("./components/Pages/ProfilePage/ProfileContainer"))
 const UsersContainer = lazy(() => import("./components/Pages/UsersPage/UsersContainer"))
@@ -33,7 +32,7 @@ const App: React.FC<MapStatePropsType & MapDispatchToPropsType> = (props) => {
     return (
         <>
             <SidebarContainer />
-            <div className="home_content">
+            <div className="home__content">
                 <Route exact path='/profile/:userId?' render={() => {
                     return <Suspense fallback={<Preloader />}>
                         <ProfileContainer />
@@ -48,6 +47,7 @@ const App: React.FC<MapStatePropsType & MapDispatchToPropsType> = (props) => {
                 <Route path='/usersPosts' render={() => <PostsPage />} />
                 <Route path='/saved' render={() => <SavedPage />} />
                 <Route path='/login' render={() => <Login />} />
+                <Redirect from='/' to='/profile'/>
             </div>
         </>
     );
