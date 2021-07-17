@@ -1,7 +1,7 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import photo from "../../../images/user.png";
-import {Icon} from "@iconify/react";
+import { Icon } from "@iconify/react";
 import bxTrash from '@iconify-icons/bx/bx-trash';
 import bxAddToQueue from '@iconify-icons/bx/bx-add-to-queue';
 
@@ -12,12 +12,12 @@ type PropsType = {
     follow: (userId: number) => void
 }
 
-const User: React.FC<PropsType> = ({user, followingInProgress, unfollow, follow}) => {
+const User: React.FC<PropsType> = ({ user, followingInProgress, unfollow, follow }) => {
     return (
         <tr>
             <td>
                 <img src={user.photos.small != null ? user.photos.small : photo} alt="ava"
-                     className="circle"/>
+                    className="circle" />
                 <NavLink className="user-link" to={'/profile/' + user.id}>
                     {user.name}
                 </NavLink>
@@ -35,32 +35,32 @@ const User: React.FC<PropsType> = ({user, followingInProgress, unfollow, follow}
                 {user.followed
                     ?
                     <button disabled={followingInProgress.some(id => id === user.id)}
-                            onClick={() => {
-                                unfollow(user.id)
-                            }} className="btn btn-danger">
-                        <Icon icon={bxTrash}/>
+                        onClick={() => {
+                            unfollow(user.id)
+                        }} className="btn btn-danger">
+                        <Icon icon={bxTrash} />
                     </button>
                     :
                     <button disabled={followingInProgress.some(id => id === user.id)}
-                            onClick={() => {
-                                follow(user.id)
-                            }} className="btn btn-dark">
-                        <Icon icon={bxAddToQueue}/>
+                        onClick={() => {
+                            follow(user.id)
+                        }} className="btn btn-dark">
+                        <Icon icon={bxAddToQueue} />
                     </button>}
 
             </td>
             <td>
                 <a href="#" className="table-link">
-                                            <span className="fa-stack">
-                                            </span>
+                    <span className="fa-stack">
+                    </span>
                 </a>
                 <a href="#" className="table-link">
-                                            <span className="fa-stack">
-                                            </span>
+                    <span className="fa-stack">
+                    </span>
                 </a>
                 <a href="#" className="table-link danger">
-                                            <span className="fa-stack">
-                                            </span>
+                    <span className="fa-stack">
+                    </span>
                 </a>
             </td>
         </tr>

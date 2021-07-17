@@ -14,7 +14,7 @@ import { initializeApp } from "./redux/app-reducer";
 import { AppStateType } from "./redux/redux-store";
 
 const ProfileContainer = lazy(() => import("./components/Pages/ProfilePage/ProfileContainer"))
-const UsersContainer = lazy(() => import("./components/Pages/UsersPage/UsersContainer"))
+const UsersPage = lazy(() => import("./components/Pages/UsersPage/UsersPage"))
 
 type MapStatePropsType = ReturnType<typeof mapStateToProps>
 type MapDispatchToPropsType = {
@@ -40,7 +40,7 @@ const App: React.FC<MapStatePropsType & MapDispatchToPropsType> = (props) => {
                 }} />
                 <Route path='/users' render={() => {
                     return <Suspense fallback={<Preloader />}>
-                        <UsersContainer />
+                        <UsersPage />
                     </Suspense>
                 }} />
                 <Route path='/dialogs' render={() => <DialogsContainer />} />
