@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Profile from "./Profile";
-import {getProfileStatus, getUserProfile, savePhoto, updateProfileStatus} from "../../../redux/profile-reducer";
-import {RouteComponentProps, withRouter} from "react-router-dom";
-import {withAuthToRedirect} from "../../hoc/withAuthToRedirect";
-import {compose} from "redux";
-import {AppStateType} from "../../../redux/redux-store";
-import {connect} from "react-redux";
+import { getProfileStatus, getUserProfile, savePhoto, updateProfileStatus } from "../../../redux/profile-reducer";
+import { RouteComponentProps, withRouter } from "react-router-dom";
+import { withAuthToRedirect } from "../../hoc/withAuthToRedirect";
+import { compose } from "redux";
+import { AppStateType } from "../../../redux/redux-store";
+import { connect } from "react-redux";
+import { getProfileData, getStatusData } from "../../../redux/selectors/profile-selectors";
+import { getIsFetching } from "../../../redux/selectors/users-selectors";
+import { getAuthorizedUserId, getIsAuth } from "../../../redux/selectors/auth-selectors";
+
 type MapStateToPropsType = ReturnType<typeof mapStateToProps>
 type MapDispatchToPropsType = {
     getUserProfile: (userId: number) => void
@@ -20,49 +24,54 @@ type PathParamsType = {
 
 type PropsType = MapStateToPropsType & MapDispatchToPropsType & RouteComponentProps<PathParamsType>;
 
-class ProfileContainer extends React.Component<PropsType> {
-    componentDidMount() {
-        let userId: number | null = +this.props.match.params.userId
-        console.log(`${this.props.match.params.userId}: ${typeof this.props.match.params.userId}`)
+const ProfileContainer: React.FC<PropsType> = (props) => {
+    useEffect(() =>{
+        let userId: number | null = +props.match.params.userId
+        console.log(`${props.match.params.userId}: ${typeof props.match.params.userId}`)
         if (!userId) {
-            userId = this.props.authorizedUserId;
+            userId = props.authorizedUserId
         }
-        this.props.getUserProfile(userId as number)
-        this.props.getProfileStatus(userId as number)
-    }
+        props.getUserProfile(userId as number)
+        props.getProfileStatus(userId as number)
+    }, [])
 
+    function usePrevious(value: any) {
+        const ref = useRef();
+        useEffect(() => {
+          ref.current = value;
+        });
+        return ref.current;
+      }
+      const prevUserId = usePrevious(props.match.params.userId)
 
-    componentDidUpdate(prevProps: PropsType, prevState: PropsType) {
-        if (this.props.match.params.userId !== prevProps.match.params.userId) {
-            let userId: number | null = +this.props.match.params.userId
+    useEffect(() => {
+        if (props.match.params.userId !== prevUserId) {
+            let userId: number | null = +props.match.params.userId
             if (!userId) {
-                userId = this.props.authorizedUserId;
+                userId = props.authorizedUserId;
             }
-            this.props.getUserProfile(userId as number)
-            this.props.getProfileStatus(userId as number)
+            props.getUserProfile(userId as number)
+            props.getProfileStatus(userId as number)
         }
+    }, [props.match.params.userId])
 
-    }
-
-    render() {
-        return (
-            <>
-                <Profile {...this.props} isOwner={this.props.match.params.userId === undefined || this.props.match.params.userId === 'posts'} isNotPosts={this.props.match.params.userId !== 'posts'}/>
-            </>
-        )
-    }
+    return (
+        <>
+            <Profile {...props} isOwner={props.match.params.userId === undefined || props.match.params.userId === 'posts'} isNotPosts={props.match.params.userId !== 'posts'} />
+        </>
+    )
 }
 
 let mapStateToProps = (state: AppStateType) => ({
-    profile: state.profilePage.profile,
-    status: state.profilePage.status,
-    authorizedUserId: state.auth.id,
-    isAuth: state.auth.isAuth,
-    isFetching: state.usersPage.isFetching
+    profile: getProfileData(state),
+    status: getStatusData(state),
+    authorizedUserId: getAuthorizedUserId(state),
+    isAuth: getIsAuth(state),
+    isFetching: getIsFetching(state)
 })
 
 export default compose(
-     connect(mapStateToProps, {
+    connect(mapStateToProps, {
         getUserProfile,
         getProfileStatus,
         updateProfileStatus,
