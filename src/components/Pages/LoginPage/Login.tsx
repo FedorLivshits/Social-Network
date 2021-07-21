@@ -1,22 +1,18 @@
-import React, { useState } from 'react'
-import './Login.css'
-import { login, logout } from '../../../redux/auth-reducer'
-import { Redirect } from 'react-router-dom'
-import { connect } from 'react-redux'
 import { useFormik } from 'formik'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import * as yup from 'yup'
-import { AppStateType } from '../../../redux/redux-store'
+import { login } from '../../../redux/auth-reducer'
+import { getIsAuth } from '../../../redux/selectors/auth-selectors'
+import './Login.css'
 
-type MapStateToPropsType = {
-	isAuth: boolean
-}
-type MapDispatchToPropsType = {
-	login: (email: string, password: string, rememberMe: boolean) => void
-}
 
-type PropsType = {}
 	
-const Login: React.FC<MapStateToPropsType & MapDispatchToPropsType & PropsType> = ({ login, isAuth }) => {
+export const Login: React.FC = () => {
+    const isAuth = useSelector(getIsAuth)
+
+    const dispatch = useDispatch()
 	const validationSchema = yup.object({
 		email: yup.string().required('Email is required'),
 		password: yup.string().required('Password is required'),
@@ -30,7 +26,7 @@ const Login: React.FC<MapStateToPropsType & MapDispatchToPropsType & PropsType> 
 		},
 		onSubmit: values => {
 			console.log(values.email, values.password, values.rememberMe)
-			login(values.email, values.password, values.rememberMe)
+			dispatch(login(values.email, values.password, values.rememberMe))
 		},
 		validationSchema: validationSchema,
 	})
@@ -126,9 +122,3 @@ const Login: React.FC<MapStateToPropsType & MapDispatchToPropsType & PropsType> 
 		</div>
 	)
 }
-
-const mapStateToProps = (state: AppStateType) => ({
-	isAuth: state.auth.isAuth,
-})
-
-export default connect(mapStateToProps, { login })(Login)
