@@ -8,21 +8,18 @@ import bxSearch from "@iconify-icons/bx/bx-search";
 import bxUser from "@iconify-icons/bx/bx-user";
 import { Icon } from "@iconify/react";
 import React from 'react';
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { compose } from "redux";
 import '../../main.css';
 import { logout } from "../../redux/auth-reducer";
 import { withAuthToRedirect } from "../hoc/withAuthToRedirect";
 
-type SidebarPropsType = {
-    logout: () => void
-}
 
-const Sidebar: React.FC<SidebarPropsType> = props => {
-
+const Sidebar: React.FC = () => {
+    const dispatch = useDispatch()
     const logoutFn = () => {
-        props.logout()
+        dispatch(logout())
     }
     return (
         <>
@@ -95,18 +92,6 @@ const Sidebar: React.FC<SidebarPropsType> = props => {
 }
 
 
-type MapDispatchToPropsType = {
-    logout: () => void
-}
-
-type PropsType = MapDispatchToPropsType
-
-const SidebarContainer: React.FC<PropsType> = (props) => {
-    return <Sidebar logout={props.logout} />
-}
-
-
 export default compose(
     withAuthToRedirect,
-    connect(null, { logout })
-)(SidebarContainer) as React.ComponentType
+)(Sidebar) as React.ComponentType
