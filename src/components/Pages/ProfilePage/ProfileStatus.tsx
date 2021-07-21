@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import bxPencil from '@iconify-icons/bx/bx-pencil';
 import { Icon } from '@iconify/react';
 
@@ -36,19 +36,19 @@ const ProfileStatus: React.FC<PropsType> = props => {
                     {!editMode
                         ?
                         <div className="status">
-                        <Icon icon={bxPencil} />
-                        <div className="status-text" onClick={activateEditMode}>
-                            {props.status ||
-                            <div className="profile_no-status-text">
-                                Click to write your status
-                            </div>}
-                        </div>
+                            <Icon icon={bxPencil} />
+                            <div className="status-text" onClick={activateEditMode}>
+                                {props.status ||
+                                    <div className="profile_no-status-text">
+                                        Click to write your status
+                                    </div>}
+                            </div>
                         </div>
                         :
                         <input onChange={onStatusChange} autoFocus={true} id="input_text" type="text"
-                               placeholder="write and click anywhere"
-                               onBlur={deactivateEditMode}
-                               value={status}
+                            placeholder="write and click anywhere"
+                            onBlur={deactivateEditMode}
+                            value={status}
                         />
 
                     }
