@@ -1,17 +1,12 @@
-import React, {useEffect} from "react";
-import {connect} from "react-redux";
-import {actions} from "../../../redux/posts-reducer";
-import {LikedPost} from "./LikedPost";
-import {AppStateType} from "../../../redux/redux-store";
-import {PostType} from "../../../types/types";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { actions } from "../../../redux/posts-reducer";
+import { getLikedPosts } from "../../../redux/selectors/posts-selectors";
+import { LikedPost } from "./LikedPost";
 
-type MapStateToPropsType = {
-    likedPosts: Array<PostType>
-}
-type MapDispatchToPropsType = {
-    removeFromSaved: (userId: string) => void
-}
-const SavedPage: React.FC<MapStateToPropsType & MapDispatchToPropsType> = ({likedPosts, removeFromSaved}) => {
+
+export const SavedPage = () => {
+    const likedPosts = useSelector(getLikedPosts)
 
     useEffect(() => {
         localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
@@ -24,7 +19,7 @@ const SavedPage: React.FC<MapStateToPropsType & MapDispatchToPropsType> = ({like
                 <div className="col-lg-12">
                     {likedPosts.length
                         ?
-                        <LikedPost likedPosts={likedPosts} removeFromSaved={removeFromSaved}/>
+                        <LikedPost likedPosts={likedPosts} removeFromSaved={actions.removeFromSaved} />
                         :
                         <h3 className="posts__title">No saved content</h3>
                     }
@@ -35,7 +30,3 @@ const SavedPage: React.FC<MapStateToPropsType & MapDispatchToPropsType> = ({like
     )
 }
 
-const mapStateToProps = (state: AppStateType) => ({
-    likedPosts: state.postsPage.likedPosts
-})
-export default connect(mapStateToProps, {removeFromSaved: actions.removeFromSaved})(SavedPage)

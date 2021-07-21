@@ -1,9 +1,8 @@
-import photo from "../../../images/user.png";
-import Icon from "@iconify/react";
 import bxHeartCircle from "@iconify-icons/bx/bx-heart-circle";
-import bxHeart from "@iconify-icons/bx/bx-heart";
+import Icon from "@iconify/react";
 import React from "react";
-import {PostType} from "../../../types/types";
+import photo from "../../../images/user.png";
+import { PostType } from "../../../types/types";
 
 type PropsType = {
     likedPosts: Array<PostType>
