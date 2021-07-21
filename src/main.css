@@ -214,21 +214,24 @@ a.active span {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 96px;
     height: 100%;
     opacity: 0;
     font-size: 0;
     cursor: pointer;
+    margin-left: 190px;
 }
 .file-input__btn{
     display: inline-flex;
     min-height: 40px;
     background: #11101d;
-    color: white;
+    color: #fff;
     border-radius: 3px;
     justify-content: center;
     align-items: center;
     padding: 0 20px;
+    margin-top: 2px;
+    margin-left: 190px;
 }
 .status {
     display: flex;
