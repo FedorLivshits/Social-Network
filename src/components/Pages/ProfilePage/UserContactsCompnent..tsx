@@ -1,5 +1,5 @@
 import React from "react";
-import {ProfileType} from "../../../types/types";
+import { ProfileType } from "../../../types/types";
 
 
 type UserContactsPropsType = {
@@ -7,7 +7,7 @@ type UserContactsPropsType = {
     isOwner: boolean
 }
 
-export const UserContactsComponent: React.FC<UserContactsPropsType> = ({profile, isOwner}) => {
+export const UserContactsComponent: React.FC<UserContactsPropsType> = ({ profile, isOwner }) => {
     return (
         <div className="card mb-3 mt-3">
             <div className="card-body">
@@ -19,7 +19,7 @@ export const UserContactsComponent: React.FC<UserContactsPropsType> = ({profile,
                         {profile.fullName}
                     </div>
                 </div>
-                <hr/>
+                <hr />
                 <div className="row">
                     <div className="col-sm-3">
                         <h6 className="mb-0">About me</h6>
@@ -28,7 +28,7 @@ export const UserContactsComponent: React.FC<UserContactsPropsType> = ({profile,
                         {profile.aboutMe}
                     </div>
                 </div>
-                <hr/>
+                <hr />
                 <div className="row">
                     <div className="col-sm-3">
                         <h6 className="mb-0">Job status</h6>
@@ -37,7 +37,7 @@ export const UserContactsComponent: React.FC<UserContactsPropsType> = ({profile,
                         {profile.lookingForAJob ? "looking for a job" : "working"}
                     </div>
                 </div>
-                <hr/>
+                <hr />
                 <div className="row">
                     <div className="col-sm-3">
                         <h6 className="mb-0">My skills</h6>

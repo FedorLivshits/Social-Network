@@ -5,7 +5,7 @@ import { MyMessagesType } from '../../../types/types';
 import './Dialogs.css';
 
 
-const OutgoingMessage: React.FC<MyMessagesType> = ({id, message, date, time}) => {
+const OutgoingMessage: React.FC<MyMessagesType> = ({ id, message, date, time }) => {
     return (
         <div className="outgoing__msg">
             <div className="sent__msg">
@@ -98,7 +98,7 @@ const Dialogs: React.FC<PropsType> = ({ sendMessage, myMessages, authUserId }) =
                     <div className="mesgs">
                         <div className="msg__history">
                             <IncommingMessage />
-                           {myMessages.map(m => <OutgoingMessage  id={m.id} message={m.message} date={m.date} time={m.time}/>)}
+                            {myMessages.map(m => <OutgoingMessage id={m.id} message={m.message} date={m.date} time={m.time} />)}
                         </div>
                         <div className="type__msg">
                             <div className="input__msg-write">

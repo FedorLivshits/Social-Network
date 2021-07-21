@@ -3,10 +3,10 @@ import {
     actions,
 } from "../../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
-import {connect} from "react-redux";
-import {withAuthToRedirect} from "../../hoc/withAuthToRedirect";
-import {compose} from "redux";
-import {AppStateType} from "../../../redux/redux-store";
+import { connect } from "react-redux";
+import { withAuthToRedirect } from "../../hoc/withAuthToRedirect";
+import { compose } from "redux";
+import { AppStateType } from "../../../redux/redux-store";
 
 
 let mapStateToProps = (state: AppStateType) => {
@@ -17,6 +17,6 @@ let mapStateToProps = (state: AppStateType) => {
 }
 
 export default compose(
-    connect(mapStateToProps, {sendMessage: actions.sendMessage}),
+    connect(mapStateToProps, { sendMessage: actions.sendMessage }),
     withAuthToRedirect
 )(Dialogs) as React.ComponentType

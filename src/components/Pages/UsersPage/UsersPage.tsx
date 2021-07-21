@@ -4,7 +4,7 @@ import { compose } from "redux";
 import { getUsers } from "../../../redux/users-reducer";
 import {
     getCurrentPage, getPageSize
-} from "../../../redux/users-selectors";
+} from "../../../redux/selectors/users-selectors";
 import { withAuthToRedirect } from "../../hoc/withAuthToRedirect";
 import Users from "./Users";
 

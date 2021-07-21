@@ -51,7 +51,7 @@ const postsReducer = (state = initialState, action: ActionTypes): InitialStateTy
             // @ts-ignore
             return { ...state, totalCount: action.totalCount }
         default:
-            return state
+            return state 
     }
 }
 type ActionTypes = InferActionTypes<typeof actions>

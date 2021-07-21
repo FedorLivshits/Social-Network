@@ -1,37 +1,24 @@
 import React from "react";
-import {connect} from "react-redux";
-import {actions} from "../../../../redux/profile-reducer";
-import {AppStateType} from "../../../../redux/redux-store";
-import {MyPostsType, ProfileType} from "../../../../types/types";
-import {PostForm} from "./PostForm";
-import {Post} from "./Post";
+import { useSelector } from "react-redux";
+import { actions } from "../../../../redux/profile-reducer";
+import { getMyPosts, getProfileData } from "../../../../redux/selectors/profile-selectors";
+import { Post } from "./Post";
+import { PostForm } from "./PostForm";
 
 
-type MapStateToPropsType = {
-    profile: ProfileType
-    myPosts: Array<MyPostsType>
-    isFetching: boolean
-}
-type MapDispatchToPropsType = {
-    addPost: (text: string) => void
-    deletePost: (id: any) => void
-}
+const MyPostsComponent: React.FC = React.memo(() => {
+    const profile = useSelector(getProfileData)
+    const myPosts = useSelector(getMyPosts)
 
-const MyPostsComponent: React.FC<any> = React.memo((props) => {
     return (
         <>
-            <PostForm addPost={props.addPost} profile={props.profile}/>
+            <PostForm addPost={actions.addPost} profile={profile} />
             <div className="posts__items">
-                <Post myPosts={props.myPosts} profile={props.profile} deletePost={props.deletePost}/>
+                <Post myPosts={myPosts} profile={profile} deletePost={actions.deletePost} />
             </div>
         </>
     )
 })
 
-const mapStateToProps = (state: AppStateType) => ({
-    profile: state.profilePage.profile,
-    myPosts: state.profilePage.myPosts,
-    isFetching: state.usersPage.isFetching
-})
 
-export default connect(mapStateToProps, {addPost: actions.addPost, deletePost: actions.deletePost})(MyPostsComponent);
+export default MyPostsComponent;

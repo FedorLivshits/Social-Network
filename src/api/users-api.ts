@@ -1,5 +1,5 @@
-import {instance, APIResponseType} from "./api";
-import {UsersType} from "../types/types";
+import { instance, APIResponseType } from "./api";
+import { UsersType } from "../types/types";
 
 
 type GetUsersItemsType = {

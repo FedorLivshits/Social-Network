@@ -1,10 +1,10 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 type BreadcrumbsComponentType = {
     isOwner: boolean
 }
-export const BreadcrumbsComponent: React.FC<BreadcrumbsComponentType> = ({isOwner}) => {
+export const BreadcrumbsComponent: React.FC<BreadcrumbsComponentType> = ({ isOwner }) => {
     return (
         <>
             {isOwner

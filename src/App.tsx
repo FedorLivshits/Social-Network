@@ -13,7 +13,7 @@ import './main.css';
 import { initializeApp } from "./redux/app-reducer";
 import { AppStateType } from "./redux/redux-store";
 
-const ProfileContainer = lazy(() => import("./components/Pages/ProfilePage/ProfileContainer"))
+const ProfilePage = lazy(() => import("./components/Pages/ProfilePage/ProfilePage"))
 const UsersPage = lazy(() => import("./components/Pages/UsersPage/UsersPage"))
 
 type MapStatePropsType = ReturnType<typeof mapStateToProps>
@@ -31,11 +31,11 @@ const App: React.FC<MapStatePropsType & MapDispatchToPropsType> = (props) => {
 
     return (
         <>
-            <SidebarContainer />
+            <SidebarContainer /> 
             <div className="home__content">
                 <Route exact path='/profile/:userId?' render={() => {
                     return <Suspense fallback={<Preloader />}>
-                        <ProfileContainer />
+                        <ProfilePage />
                     </Suspense>
                 }} />
                 <Route path='/users' render={() => {

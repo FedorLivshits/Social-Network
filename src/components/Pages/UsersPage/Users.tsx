@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions, getUsers, follow, unfollow } from "../../../redux/users-reducer";
-import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getUsersPage } from '../../../redux/users-selectors';
+import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getUsersPage } from '../../../redux/selectors/users-selectors';
 import Paginator from "../../Paginator/Paginator";
 import Preloader from "../../Preloader/Preloader";
 import User from "./User";
