@@ -73,7 +73,7 @@ const ProfileInEditModeComponent: React.FC<MapStateToPropsType & MapDispatchToPr
                         <h6 className="mb-0">Full Name</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                        <input type="text" className="form-control"
+                        <input className="form-control"
                             onChange={onInputNameChange} value={inputName} />
                     </div>
                 </div>
@@ -82,7 +82,7 @@ const ProfileInEditModeComponent: React.FC<MapStateToPropsType & MapDispatchToPr
                         <h6 className="mb-0">About me</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                        <input type="text" className="form-control" onChange={onInputAboutMeChange} value={inputAboutMe} />
+                        <input className="form-control" onChange={onInputAboutMeChange} value={inputAboutMe} />
                     </div>
                 </div>
                 <div className="row mb-3">
@@ -98,7 +98,7 @@ const ProfileInEditModeComponent: React.FC<MapStateToPropsType & MapDispatchToPr
                         <h6 className="mb-0">My skills</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                        <input type="text" className="form-control" onChange={onInputSkillsChange} value={inputSkills} />
+                        <input className="form-control" onChange={onInputSkillsChange} value={inputSkills} />
                     </div>
                 </div>
                 <div className="row mb-3">
@@ -106,7 +106,7 @@ const ProfileInEditModeComponent: React.FC<MapStateToPropsType & MapDispatchToPr
                         <h6 className="mb-0">Website</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                        <input type="text" className="form-control" />
+                        <input className="form-control" />
                     </div>
                 </div>
                 <div className="row mb-3">
@@ -114,7 +114,7 @@ const ProfileInEditModeComponent: React.FC<MapStateToPropsType & MapDispatchToPr
                         <h6 className="mb-0">Github</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                        <input type="text" className="form-control" value={contacts.github} onChange={onGithubChange} />
+                        <input className="form-control" value={contacts.github} onChange={onGithubChange} />
                     </div>
                 </div>
                 <div className="row mb-3">
@@ -130,7 +130,7 @@ const ProfileInEditModeComponent: React.FC<MapStateToPropsType & MapDispatchToPr
                         <h6 className="mb-0">Instagram</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                        <input type="text" className="form-control" />
+                        <input className="form-control" />
                     </div>
                 </div>
                 <div className="row mb-3">
@@ -138,7 +138,7 @@ const ProfileInEditModeComponent: React.FC<MapStateToPropsType & MapDispatchToPr
                         <h6 className="mb-0">Facebook</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                        <input type="text" className="form-control" />
+                        <input className="form-control" />
                     </div>
                 </div>
                 <div className="row">

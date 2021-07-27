@@ -1,32 +1,25 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { compose } from "redux";
-import { getUsers } from "../../../redux/users-reducer";
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { compose } from 'redux'
+import { getUsers } from '../../../redux/users-reducer'
 import {
-    getCurrentPage, getPageSize
-} from "../../../redux/selectors/users-selectors";
-import { withAuthToRedirect } from "../../hoc/withAuthToRedirect";
-import Users from "./Users";
-
+	getCurrentPage,
+	getPageSize,
+} from '../../../redux/selectors/users-selectors'
+import { withAuthToRedirect } from '../../hoc/withAuthToRedirect'
+import Users from './Users'
 
 const UsersPage: React.FC = () => {
-    const pageSize = useSelector(getPageSize)
-    const currentPage = useSelector(getCurrentPage)
+	const pageSize = useSelector(getPageSize)
+	const currentPage = useSelector(getCurrentPage)
 
-    const dispatch = useDispatch()
+	const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(getUsers(currentPage, pageSize))
-    }, [])
+	useEffect(() => {
+		dispatch(getUsers(currentPage, pageSize))
+	}, [])
 
-
-    return (
-        <Users
-        />
-
-    )
+	return <Users />
 }
 
-export default compose(
-    withAuthToRedirect
-)(UsersPage) as React.ComponentType
+export default compose(withAuthToRedirect)(UsersPage) as React.ComponentType

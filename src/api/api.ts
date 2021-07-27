@@ -1,19 +1,17 @@
-import axios from "axios";
-
+import axios from 'axios'
 
 export const instance = axios.create({
-    withCredentials: true,
-    baseURL: `https://social-network.samuraijs.com/api/1.0/`,
-    headers: { "API-KEY": "6bc1146e-24f2-4be4-a0fc-4f85d3b15120" },
+	withCredentials: true,
+	baseURL: `https://social-network.samuraijs.com/api/1.0/`,
+	headers: { 'API-KEY': '6bc1146e-24f2-4be4-a0fc-4f85d3b15120' },
 })
 
 export enum ResponseCode {
-    Success = 0,
-    Error = 1
+	Success = 0,
+	Error = 1,
 }
 export type APIResponseType<D = {}> = {
-    data: D
-    resultCode: ResponseCode
-    messages: Array<string>
+	data: D
+	resultCode: ResponseCode
+	messages: Array<string>
 }
-

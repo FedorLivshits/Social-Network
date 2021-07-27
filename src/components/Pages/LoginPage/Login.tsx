@@ -7,12 +7,10 @@ import { login } from '../../../redux/auth-reducer'
 import { getIsAuth } from '../../../redux/selectors/auth-selectors'
 import './Login.css'
 
-
-	
 export const Login: React.FC = () => {
-    const isAuth = useSelector(getIsAuth)
+	const isAuth = useSelector(getIsAuth)
 
-    const dispatch = useDispatch()
+	const dispatch = useDispatch()
 	const validationSchema = yup.object({
 		email: yup.string().required('Email is required'),
 		password: yup.string().required('Password is required'),
