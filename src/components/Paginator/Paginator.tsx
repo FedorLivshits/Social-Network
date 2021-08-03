@@ -1,64 +1,55 @@
 import React, { useState } from 'react'
-import { Pagination } from 'react-bootstrap'
+import {Pagination, Row} from 'react-bootstrap'
 import './paginator.css'
 
+
 type PropsType = {
-	totalUsersCount: number
-	pageSize: number
-	onPageChanged: (pageNumber: number) => void
-	currentPage: number
-	portionSize?: number
+    totalUsersCount: number
+    pageSize: number
+    onPageChanged: (pageNumber: number) => void
+    currentPage: number
+    portionSize?: number
+    screenWidth: number
 }
 
-const Paginator: React.FC<PropsType> = ({
-	onPageChanged,
-	currentPage,
-	totalUsersCount,
-	portionSize = 10,
-}) => {
-	let [portionNumber, setPortionNumber] = useState(1)
+const Paginator: React.FC<PropsType> = ({ onPageChanged, currentPage, totalUsersCount, screenWidth}) => {
+    let portionSize = screenWidth > 550 ? 10 : 5
 
-	let totalPages = []
-	for (let i = 0; i <= totalUsersCount; i++) {
-		totalPages.push(i)
-	}
+    let [portionNumber, setPortionNumber] = useState(1)
 
-	let portionCount = Math.ceil(totalUsersCount / portionSize)
-	let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1
-	let rightPortionPageNumber = portionNumber * portionSize
+    let totalPages = [];
+    for (let i = 0; i <= totalUsersCount; i++) {
+        totalPages.push(i)
+    }
 
-	return (
-		<div className='row d-flex w-100 justify-content-center'>
-			<Pagination>
-				{portionNumber > 1 && (
-					<Pagination.Prev
-						onClick={() => {
-							setPortionNumber(portionNumber - 1)
-						}}
-					/>
-				)}
-				{totalPages
-					.filter(
-						p => p >= leftPortionPageNumber && p <= rightPortionPageNumber
-					)
-					.map(p => (
-						<Pagination.Item
-							onClick={() => onPageChanged(p)}
-							className={currentPage === p ? 'active' : ''}>
-							{p}
-						</Pagination.Item>
-					))}
+    let portionCount = Math.ceil(totalUsersCount / portionSize)
+    let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1
+    let rightPortionPageNumber = portionNumber * portionSize
 
-				{portionCount > portionNumber && (
-					<Pagination.Next
-						onClick={() => {
-							setPortionNumber(portionNumber + 1)
-						}}
-					/>
-				)}
-			</Pagination>
-		</div>
-	)
+    return (
+        <Row className="d-flex justify-content-center mb-3">
+            <Pagination>
+                {portionNumber > 1 &&
+                    <Pagination.Prev onClick={() => {
+                        setPortionNumber(portionNumber - 1)
+                    }} />
+                }
+                {totalPages
+                    .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
+                    .map(p => <Pagination.Item onClick={() => onPageChanged(p)}
+                        className={(currentPage === p) ? "active" : ""}>
+                        {p}
+                    </Pagination.Item>)}
+
+
+                {portionCount > portionNumber &&
+                    <Pagination.Next onClick={() => {
+                        setPortionNumber(portionNumber + 1)
+                    }} />
+                }
+            </Pagination>
+        </Row>
+    );
 }
 
-export default Paginator
+export default Paginator;
