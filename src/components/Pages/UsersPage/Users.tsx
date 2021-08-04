@@ -55,17 +55,19 @@ const Users: React.FC = () => {
                 />
                 <Row>
                     <Col className="content-mobile">
-                        <Row>
-                            <Col className="text-center">
+                        <Container fluid>
+                        <Row className="user-table__row">
+                            <Col className="user-table__column">
                                 <span>User</span>
                             </Col>
-                            <Col className="text-center user-id__title">
+                            <Col className="user-table__column user-id__title">
                                 <span>ID</span>
                             </Col>
-                            <Col className="text-center">
+                            <Col className="user-table__column">
                                 <span>Add</span>
                             </Col>
                         </Row>
+                        </Container>
                         <Row>
                             <Col>
                                 {users.map(u => <User key={u.id} user={u}

@@ -39,7 +39,7 @@ export const UserPost: React.FC<PropsType> = ({ posts }) => {
                         <div className="user-posts__item-content-img mr-3">
                             <img src={p.image} alt="" />
                         </div>
-                        <div className="user-post__item-content-info">
+                        <div className="user-posts__item-content-info">
                             <div className="user-posts__item-text">
                                 <div className="user-posts__item-head mb-3">
                                     <img className="user-posts__item-img" src={p.owner.picture} alt={photo} />

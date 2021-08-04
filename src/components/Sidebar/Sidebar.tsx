@@ -24,11 +24,6 @@ const Sidebar: React.FC = () => {
     return (
         <>
             <div className="sidebar active">
-                <div className="logo__content">
-                    <div className="logo">
-                        <h4>Social-Network</h4>
-                    </div>
-                </div>
                 <ul className="nav__list">
                     <li>
                         <Icon icon={bxSearch}/>

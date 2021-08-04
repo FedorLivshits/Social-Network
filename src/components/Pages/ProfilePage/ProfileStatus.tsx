@@ -1,16 +1,19 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import bxPencil from '@iconify-icons/bx/bx-pencil';
 import { Icon } from '@iconify/react';
+import { useDispatch } from 'react-redux';
+import { updateProfileStatus } from '../../../redux/profile-reducer';
 
 type PropsType = {
     status: string
     isOwner: boolean
-    updateProfileStatus: (status: string) => void
 }
 
 const ProfileStatus: React.FC<PropsType> = props => {
     let [editMode, setEditMode] = useState(false)
     let [status, setStatus] = useState(props.status)
+
+    const dispatch = useDispatch()
 
     useEffect(() => {
         setStatus(props.status)
@@ -22,7 +25,7 @@ const ProfileStatus: React.FC<PropsType> = props => {
 
     let deactivateEditMode = () => {
         setEditMode(false)
-        props.updateProfileStatus(status)
+        dispatch(updateProfileStatus(status))
     }
 
     let onStatusChange = (event: ChangeEvent<HTMLInputElement>) => {

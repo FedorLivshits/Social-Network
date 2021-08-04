@@ -80,19 +80,18 @@ const Profile: React.FC<PropsType> = (props) => {
                             <ProfileStatus
                                 status={status}
                                 isOwner={props.isOwner}
-                                updateProfileStatus={updateProfileStatus}
                             />
                         </div>
                         <div className="profile__followed">
                             <ul className="profile__followed-items">
                                 <li className="profile__followed-item">
-                                    <span className="profile__followed-num">215</span>
+                                    <span className="profile__followed-num">0</span>
                                     <NavLink exact to="/myPhotos">
                                         <span className="profile__followed-title">Photos</span>
                                     </NavLink>
                                 </li>
                                 <li className="profile__followed-item">
-                                    <span className="profile__followed-num">745</span>
+                                    <span className="profile__followed-num">0</span>
                                     <NavLink exact to="/myFriends">
                                         <span className="profile__followed-title">Friends</span>
                                     </NavLink>

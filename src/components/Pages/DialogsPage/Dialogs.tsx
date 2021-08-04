@@ -25,8 +25,7 @@ const IncommingMessage = () => {
             </div>
             <div className="received__msg">
                 <div className="received__withd-msg">
-                    <p>Test which is a new approach to have all
-                        solutions</p>
+                    <p>Посмотри на это сообщение</p>
                     <span className="time__date"> 11:01 AM    |    June 9</span></div>
             </div>
         </div>
@@ -87,9 +86,8 @@ const Dialogs: React.FC<PropsType> = ({ sendMessage, myMessages, authUserId }) =
                                             alt="sunil" />
                                     </div>
                                     <div className="chat__ib">
-                                        <h5>Sunil Rajput <span className="chat__date">Dec 25</span></h5>
-                                        <p>Test, which is a new approach to have all solutions
-                                            astrology under one roof.</p>
+                                        <h5>User <span className="chat__date">Dec 25</span></h5>
+                                        <p>Посмотри на это сообщение</p>
                                     </div>
                                 </div>
                             </div>
