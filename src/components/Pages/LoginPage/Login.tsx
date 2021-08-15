@@ -48,14 +48,6 @@ export const Login: React.FC = () => {
                             <span className='text-2'>Let's get connected</span>
                         </div>
                     </div>
-                    <div className='back'>
-                        <div className='text'>
-							<span className='text-1'>
-								Complete miles of journey <br/> with one step
-							</span>
-                            <span className='text-2'>Let's get started</span>
-                        </div>
-                    </div>
                 </div>
                 <form onSubmit={formik.handleSubmit}>
                     <div className='form-content'>
@@ -112,6 +104,9 @@ export const Login: React.FC = () => {
                                         Log in
                                     </button>
                                 </div>
+                                <div className='text-3'>Для входа используйте:</div>
+                                <div className='text-2'><b>Email:</b> free@samuraijs.com</div>
+                                <div className='text-2'><b>Password:</b> free</div>
                             </div>
                         </div>
                     </div>
