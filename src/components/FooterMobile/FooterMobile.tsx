@@ -1,5 +1,5 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
+import {NavLink, RouteComponentProps, withRouter} from 'react-router-dom'
 import {Icon} from '@iconify/react'
 import bxGridAlt from '@iconify-icons/bx/bx-grid-alt'
 import bxUser from '@iconify-icons/bx/bx-user'
@@ -11,52 +11,60 @@ import {useDispatch} from 'react-redux'
 import {logout} from '../../redux/auth-reducer'
 import bxFriends from '@iconify-icons/bx/bx-user-check'
 
-const FooterMobile: React.FC = () => {
+const FooterMobile: React.FC<RouteComponentProps> = (props) => {
     const dispatch = useDispatch()
     const logoutFn = () => {
         dispatch(logout())
     }
     return (
-        <footer className="footer-mobile">
-            <ul className="footer-mobile-items">
-                <li>
-                    <NavLink to="/profile">
-                        <Icon icon={bxGridAlt} />
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/users">
-                        <Icon icon={bxUser} />
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/friends" >
-                        <Icon icon={bxFriends}/>
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/usersPosts">
-                        <Icon icon={bxNews} />
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/dialogs">
-                        <Icon icon={bxChat} />
-                    </NavLink>
-                </li>
+        <>
+            {props.location.pathname === '/login'
+                ?
+                ''
+                :
+                <footer className="footer-mobile">
+                    <ul className="footer-mobile-items">
+                        <li>
+                            <NavLink to="/profile">
+                                <Icon icon={bxGridAlt}/>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/users">
+                                <Icon icon={bxUser}/>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/friends">
+                                <Icon icon={bxFriends} style={{fontSize: '28px'}}/>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/usersPosts">
+                                <Icon icon={bxNews}/>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/dialogs">
+                                <Icon icon={bxChat}/>
+                            </NavLink>
+                        </li>
 
-                <li>
-                    <NavLink to="/saved">
-                        <Icon icon={bxHeart} />
-                    </NavLink>
-                </li>
-                <li>
-                    <a id="log_out" onClick={logoutFn}>
-                        <Icon icon={bxLogOut}/>
-                    </a>
-                </li>
-            </ul>
-        </footer>
+                        <li>
+                            <NavLink to="/saved">
+                                <Icon icon={bxHeart}/>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <a id="log_out" onClick={logoutFn}>
+                                <Icon icon={bxLogOut}/>
+                            </a>
+                        </li>
+                    </ul>
+                </footer>
+            }
+
+        </>
     )
 }
-export default FooterMobile
+export default withRouter(FooterMobile)

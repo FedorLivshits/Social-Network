@@ -33,39 +33,44 @@ const FriendsPage: React.FC = () => {
         dispatch(unfollow(userId))
     }
     return (
-        <>
-            {isFetching ? <Preloader/> : null}
-            <Container fluid>
-                <h3 className=" text-left mt-3 mb-5">Friends</h3>
-                <Row>
-                    <Col className="content-mobile">
-                        <Container fluid>
-                            <Row className="user-table__row">
-                                <Col className="user-table__column">
-                                    <span>User</span>
-                                </Col>
-                                <Col className="user-table__column user-id__title">
-                                    <span>ID</span>
-                                </Col>
-                                <Col className="user-table__column">
-                                    <span>Add</span>
+        <Container fluid>
+            <h3 className=" text-left mt-3 mb-5">Friends</h3>
+            {friends.length
+                ?
+                <>
+                    {isFetching ? <Preloader/> : null}
+
+                    <Row>
+                        <Col className="content-mobile">
+                            <Container fluid>
+                                <Row className="user-table__row">
+                                    <Col className="user-table__column">
+                                        <span>User</span>
+                                    </Col>
+                                    <Col className="user-table__column user-id__title">
+                                        <span>ID</span>
+                                    </Col>
+                                    <Col className="user-table__column">
+                                        <span>Add</span>
+                                    </Col>
+                                </Row>
+                            </Container>
+                            <Row>
+                                <Col>
+                                    {friends.map(u => <User key={u.id} user={u}
+                                                            followingInProgress={followingInProgress}
+                                                            onUnfollow={onUnfollow} onFollow={onFollow}/>)
+                                    }
+
                                 </Col>
                             </Row>
-                        </Container>
-                        <Row>
-                            <Col>
-                                {friends.map(u => <User key={u.id} user={u}
-                                                      followingInProgress={followingInProgress}
-                                                      onUnfollow={onUnfollow} onFollow={onFollow}/>)
-                                }
-
-                            </Col>
-                        </Row>
-                    </Col>
-                </Row>
-            </Container>
-        </>
-
+                        </Col>
+                    </Row>
+                </>
+                :
+                <h3 className='posts__title'>You don't have any friends yet</h3>
+            }
+        </Container>
     )
 }
 

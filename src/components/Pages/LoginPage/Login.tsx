@@ -5,7 +5,7 @@ import {Redirect} from 'react-router-dom'
 import * as yup from 'yup'
 import {login} from '../../../redux/auth-reducer'
 import {getIsAuth} from '../../../redux/selectors/auth-selectors'
-import './Login.css'
+import './Login.scss'
 
 
 export const Login: React.FC = () => {
