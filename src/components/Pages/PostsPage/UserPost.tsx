@@ -36,7 +36,7 @@ export const UserPost: React.FC<PropsType> = ({ posts }) => {
                         </span>
                     </div>
                     <div className="user-posts__item-content">
-                        <div className="user-posts__item-content-img mr-3">
+                        <div className="user-posts__item-content-img">
                             <img src={p.image} alt="" />
                         </div>
                         <div className="user-posts__item-content-info">
