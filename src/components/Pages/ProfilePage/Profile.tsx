@@ -15,6 +15,7 @@ import MyPostsComponent from './MyPosts/MyPostsComponent'
 import {ProfileOwnerContentComponent} from './ProfileOwnerContentComponent'
 import ProfileStatus from './ProfileStatus'
 import {AppStateType} from '../../../redux/redux-store'
+import { Container } from 'react-bootstrap'
 
 type PropsType = {
 	isOwner: boolean
@@ -63,7 +64,7 @@ const Profile: React.FC<PropsType> = props => {
 						</motion.div>
 					</div>
 				</div>
-				<div className='container'>
+				<Container fluid>
 					{props.isOwner ? (
 						<div className='input-file__wrapper'>
 							<input
@@ -95,7 +96,7 @@ const Profile: React.FC<PropsType> = props => {
 					</div>
 					<BreadcrumbsComponent isOwner={props.isOwner} />
 					<hr />
-				</div>
+				</Container>
 			</div>
 			<div className='container content-mobile'>
 				<Route

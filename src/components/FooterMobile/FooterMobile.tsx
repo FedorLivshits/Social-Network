@@ -9,8 +9,9 @@ import bxHeart from '@iconify-icons/bx/bx-heart'
 import bxLogOut from '@iconify-icons/bx/bx-log-out'
 import {useDispatch} from 'react-redux'
 import {logout} from '../../redux/auth-reducer'
+import bxFriends from '@iconify-icons/bx/bx-user-check'
 
-function FooterMobile(props) {
+const FooterMobile: React.FC = () => {
     const dispatch = useDispatch()
     const logoutFn = () => {
         dispatch(logout())
@@ -26,6 +27,11 @@ function FooterMobile(props) {
                 <li>
                     <NavLink to="/users">
                         <Icon icon={bxUser} />
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/friends" >
+                        <Icon icon={bxFriends}/>
                     </NavLink>
                 </li>
                 <li>
@@ -53,5 +59,4 @@ function FooterMobile(props) {
         </footer>
     )
 }
-
 export default FooterMobile

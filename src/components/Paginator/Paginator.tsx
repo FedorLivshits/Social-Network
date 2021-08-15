@@ -27,8 +27,8 @@ const Paginator: React.FC<PropsType> = ({ onPageChanged, currentPage, totalUsers
     let rightPortionPageNumber = portionNumber * portionSize
 
     return (
-        <Row className="d-flex justify-content-center mb-3">
-            <Pagination>
+        <Row>
+            <Pagination className="paginator">
                 {portionNumber > 1 &&
                     <Pagination.Prev onClick={() => {
                         setPortionNumber(portionNumber - 1)
