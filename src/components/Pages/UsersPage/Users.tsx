@@ -14,6 +14,7 @@ import Preloader from '../../Preloader/Preloader'
 import User from './User'
 import {Container, Row } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
+import {AppStateType} from '../../../redux/redux-store'
 
 
 const Users: React.FC = () => {
@@ -25,6 +26,7 @@ const Users: React.FC = () => {
         })
     })
     const totalUsersCount = useSelector(getTotalUsersCount)
+    const friends = useSelector((state: AppStateType) => state.usersPage.friends)
     const pageSize = useSelector(getPageSize)
     const currentPage = useSelector(getCurrentPage)
     const users = useSelector(getUsersPage)
@@ -32,6 +34,10 @@ const Users: React.FC = () => {
     const isFetching = useSelector(getIsFetching)
 
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        localStorage.setItem('friends', JSON.stringify(friends))
+    }, [friends])
 
     const onPageChanged = (page: number) => {
         dispatch(actions.setCurrentPage(page))

@@ -1,22 +1,20 @@
 import bxUpload from '@iconify-icons/bx/bx-upload'
-import { Icon } from '@iconify/react'
-import { motion } from 'framer-motion'
-import React, { ChangeEvent } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, Route } from 'react-router-dom'
+import {Icon} from '@iconify/react'
+import {motion} from 'framer-motion'
+import React, {ChangeEvent} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import {NavLink, Route} from 'react-router-dom'
 import photo from '../../../images/user.png'
 import '../../../main.scss'
-import { savePhoto } from '../../../redux/profile-reducer'
-import {
-	getProfileData,
-	getStatusData,
-} from '../../../redux/selectors/profile-selectors'
-import { getIsFetching } from '../../../redux/selectors/users-selectors'
+import {savePhoto} from '../../../redux/profile-reducer'
+import {getProfileData, getStatusData,} from '../../../redux/selectors/profile-selectors'
+import {getIsFetching} from '../../../redux/selectors/users-selectors'
 import Preloader from '../../Preloader/Preloader'
-import { BreadcrumbsComponent } from './BreadcrumbsComponent'
+import {BreadcrumbsComponent} from './BreadcrumbsComponent'
 import MyPostsComponent from './MyPosts/MyPostsComponent'
-import { ProfileOwnerContentComponent } from './ProfileOwnerContentComponent'
+import {ProfileOwnerContentComponent} from './ProfileOwnerContentComponent'
 import ProfileStatus from './ProfileStatus'
+import {AppStateType} from '../../../redux/redux-store'
 
 type PropsType = {
 	isOwner: boolean
@@ -27,6 +25,7 @@ const Profile: React.FC<PropsType> = props => {
 	const profile = useSelector(getProfileData)
 	const isFetching = useSelector(getIsFetching)
 	const status = useSelector(getStatusData)
+	const friends = useSelector((state: AppStateType) => state.usersPage.friends)
 
 	const dispatch = useDispatch()
 
@@ -86,14 +85,8 @@ const Profile: React.FC<PropsType> = props => {
 						<div className='profile__followed'>
 							<ul className='profile__followed-items'>
 								<li className='profile__followed-item'>
-									<span className='profile__followed-num'>0</span>
-									<NavLink exact to='/myPhotos'>
-										<span className='profile__followed-title'>Photos</span>
-									</NavLink>
-								</li>
-								<li className='profile__followed-item'>
-									<span className='profile__followed-num'>0</span>
-									<NavLink exact to='/myFriends'>
+									<span className='profile__followed-num'>{friends.length}</span>
+									<NavLink exact to='/friends'>
 										<span className='profile__followed-title'>Friends</span>
 									</NavLink>
 								</li>

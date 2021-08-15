@@ -6,6 +6,7 @@ import bxLogOut from '@iconify-icons/bx/bx-log-out'
 import bxNews from '@iconify-icons/bx/bx-news'
 import bxSearch from '@iconify-icons/bx/bx-search'
 import bxUser from '@iconify-icons/bx/bx-user'
+import bxFriends from '@iconify-icons/bx/bx-user-check'
 import {Icon} from '@iconify/react'
 import React from 'react'
 import {useDispatch} from 'react-redux'
@@ -26,10 +27,6 @@ const Sidebar: React.FC = () => {
             <div className="sidebar active">
                 <ul className="nav__list">
                     <li>
-                        <Icon icon={bxSearch}/>
-                        <input className="sidebar__input" type="text" placeholder="Search..."/>
-                    </li>
-                    <li>
                         <NavLink to="/profile">
                             <Icon icon={bxGridAlt}/>
                             <span className="links__name">Profile</span>
@@ -41,6 +38,12 @@ const Sidebar: React.FC = () => {
                             <span className="links__name">Users</span>
                         </NavLink>
                         <span className="tooltip">Users</span>
+                    </li>
+                    <li>
+                        <NavLink to="/friends">
+                            <Icon icon={bxFriends} />
+                            <span className="links__name">Friends</span>
+                        </NavLink>
                     </li>
                     <li>
                         <NavLink to="/usersPosts">
@@ -60,12 +63,6 @@ const Sidebar: React.FC = () => {
                             <Icon icon={bxHeart}/>
                             <span className="links__name">Saved</span>
                         </NavLink>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <Icon icon={bxCog}/>
-                            <span className="links__name">Setting</span>
-                        </a>
                     </li>
                 </ul>
                 <div className="profile__content">

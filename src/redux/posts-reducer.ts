@@ -24,17 +24,19 @@ const postsReducer = (state = initialState, action: ActionTypes): InitialStateTy
     switch (action.type) {
         case SET_POSTS:
             // @ts-ignore
-            return { ...state, posts: [...state.posts, ...action.posts] }
+            return { ...state, posts: action.posts }
         case CHANGE_LIKE:
+            let likedPostsCopy =  [...state.likedPosts]
             return {
                 ...state, posts: state.posts.map((p: PostType) => {
                     // @ts-ignore
                     if (p.id === action.id) {
                         p.liked = !p.liked
-                        state.likedPosts.push(p)
+                        likedPostsCopy.push(p)
                     }
                     return p
-                })
+                }),
+                likedPosts: [...likedPostsCopy]
             }
         case REMOVE_FROM_SAVED:
             return {
@@ -87,8 +89,7 @@ export const getPosts = (page: number): ThunkType => {
                 liked: false
             })
         })
-        let filteredPosts = posts.filter((p: PostType) => p.image && p.owner.firstName && p.owner.lastName && p.owner.picture && p.owner.email)
-        dispatch(actions.setPosts(filteredPosts))
+        dispatch(actions.setPosts(posts))
     }
 }
 export default postsReducer;

@@ -1,8 +1,8 @@
 import axios from "axios"
 
 const instance = axios.create({
-    baseURL: "https://dummyapi.io/data/api/",
-    headers: { "app-id": "60e7083966d25e65157f1997" },
+    baseURL: "https://dummyapi.io/data/v1/",
+    headers: { "app-id": "6115057ed26481cbfd2c1668" },
 })
 
 export const fetchPosts = (page: number) => {

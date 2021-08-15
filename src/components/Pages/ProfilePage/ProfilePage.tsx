@@ -23,9 +23,6 @@ const ProfilePage: React.FC<PropsType> = props => {
 
 	useEffect(() => {
 		let userId: number | null = +props.match.params.userId
-		console.log(
-			`${props.match.params.userId}: ${typeof props.match.params.userId}`
-		)
 		if (!userId) {
 			userId = authorizedUserId
 		}

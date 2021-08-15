@@ -14,6 +14,7 @@ import Sidebar from './components/Sidebar/Sidebar'
 import './main.scss'
 import { initializeApp } from './redux/app-reducer'
 import { AppStateType } from './redux/redux-store'
+import FriendsPage from './components/Pages/FriendsPage/FriendsPage'
 
 const ProfilePage = lazy(
 	() => import('./components/Pages/ProfilePage/ProfilePage')
@@ -62,6 +63,7 @@ const App: React.FC = () => {
 					<Route path='/usersPosts' render={() => <PostsPage />} />
 					<Route path='/saved' render={() => <SavedPage />} />
 					<Route path='/login' render={() => <Login />} />
+					<Route path='/friends' render={() => <FriendsPage />} />
 					{/*<Redirect from='/' to='/profile' />*/}
 				</AnimatePresence>
 			</div>

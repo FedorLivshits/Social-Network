@@ -1,8 +1,8 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
-import bxPencil from '@iconify-icons/bx/bx-pencil';
-import { Icon } from '@iconify/react';
-import { useDispatch } from 'react-redux';
-import { updateProfileStatus } from '../../../redux/profile-reducer';
+import React, {ChangeEvent, useEffect, useState} from 'react'
+import bxPencil from '@iconify-icons/bx/bx-pencil'
+import {Icon} from '@iconify/react'
+import {useDispatch} from 'react-redux'
+import {updateProfileStatus} from '../../../redux/profile-reducer'
 
 type PropsType = {
     status: string
