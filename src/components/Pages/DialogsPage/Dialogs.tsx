@@ -36,7 +36,10 @@ const IncommingMessage = () => {
 			</div>
 			<div className='received__msg'>
 				<div className='received__withd-msg'>
-					<p>Привет, я фейковая заглушка, которая знает, что не получит обратный ответ</p>
+					<p>
+						Привет, я фейковая заглушка, которая знает, что не получит обратный
+						ответ
+					</p>
 					<span className='time__date'> 11:01 AM | June 9</span>
 				</div>
 			</div>
@@ -115,7 +118,10 @@ const Dialogs: React.FC<PropsType> = ({
 										<h5>
 											User <span className='chat__date'>Dec 25</span>
 										</h5>
-										<p>Привет, я фейковая заглушка, которая знает, что не получит обратный ответ</p>
+										<p>
+											Привет, я фейковая заглушка, которая знает, что не получит
+											обратный ответ
+										</p>
 									</div>
 								</div>
 							</div>
@@ -126,6 +132,7 @@ const Dialogs: React.FC<PropsType> = ({
 							<IncommingMessage />
 							{myMessages.map(m => (
 								<OutgoingMessage
+									key={m.id}
 									id={m.id}
 									message={m.message}
 									date={m.date}

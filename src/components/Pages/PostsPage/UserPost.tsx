@@ -22,7 +22,7 @@ export const UserPost: React.FC<PropsType> = ({ posts }) => {
     return (
         <Col className="content-mobile">
             {posts.map((p, i) => {
-                return <div className="user-posts__item border rounded" id={p.id} key={i}>
+                return <div className="user-posts__item border rounded" id={p.id} key={p.id}>
                     <div className="user-posts__item-head mb-3">
                         <img className="user-posts__item-img" src={p.owner.picture} alt={photo} />
                         <div className="name-email">

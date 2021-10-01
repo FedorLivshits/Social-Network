@@ -20,11 +20,14 @@ import {AppStateType} from '../../../redux/redux-store'
 const Users: React.FC = () => {
     const [screenWidth, setScreenWidth] = useState(document.documentElement.clientWidth)
 
+    const setSceenWidthFn = () => {
+        setScreenWidth(document.documentElement.clientWidth)
+    }
     useEffect(() => {
-        window.addEventListener('resize', () => {
-            setScreenWidth(document.documentElement.clientWidth)
-        })
+        window.addEventListener('resize', setSceenWidthFn)
+        return () =>  window.removeEventListener('resize', setSceenWidthFn)
     })
+    
     const totalUsersCount = useSelector(getTotalUsersCount)
     const friends = useSelector((state: AppStateType) => state.usersPage.friends)
     const pageSize = useSelector(getPageSize)

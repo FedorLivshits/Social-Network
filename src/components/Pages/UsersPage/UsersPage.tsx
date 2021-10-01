@@ -10,7 +10,7 @@ import { withAuthToRedirect } from '../../hoc/withAuthToRedirect'
 import Users from './Users'
 import { motion } from 'framer-motion'
 
-const UsersPage: React.FC = ({}) => {
+const UsersPage: React.FC = () => {
 	const pageSize = useSelector(getPageSize)
 	const currentPage = useSelector(getCurrentPage)
 
