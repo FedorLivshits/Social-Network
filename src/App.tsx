@@ -66,8 +66,8 @@ const App: React.FC = () => {
 						<Route path='/saved' render={() => <SavedPage />} />
 						<Route path='/login' render={() => <Login />} />
 						<Route path='/friends' render={() => <FriendsPage />} />
+                        <Redirect from='/' to='/profile' />
                         <Route component={NotFound} />
-						<Redirect from='/' to='/profile' />
 					</Switch>
 				</AnimatePresence>
 			</div>
